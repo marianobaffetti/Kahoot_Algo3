@@ -1,15 +1,16 @@
-# TP2 Algoritmos 3: {nombre}
+# TP2 Algoritmos 3: Kahoot
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo T 14
 
-* **Integrante 1** - [integrante1](https://github.com/integrante1)
-* **Integrante 2** - [integrante2](https://github.com/integrante2)
-* **Integrante 3** - [integrante3](https://github.com/integrante3)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 1** - [Baffetti Mariano](https://github.com/marianobaffetti)
+* **Integrante 2** - [Cuppari Juan](https://github.com/juampaCuppari)
+* **Integrante 3** - [Hoszowski Juan](https://github.com/Juanhosz)
+* **Integrante 4** - [Iskandarani Roberto](https://github.com/Robert-Iskandarani)
+* **Integrante 5** - [Perez Ignacio](https://github.com/NachitoPerez)
 
-Corrector: **{Corrector}**
+Corrector: **Edson Justo**
 
 ### Pre-requisitos
 
@@ -23,12 +24,6 @@ maven 3.6.0
 
 ## Ejecutando las pruebas
 
-Explicación de como ejecutar las pruebas
-
-## Ejecutando la aplicación
-
-Explicación de como ejecutar la aplicación
-
-## Licencia
-
-Este repositorio está bajo la Licencia MIT
+```bash
+    mvn test
+```
