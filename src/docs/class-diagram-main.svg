@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="595px" preserveAspectRatio="none" style="width:1068px;height:595px;" version="1.1" viewBox="0 0 1068 595" width="1068px" zoomAndPan="magnify"><defs><filter height="300%" id="f1o5y9s7w0nvp2" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[fe311bf35de6c846edd40d2f1789d884]
+class Kahoot--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="60.8047" id="Kahoot" style="stroke: #A80036; stroke-width: 1.5;" width="265" x="200.5" y="153"/><ellipse cx="306.75" cy="169" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M309.7188,174.6406 Q309.1406,174.9375 308.5,175.0781 Q307.8594,175.2344 307.1563,175.2344 Q304.6563,175.2344 303.3281,173.5938 Q302.0156,171.9375 302.0156,168.8125 Q302.0156,165.6875 303.3281,164.0313 Q304.6563,162.375 307.1563,162.375 Q307.8594,162.375 308.5,162.5313 Q309.1563,162.6875 309.7188,162.9844 L309.7188,165.7031 Q309.0938,165.125 308.5,164.8594 Q307.9063,164.5781 307.2813,164.5781 Q305.9375,164.5781 305.25,165.6563 Q304.5625,166.7188 304.5625,168.8125 Q304.5625,170.9063 305.25,171.9844 Q305.9375,173.0469 307.2813,173.0469 Q307.9063,173.0469 308.5,172.7813 Q309.0938,172.5 309.7188,171.9219 L309.7188,174.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="44" x="327.25" y="173.1543">Kahoot</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="201.5" x2="464.5" y1="185" y2="185"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="201.5" x2="464.5" y1="193" y2="193"/><ellipse cx="211.5" cy="204" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="239" x="220.5" y="207.2104">void agregarJugador(nombre: string): void</text><!--MD5=[e570de1d41a3b8125e1c820568fd7a6a]
+class Jugador--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="86.4141" id="Jugador" style="stroke: #A80036; stroke-width: 1.5;" width="225" x="322.5" y="7"/><ellipse cx="406.75" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M409.7188,28.6406 Q409.1406,28.9375 408.5,29.0781 Q407.8594,29.2344 407.1563,29.2344 Q404.6563,29.2344 403.3281,27.5938 Q402.0156,25.9375 402.0156,22.8125 Q402.0156,19.6875 403.3281,18.0313 Q404.6563,16.375 407.1563,16.375 Q407.8594,16.375 408.5,16.5313 Q409.1563,16.6875 409.7188,16.9844 L409.7188,19.7031 Q409.0938,19.125 408.5,18.8594 Q407.9063,18.5781 407.2813,18.5781 Q405.9375,18.5781 405.25,19.6563 Q404.5625,20.7188 404.5625,22.8125 Q404.5625,24.9063 405.25,25.9844 Q405.9375,27.0469 407.2813,27.0469 Q407.9063,27.0469 408.5,26.7813 Q409.0938,26.5 409.7188,25.9219 L409.7188,28.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="427.25" y="27.1543">Jugador</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="323.5" x2="546.5" y1="39" y2="39"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="330.5" y="47"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="64" x="342.5" y="53.2104">puntaje: int</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="323.5" x2="546.5" y1="59.8047" y2="59.8047"/><ellipse cx="333.5" cy="70.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="116" x="342.5" y="74.0151">obtenerPuntaje(): int</text><ellipse cx="333.5" cy="83.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="199" x="342.5" y="86.8198">actualizarPuntaje(puntaje: int): void</text><!--MD5=[96425d52205bda6e1db2e9d5765a970f]
+class Ronda--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="48" id="Ronda" style="stroke: #A80036; stroke-width: 1.5;" width="72" x="501" y="159.5"/><ellipse cx="516" cy="175.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M518.9688,181.1406 Q518.3906,181.4375 517.75,181.5781 Q517.1094,181.7344 516.4063,181.7344 Q513.9063,181.7344 512.5781,180.0938 Q511.2656,178.4375 511.2656,175.3125 Q511.2656,172.1875 512.5781,170.5313 Q513.9063,168.875 516.4063,168.875 Q517.1094,168.875 517.75,169.0313 Q518.4063,169.1875 518.9688,169.4844 L518.9688,172.2031 Q518.3438,171.625 517.75,171.3594 Q517.1563,171.0781 516.5313,171.0781 Q515.1875,171.0781 514.5,172.1563 Q513.8125,173.2188 513.8125,175.3125 Q513.8125,177.4063 514.5,178.4844 Q515.1875,179.5469 516.5313,179.5469 Q517.1563,179.5469 517.75,179.2813 Q518.3438,179 518.9688,178.4219 L518.9688,181.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="40" x="530" y="179.6543">Ronda</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="502" x2="572" y1="191.5" y2="191.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="502" x2="572" y1="199.5" y2="199.5"/><!--MD5=[8e8a1d76ef5b76890ab5652abdacd56c]
+class Resultado--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="60.8047" id="Resultado" style="stroke: #A80036; stroke-width: 1.5;" width="106" x="849" y="153"/><ellipse cx="868.95" cy="169" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M871.9188,174.6406 Q871.3406,174.9375 870.7,175.0781 Q870.0594,175.2344 869.3563,175.2344 Q866.8563,175.2344 865.5281,173.5938 Q864.2156,171.9375 864.2156,168.8125 Q864.2156,165.6875 865.5281,164.0313 Q866.8563,162.375 869.3563,162.375 Q870.0594,162.375 870.7,162.5313 Q871.3563,162.6875 871.9188,162.9844 L871.9188,165.7031 Q871.2938,165.125 870.7,164.8594 Q870.1063,164.5781 869.4813,164.5781 Q868.1375,164.5781 867.45,165.6563 Q866.7625,166.7188 866.7625,168.8125 Q866.7625,170.9063 867.45,171.9844 Q868.1375,173.0469 869.4813,173.0469 Q870.1063,173.0469 870.7,172.7813 Q871.2938,172.5 871.9188,171.9219 L871.9188,174.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="63" x="884.05" y="173.1543">Resultado</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="850" x2="954" y1="185" y2="185"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="857" y="193"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="80" x="869" y="199.2104">puntajeParcial</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="850" x2="954" y1="205.8047" y2="205.8047"/><!--MD5=[efbd617d51ba3c30f25ae6fe7665d3de]
+class VerdaderoFalso--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="60.8047" id="VerdaderoFalso" style="stroke: #A80036; stroke-width: 1.5;" width="324" x="7" y="516"/><ellipse cx="115.25" cy="532" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M118.2188,537.6406 Q117.6406,537.9375 117,538.0781 Q116.3594,538.2344 115.6563,538.2344 Q113.1563,538.2344 111.8281,536.5938 Q110.5156,534.9375 110.5156,531.8125 Q110.5156,528.6875 111.8281,527.0313 Q113.1563,525.375 115.6563,525.375 Q116.3594,525.375 117,525.5313 Q117.6563,525.6875 118.2188,525.9844 L118.2188,528.7031 Q117.5938,528.125 117,527.8594 Q116.4063,527.5781 115.7813,527.5781 Q114.4375,527.5781 113.75,528.6563 Q113.0625,529.7188 113.0625,531.8125 Q113.0625,533.9063 113.75,534.9844 Q114.4375,536.0469 115.7813,536.0469 Q116.4063,536.0469 117,535.7813 Q117.5938,535.5 118.2188,534.9219 L118.2188,537.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="135.75" y="536.1543">VerdaderoFalso</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="330" y1="548" y2="548"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="330" y1="556" y2="556"/><ellipse cx="18" cy="567" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="298" x="27" y="570.2104">obtenerResultado(respuesta: Respuesta): Resultado</text><!--MD5=[210f05ad84ecfe37f8378e5618b7165d]
+class MultipleChoice--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="60.8047" id="MultipleChoice" style="stroke: #A80036; stroke-width: 1.5;" width="324" x="366" y="516"/><ellipse cx="478.75" cy="532" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M481.7188,537.6406 Q481.1406,537.9375 480.5,538.0781 Q479.8594,538.2344 479.1563,538.2344 Q476.6563,538.2344 475.3281,536.5938 Q474.0156,534.9375 474.0156,531.8125 Q474.0156,528.6875 475.3281,527.0313 Q476.6563,525.375 479.1563,525.375 Q479.8594,525.375 480.5,525.5313 Q481.1563,525.6875 481.7188,525.9844 L481.7188,528.7031 Q481.0938,528.125 480.5,527.8594 Q479.9063,527.5781 479.2813,527.5781 Q477.9375,527.5781 477.25,528.6563 Q476.5625,529.7188 476.5625,531.8125 Q476.5625,533.9063 477.25,534.9844 Q477.9375,536.0469 479.2813,536.0469 Q479.9063,536.0469 480.5,535.7813 Q481.0938,535.5 481.7188,534.9219 L481.7188,537.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="90" x="499.25" y="536.1543">MultipleChoice</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="367" x2="689" y1="548" y2="548"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="367" x2="689" y1="556" y2="556"/><ellipse cx="377" cy="567" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="298" x="386" y="570.2104">obtenerResultado(respuesta: Respuesta): Resultado</text><!--MD5=[43ee4bf4501fec56c766770d7edf7e7b]
+class GroupChoice--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="60.8047" id="GroupChoice" style="stroke: #A80036; stroke-width: 1.5;" width="324" x="725" y="516"/><ellipse cx="842.75" cy="532" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M845.7188,537.6406 Q845.1406,537.9375 844.5,538.0781 Q843.8594,538.2344 843.1563,538.2344 Q840.6563,538.2344 839.3281,536.5938 Q838.0156,534.9375 838.0156,531.8125 Q838.0156,528.6875 839.3281,527.0313 Q840.6563,525.375 843.1563,525.375 Q843.8594,525.375 844.5,525.5313 Q845.1563,525.6875 845.7188,525.9844 L845.7188,528.7031 Q845.0938,528.125 844.5,527.8594 Q843.9063,527.5781 843.2813,527.5781 Q841.9375,527.5781 841.25,528.6563 Q840.5625,529.7188 840.5625,531.8125 Q840.5625,533.9063 841.25,534.9844 Q841.9375,536.0469 843.2813,536.0469 Q843.9063,536.0469 844.5,535.7813 Q845.0938,535.5 845.7188,534.9219 L845.7188,537.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="80" x="863.25" y="536.1543">GroupChoice</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="726" x2="1048" y1="548" y2="548"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="726" x2="1048" y1="556" y2="556"/><ellipse cx="736" cy="567" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="298" x="745" y="570.2104">obtenerResultado(respuesta: Respuesta): Resultado</text><!--MD5=[afcba3960885e8d3d6394c3973014cb4]
+class PreguntaProxy--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="60.8047" id="PreguntaProxy" style="stroke: #A80036; stroke-width: 1.5;" width="220" x="337" y="274"/><ellipse cx="397.25" cy="290" fill="#A9DCDF" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M397.3594,285.3438 L396.2031,290.4219 L398.5313,290.4219 L397.3594,285.3438 Z M395.875,283.1094 L398.8594,283.1094 L402.2188,295.5 L399.7656,295.5 L399,292.4375 L395.7188,292.4375 L394.9688,295.5 L392.5313,295.5 L395.875,283.1094 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="91" x="417.75" y="294.1543">PreguntaProxy</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="338" x2="556" y1="306" y2="306"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="338" x2="556" y1="314" y2="314"/><ellipse cx="348" cy="325" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="194" x="357" y="328.2104">obtenerResultado(puntaje: int): int</text><!--MD5=[e1a5c0b0afbb287af7c4ff528ec1bacc]
+class EstrategiaDeMultiplicacion--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="60.8047" id="EstrategiaDeMultiplicacion" style="stroke: #A80036; stroke-width: 1.5;" width="206" x="608" y="153"/><ellipse cx="627.05" cy="169" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M622.9719,164.7656 L622.9719,162.6094 L630.3625,162.6094 L630.3625,164.7656 L627.8938,164.7656 L627.8938,172.8438 L630.3625,172.8438 L630.3625,175 L622.9719,175 L622.9719,172.8438 L625.4406,172.8438 L625.4406,164.7656 L622.9719,164.7656 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="165" x="641.95" y="173.1543">EstrategiaDeMultiplicacion</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="609" x2="813" y1="185" y2="185"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="609" x2="813" y1="193" y2="193"/><ellipse cx="619" cy="204" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="180" x="628" y="207.2104">void multiplicar(puntaje: int): int</text><!--MD5=[d6e1f764822246590ccf1a43095c716b]
+class Pregunta--><rect fill="#FEFECE" filter="url(#f1o5y9s7w0nvp2)" height="60.8047" id="Pregunta" style="stroke: #A80036; stroke-width: 1.5;" width="324" x="366" y="395"/><ellipse cx="495.25" cy="411" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M491.1719,406.7656 L491.1719,404.6094 L498.5625,404.6094 L498.5625,406.7656 L496.0938,406.7656 L496.0938,414.8438 L498.5625,414.8438 L498.5625,417 L491.1719,417 L491.1719,414.8438 L493.6406,414.8438 L493.6406,406.7656 L491.1719,406.7656 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="57" x="515.75" y="415.1543">Pregunta</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="367" x2="689" y1="427" y2="427"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="367" x2="689" y1="435" y2="435"/><ellipse cx="377" cy="446" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="298" x="386" y="449.2104">obtenerResultado(respuesta: Respuesta): Resultado</text><!--MD5=[038e977f28e08f73c197bb0a62a41ea4]
+link Jugador to Kahoot--><path d="M401.8835,93.3436 C389.8786,109.056 376.3599,126.7495 364.4983,142.2743 " fill="none" id="Jugador-&gt;Kahoot" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="356.59,152.6248,363.4112,150.2856,363.8754,143.0895,357.0543,145.4287,356.59,152.6248" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[03ae7f49d7b5e80034386bba3dc886fa]
+reverse link Kahoot to Ronda--><path d="M478.8433,183.5 C486.1564,183.5 493.4695,183.5 500.7827,183.5 " fill="none" id="Kahoot&lt;-Ronda" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="465.6797,183.5,471.6797,187.5,477.6797,183.5,471.6797,179.5,465.6797,183.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f40fa7ac7dc826c01a3c4b12199199c3]
+link Ronda to EstrategiaDeMultiplicacion--><path d="M573.0234,183.5 C582.8912,183.5 592.759,183.5 602.6268,183.5 " fill="none" id="Ronda-&gt;EstrategiaDeMultiplicacion" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="607.7871,183.5,598.7871,179.5,602.7871,183.5,598.7871,187.5,607.7871,183.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[af1dc99adaccf103eecfcda983df960d]
+reverse link Jugador to Ronda--><path d="M471.2901,97.4974 C487.3101,118.4647 505.4476,142.2035 518.6024,159.4208 " fill="none" id="Jugador&lt;-Ronda" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="468.1165,93.3436,470.4022,102.9236,471.1521,97.3166,476.7591,98.0666,468.1165,93.3436" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="464.7569" y="113.4913">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="504.863" y="148.4125">1</text><!--MD5=[88dbc17e089df9a6c31ee9917857ff8f]
+link Ronda to Pregunta--><path d="M550.2432,207.6206 C559.2097,225.3839 570.2555,250.4457 575,274 C580.3534,300.5773 581.4312,308.6627 575,335 C570.2783,354.3367 560.6386,374.1443 551.3115,390.2796 " fill="none" id="Ronda-&gt;Pregunta" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="548.6934,394.7298,556.7047,389.001,551.2288,390.4203,549.8095,384.9444,548.6934,394.7298" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="544.4962" y="227.4112">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="544.1364" y="383.9373">1</text><!--MD5=[4b3aa225cab5ae8fd3131c79cd77b61c]
+link Ronda to Resultado--><path d="M557.4869,159.243 C570.5231,145.7586 588.6509,130.2709 608.5,123 C694.4693,91.5088 727.1009,95.7271 814.5,123 C832.2266,128.5316 849.5264,139.0508 864.0002,149.7864 " fill="none" id="Ronda-&gt;Resultado" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="868.0056,152.8162,863.2409,144.1966,864.0179,149.7998,858.4147,150.5768,868.0056,152.8162" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="553.5056" y="148.5853">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="852.1693" y="142.0415">2</text><!--MD5=[a5d1c14b63770410f85876293ff10cfc]
+link Resultado to Pregunta--><path d="M854.6326,214.1495 C782.7904,260.6357 647.0657,348.4575 575.277,394.909 " fill="none" id="Resultado-Pregunta" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[1ecc65fe6aea27e77a57eeed3126da90]
+reverse link Pregunta to VerdaderoFalso--><path d="M418.3951,462.442 C367.5398,479.5827 307.814,499.7131 259.5619,515.9764 " fill="none" id="Pregunta&lt;-VerdaderoFalso" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="416.2209,455.788,437.4091,456.0334,420.6925,469.0547,416.2209,455.788" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9b43d1b8995640668910e5a1a65eac3b]
+reverse link Pregunta to MultipleChoice--><path d="M528,476.2927 C528,489.7857 528,503.9401 528,515.9764 " fill="none" id="Pregunta&lt;-MultipleChoice" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="521.0001,476.0334,528,456.0334,535.0001,476.0334,521.0001,476.0334" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7f4e35d112602c3451b842abac17a56b]
+reverse link Pregunta to GroupChoice--><path d="M637.6049,462.442 C688.4602,479.5827 748.186,499.7131 796.4381,515.9764 " fill="none" id="Pregunta&lt;-GroupChoice" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="635.3075,469.0547,618.5909,456.0334,639.7791,455.788,635.3075,469.0547" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8abc025d3e2cdd757f8ef656b1f358b4]
+reverse link Pregunta to PreguntaProxy--><path d="M509.17,377.5984 C500.1787,363.2585 489.4739,347.9306 479.3445,335.0334 " fill="none" id="Pregunta&lt;-PreguntaProxy" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="515.2943,374.2023,519.4705,394.9764,503.2509,381.3408,515.2943,374.2023" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a5d6b9bf2bc5dd8c813696bc1d3a4de4]
+link PreguntaProxy to Pregunta--><path d="M456.1963,335.0334 C465.6638,351.9431 479.6362,373.0312 492.9555,390.5923 " fill="none" id="PreguntaProxy-&gt;Pregunta" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="496.3245,394.9764,494.0121,385.4029,493.2778,391.0119,487.6688,390.2776,496.3245,394.9764" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ae39ec4acc424fd7f377d2a60568d689]
+@startuml class-diagram-main.svg
+'Clases
+class Kahoot {
+  +void agregarJugador(nombre: string): void
+}
+
+class Jugador {
+  -puntaje: int
+  +obtenerPuntaje(): int
+  +actualizarPuntaje(puntaje: int): void
+}
+class Ronda {
+  
+}
+
+class Resultado {
+  -puntajeParcial
+}
+
+class VerdaderoFalso {
+  +obtenerResultado(respuesta: Respuesta): Resultado
+}
+
+class MultipleChoice {
+  +obtenerResultado(respuesta: Respuesta): Resultado
+}
+
+class GroupChoice {
+  +obtenerResultado(respuesta: Respuesta): Resultado
+}
+
+abstract class PreguntaProxy {
+  +obtenerResultado(puntaje: int): int
+}
+
+
+'Interfaces
+interface EstrategiaDeMultiplicacion {
+  +void multiplicar(puntaje: int): int
+} 
+
+interface Pregunta {
+  +obtenerResultado(respuesta: Respuesta): Resultado
+}
+
+'Relaciones/ disposición
+Jugador -up-o Kahoot
+Ronda -right-o Kahoot
+Ronda -right-> EstrategiaDeMultiplicacion
+Ronda "1" -up-> "2" Jugador
+Ronda "1" -down-> "1" Pregunta
+Ronda "1" -> "2" Resultado
+Pregunta -up.. Resultado
+Pregunta <|-down- VerdaderoFalso
+Pregunta <|-down- MultipleChoice
+Pregunta <|-down- GroupChoice
+Pregunta <|-down- PreguntaProxy
+Pregunta <-down- PreguntaProxy
+@enduml
+
+@startuml class-diagram-main.svg
+class Kahoot {
+  +void agregarJugador(nombre: string): void
+}
+
+class Jugador {
+  -puntaje: int
+  +obtenerPuntaje(): int
+  +actualizarPuntaje(puntaje: int): void
+}
+class Ronda {
+  
+}
+
+class Resultado {
+  -puntajeParcial
+}
+
+class VerdaderoFalso {
+  +obtenerResultado(respuesta: Respuesta): Resultado
+}
+
+class MultipleChoice {
+  +obtenerResultado(respuesta: Respuesta): Resultado
+}
+
+class GroupChoice {
+  +obtenerResultado(respuesta: Respuesta): Resultado
+}
+
+abstract class PreguntaProxy {
+  +obtenerResultado(puntaje: int): int
+}
+
+
+interface EstrategiaDeMultiplicacion {
+  +void multiplicar(puntaje: int): int
+} 
+
+interface Pregunta {
+  +obtenerResultado(respuesta: Respuesta): Resultado
+}
+
+Jugador -up-o Kahoot
+Ronda -right-o Kahoot
+Ronda -right-> EstrategiaDeMultiplicacion
+Ronda "1" -up-> "2" Jugador
+Ronda "1" -down-> "1" Pregunta
+Ronda "1" -> "2" Resultado
+Pregunta -up.. Resultado
+Pregunta <|-down- VerdaderoFalso
+Pregunta <|-down- MultipleChoice
+Pregunta <|-down- GroupChoice
+Pregunta <|-down- PreguntaProxy
+Pregunta <-down- PreguntaProxy
+@enduml
+
+PlantUML version 1.2020.15(Sun Jun 28 08:39:45 ART 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
