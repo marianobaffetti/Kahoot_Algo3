@@ -1,0 +1,37 @@
+@startuml
+'Clases
+class Jugador {
+  -puntaje: int
+  -nombre: string
+  +obtenerPuntaje(): int
+  +actualizarPuntaje(puntaje: int): void
+}
+class Ronda {
+  +agregarRespuesta(respuesta: Respuesta): void
+  +finalizar(): void
+}
+
+class Respuesta {
+  -opcionElegida: bool
+  -jugador: Jugador
+  +obtenerOpcionElegida(): bool
+}
+
+class Resultado {
+  -puntos: int
+  +esCorrecto(): bool
+  +actualizar(): void
+}
+
+class VerdaderoFalso {
+  -texto: string
+  +obtenerResultado(respuesta: Respuesta): Resultado
+  +obtenerResultados(respuesta: List<Respuesta>): List<Resultado>
+}
+
+'Relaciones/ disposición
+  Ronda -right-> VerdaderoFalso
+  Ronda o-down- Respuesta
+  Respuesta -right-> Jugador
+  VerdaderoFalso ..right.. Resultado 
+@enduml
