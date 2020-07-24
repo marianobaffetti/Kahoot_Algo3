@@ -1,12 +1,19 @@
 package edu.fiuba.algo3.modelo;
 
 public class Resultado {
-    private Boolean respuesta;
+    private Jugador jugador;
+    private int puntos;
 
-    public Resultado(Boolean respuesta) {
-        this.respuesta = respuesta;
+    public Resultado(int puntos, Jugador jugador) {
+        this.puntos = puntos;
+        this.jugador = jugador;
     }
+
     public Boolean esCorrecto() {
-        return this.respuesta;
+        return this.puntos != 0;
+    }
+
+    public void actualizar() {
+        this.jugador.actualizarPuntaje(this.puntos);
     }
 }

@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Entrega_0_Test {
@@ -12,17 +14,20 @@ public class Entrega_0_Test {
         // correcta
 
         // Respuesta correcta
+        var jugadorUno = new Jugador("Pepe");
+        var jugadorDos = new Jugador("Pepin");
+
         var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", true);
-        var respuestaCorrecta = true;
-        var resultado = pregunta.obtenerResultado(respuestaCorrecta);
+        var respuesta = new RespuestaVerdaderoFalso(true, jugadorUno);
+        var resultado = pregunta.obtenerResultado(respuesta);
 
         Assertions.assertTrue(resultado.esCorrecto());
 
         // Respuesta incorrecta
 
-        pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", false);
-        respuestaCorrecta = false;
-        resultado = pregunta.obtenerResultado(respuestaCorrecta);
+        pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", true);
+        respuesta = new RespuestaVerdaderoFalso(false, jugadorDos);
+        resultado = pregunta.obtenerResultado(respuesta);
 
         Assertions.assertFalse(resultado.esCorrecto());
     }
@@ -31,12 +36,24 @@ public class Entrega_0_Test {
     public void PreguntaVerdaderoFalsoClasicoRecibeMultiplesRespuestasYAsignaPuntosAJugadores() {
         // Una Pregunta de Verdadero/Falso clásico recibe una lista de respuestas y asigna
         // correctamente puntos a los jugadores que respondieron correctamente
+        int puntosEsperadosJugadorUno = 1;
+        int puntosEsperadosJugadorDos = 0;
+
+        var jugadorUno = new Jugador("Pepe");
+        var jugadorDos = new Jugador("Pepin");
 
         var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", true);
-        var respuestaCorrecta = true;
-        var resultado = pregunta.obtenerResultado(respuestaCorrecta);
+        var ronda = new Ronda(pregunta);
 
-        Assertions.assertTrue(resultado.esCorrecto());
+        var respuestaJugadorUno = new RespuestaVerdaderoFalso(true, jugadorUno);
+        var respuestaJugadorDos = new RespuestaVerdaderoFalso(false, jugadorDos);
+
+        ronda.agregarRespuesta(respuestaJugadorUno);
+        ronda.agregarRespuesta(respuestaJugadorDos);
+
+        ronda.finalizar();
+
+        Assertions.assertEquals(jugadorUno.obtenerPuntaje(), puntosEsperadosJugadorUno);
+        Assertions.assertEquals(jugadorDos.obtenerPuntaje(), puntosEsperadosJugadorDos);
     }
-
 }
