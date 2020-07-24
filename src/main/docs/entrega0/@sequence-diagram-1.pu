@@ -1,0 +1,15 @@
+@startuml
+actor client
+client -> VerdaderoFalso: obtenerResultado(respuesta: Respuesta)
+
+VerdaderoFalso -> Respuesta: obtenerOpcionElegida() 
+VerdaderoFalso <-- Respuesta: opcionElegida
+
+VerdaderoFalso -> Respuesta: obtenerJugador() 
+VerdaderoFalso <-- Respuesta: jugador
+
+client <-- VerdaderoFalso: resultado
+
+client -> Resultado: actualizar()
+Resultado -> Jugador: actualizarPuntaje(puntaje: int)
+@enduml
