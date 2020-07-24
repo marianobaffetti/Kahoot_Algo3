@@ -1,7 +1,7 @@
 **Diagrama de clases principal**
 <div hidden>
 ```
-@startuml class-diagram-main.svg
+@startuml class-diagram-main
 'Clases
 class Kahoot {
   +void agregarJugador(nombre: string): void
