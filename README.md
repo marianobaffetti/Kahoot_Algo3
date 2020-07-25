@@ -1,7 +1,7 @@
 
 # TP2 Algoritmos 3: Kahoot
 
-[![Build Status](https://travis-ci.com/marianobaffetti/Kahoot_Algo3.svg?branch=master)](https://travis-ci.com/github/marianobaffetti/Kahoot_Algo3/)
+[![Build Status](https://travis-ci.com/marianobaffetti/Kahoot_Algo3.svg?branch=master)](https://travis-ci.com/github/marianobaffetti/Kahoot_Algo3)
 [![codecov](https://codecov.io/gh/marianobaffetti/Kahoot_Algo3/branch/master/graph/badge.svg)](https://codecov.io/gh/marianobaffetti/Kahoot_Algo3)
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
