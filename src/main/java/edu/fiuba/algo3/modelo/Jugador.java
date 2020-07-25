@@ -16,4 +16,8 @@ public class Jugador {
     public void actualizarPuntaje(int puntos) {
         this.puntaje+=puntos;
     }
+
+    public String obtenerNombre() {
+        return this.nombre;
+    }
 }

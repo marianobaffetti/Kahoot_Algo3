@@ -9,7 +9,7 @@ public class RespuestaVerdaderoFalso {
         this.jugador = jugador;
     }
 
-    public Boolean obtener() {
+    public Boolean obtenerOpcionElegida() {
         return this.opcionElegida;
     }
     public Jugador obtenerJugador() {

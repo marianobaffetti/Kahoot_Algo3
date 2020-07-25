@@ -10,7 +10,7 @@ public class Resultado {
     }
 
     public Boolean esCorrecto() {
-        return this.puntos != 0;
+        return this.puntos > 0;
     }
 
     public void actualizar() {

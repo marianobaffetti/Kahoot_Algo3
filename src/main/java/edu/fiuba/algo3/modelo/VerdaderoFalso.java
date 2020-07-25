@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class VerdaderoFalso {
     private final boolean respuestaCorrecta;
 
-    public VerdaderoFalso(String pregunta, boolean respuestaCorrecta) {
+    public VerdaderoFalso(String texto, boolean respuestaCorrecta) {
         this.respuestaCorrecta = respuestaCorrecta;
     }
 
@@ -17,7 +17,7 @@ public class VerdaderoFalso {
 
     public Resultado obtenerResultado (RespuestaVerdaderoFalso respuesta) {
         var puntos = 0;
-        if (respuesta.obtener() == respuestaCorrecta) {
+        if (respuesta.obtenerOpcionElegida() == respuestaCorrecta) {
             puntos = 1;
         }
         return new Resultado(puntos, respuesta.obtenerJugador());

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Entrega_0_Test {
+public class Entrega0Test {
     @Test
     public void PreguntaVerdaderoFalsoClasicoSeCreaYSeVerificaRespuesta() {
         // Una Pregunta de Verdadero/Falso clásico puede crearse indicándole cual es la respuesta

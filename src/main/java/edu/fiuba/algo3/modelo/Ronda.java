@@ -8,7 +8,7 @@ public class Ronda {
 
     public Ronda(VerdaderoFalso pregunta) {
         this.pregunta = pregunta;
-        this.respuestas = new ArrayList<RespuestaVerdaderoFalso>();
+        this.respuestas = new ArrayList<>();
     }
 
     public void agregarRespuesta(RespuestaVerdaderoFalso respuesta) {
