@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Entrega0Test {
+public class IntegrationTest {
     @Test
     public void PreguntaVerdaderoFalsoClasicoSeCreaYSeVerificaRespuesta() {
         // Una Pregunta de Verdadero/Falso clásico puede crearse indicándole cual es la respuesta
@@ -56,4 +56,18 @@ public class Entrega0Test {
         Assertions.assertEquals(jugadorUno.obtenerPuntaje(), puntosEsperadosJugadorUno);
         Assertions.assertEquals(jugadorDos.obtenerPuntaje(), puntosEsperadosJugadorDos);
     }
+
+    @Test
+    public void PreguntaVerdaderoFalsoConPenalidadSeCreaIndicandoleLaRespuestaCorrecta() {
+        // Una Pregunta de Verdadero/Falso con penalidad puede crearse indicándole cual es la
+        // respuesta correcta
+        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.",true);
+        var proxyPreguntaConPenalidad = new ProxyConPenalidad(pregunta);
+        var respuesta = new RespuestaVerdaderoFalso(true, new Jugador("Pepe"));
+
+
+        Assertions.assertTrue(proxyPreguntaConPenalidad.respuestaEsCorrecta(respuesta));
+    }
+
+
 }

@@ -22,4 +22,8 @@ public class VerdaderoFalso {
         }
         return new Resultado(puntos, respuesta.obtenerJugador());
     }
+
+    public Boolean respuestaEsCorrecta(RespuestaVerdaderoFalso respuesta){
+        return true;
+    }
 }
