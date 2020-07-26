@@ -69,5 +69,29 @@ public class IntegrationTest {
         Assertions.assertTrue(proxyPreguntaConPenalidad.respuestaEsCorrecta(respuesta));
     }
 
+    @Test
+    public void PreguntaMultipleChoiceSeCreaIndicandoleLasOpcionesCorrectas() {
+        // Una Pregunta de Múltiple Choice clásico puede crearse indicándole cuales son las opciones
+        // correctas
 
+        var opcion1 = new Opcion("Celeste", true);
+        var opcion2 = new Opcion("Blanco", true);
+        var opcion3 = new Opcion("Marron", false);
+        var opcion4 = new Opcion("Amarillo", true);
+
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+        opciones.add(opcion3);
+        opciones.add(opcion4);
+
+        var pregunta = new MultipleChoice("Que colores tiene la bandera Argentina.", opciones);
+        var opcionesCorrecta = new ArrayList<Opcion>();
+        opcionesCorrecta.add(opcion1);
+        opcionesCorrecta.add(opcion2);
+        opcionesCorrecta.add(opcion4);
+        var respuesta = new RespuestaMultipleChoice(opcionesCorrecta, new Jugador("Pepe"));
+        
+        Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
+    }
 }
