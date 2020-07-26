@@ -9,4 +9,8 @@ public class Opcion {
         this.esVerdadera = esVerdadera;
     }
 
+    public Boolean esCorrecta(){
+        return esVerdadera;
+    }
+
 }

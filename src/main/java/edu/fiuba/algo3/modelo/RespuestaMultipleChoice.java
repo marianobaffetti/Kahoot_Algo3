@@ -14,4 +14,8 @@ public class RespuestaMultipleChoice {
     public Jugador obtenerJugador() {
         return this.jugador;
     }
+
+    public ArrayList<Opcion> obtenerOpcionesElegidas(){
+        return this.opcionesElegidas;
+    }
 }

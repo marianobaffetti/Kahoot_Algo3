@@ -64,8 +64,11 @@ public class IntegrationTest {
         var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.",true);
         var proxyPreguntaConPenalidad = new ProxyConPenalidad(pregunta);
         var respuesta = new RespuestaVerdaderoFalso(true, new Jugador("Pepe"));
+        var respuestaIncorrecta = new RespuestaVerdaderoFalso(false, new Jugador("Pepin"));
 
 
+
+        Assertions.assertFalse(proxyPreguntaConPenalidad.respuestaEsCorrecta(respuestaIncorrecta));
         Assertions.assertTrue(proxyPreguntaConPenalidad.respuestaEsCorrecta(respuesta));
     }
 
@@ -91,7 +94,14 @@ public class IntegrationTest {
         opcionesCorrecta.add(opcion2);
         opcionesCorrecta.add(opcion4);
         var respuesta = new RespuestaMultipleChoice(opcionesCorrecta, new Jugador("Pepe"));
-        
+
+        var opcionesIncorrectas = new ArrayList<Opcion>();
+        opcionesIncorrectas.add(opcion1);
+        opcionesIncorrectas.add(opcion3);
+        var respuestaIncorrecta = new RespuestaMultipleChoice(opcionesIncorrectas, new Jugador("Pepin"));
+
+        Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuestaIncorrecta));
         Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
     }
+
 }

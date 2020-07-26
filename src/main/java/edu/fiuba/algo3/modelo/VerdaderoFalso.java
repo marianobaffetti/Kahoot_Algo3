@@ -24,6 +24,6 @@ public class VerdaderoFalso {
     }
 
     public Boolean respuestaEsCorrecta(RespuestaVerdaderoFalso respuesta){
-        return true;
+        return (respuesta.obtenerOpcionElegida() == this.respuestaCorrecta);
     }
 }
