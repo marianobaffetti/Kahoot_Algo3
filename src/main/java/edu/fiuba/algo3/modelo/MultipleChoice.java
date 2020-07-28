@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class MultipleChoice{
+public class MultipleChoice implements IPregunta{
     private final ArrayList<Opcion> opciones;
     private final String texto;
 
@@ -11,7 +11,7 @@ public class MultipleChoice{
         this.opciones = opciones;
     }
 
-    private ArrayList<Opcion> obtenerOpcionesCorrectas(){
+    public ArrayList<Opcion> obtenerOpcionesCorrectas(){
         var opcionesCorrectas = new ArrayList<Opcion>();
         this.opciones.forEach(opcion ->{
             if(opcion.esCorrecta()) opcionesCorrectas.add(opcion);
@@ -19,7 +19,12 @@ public class MultipleChoice{
         return opcionesCorrectas;
     }
 
-    public Boolean respuestaEsCorrecta(RespuestaMultipleChoice respuesta){
+    public ArrayList<Resultado> obtenerResultados(ArrayList<IRespuesta> respuestas){
+        new UnsupportedOperationException();
+        return new ArrayList<Resultado>();
+    }
+
+    public Boolean respuestaEsCorrecta(IRespuesta respuesta){
         //Obtenemos lista de opciones correctas disponibles
         //Obtenemos lista de opciones elegidas
         //Verificamos que cada opcion elegida este en la lista de opciones correctas

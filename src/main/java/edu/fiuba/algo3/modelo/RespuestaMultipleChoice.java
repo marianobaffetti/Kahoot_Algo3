@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class RespuestaMultipleChoice {
+public class RespuestaMultipleChoice implements IRespuesta{
     private final ArrayList<Opcion> opcionesElegidas;
     private final Jugador jugador;
 

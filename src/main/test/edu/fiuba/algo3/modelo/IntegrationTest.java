@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,19 +18,32 @@ public class IntegrationTest {
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
-        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", true);
-        var respuesta = new RespuestaVerdaderoFalso(true, jugadorUno);
-        var resultado = pregunta.obtenerResultado(respuesta);
+        var opcion1 = new Opcion("Verdadero", true);
+        var opcion2 = new Opcion("Falso", false);
 
-        Assertions.assertTrue(resultado.esCorrecto());
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+
+
+        var opcionesCorrectas = new ArrayList<Opcion>();
+        opcionesCorrectas.add(opcion1);
+
+        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", opciones);
+        var respuesta = new RespuestaVerdaderoFalso(opcionesCorrectas,jugadorUno);
+
+        Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
+
 
         // Respuesta incorrecta
 
-        pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", true);
-        respuesta = new RespuestaVerdaderoFalso(false, jugadorDos);
-        resultado = pregunta.obtenerResultado(respuesta);
+        var opcionesIncorrectas = new ArrayList<Opcion>();
+        opcionesIncorrectas.add(opcion2);
 
-        Assertions.assertFalse(resultado.esCorrecto());
+        pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", opciones);
+        respuesta = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
+
+        Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuesta));
     }
 
     @Test
@@ -42,11 +56,26 @@ public class IntegrationTest {
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
-        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", true);
+        var opcion1 = new Opcion("Verdadero", true);
+        var opcion2 = new Opcion("Falso", false);
+
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+
+        var opcionCorrecta = new ArrayList<Opcion>();
+        var opcionIncorrecta = new ArrayList<Opcion>();
+
+        opcionCorrecta.add(opcion1);
+        opcionIncorrecta.add(opcion2);
+
+
+        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", opciones);
+
         var ronda = new Ronda(pregunta);
 
-        var respuestaJugadorUno = new RespuestaVerdaderoFalso(true, jugadorUno);
-        var respuestaJugadorDos = new RespuestaVerdaderoFalso(false, jugadorDos);
+        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionCorrecta, jugadorUno);
+        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionIncorrecta, jugadorDos);
 
         ronda.agregarRespuesta(respuestaJugadorUno);
         ronda.agregarRespuesta(respuestaJugadorDos);
@@ -61,10 +90,27 @@ public class IntegrationTest {
     public void PreguntaVerdaderoFalsoConPenalidadSeCreaIndicandoleLaRespuestaCorrecta() {
         // Una Pregunta de Verdadero/Falso con penalidad puede crearse indicándole cual es la
         // respuesta correcta
-        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.",true);
+        var jugadorUno = new Jugador("Pepe");
+        var jugadorDos = new Jugador("Pepin");
+
+        var opcion1 = new Opcion("Verdadero", true);
+        var opcion2 = new Opcion("Falso", false);
+
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+
+
+        var opcionesCorrectas = new ArrayList<Opcion>();
+        var opcionesIncorrectas = new ArrayList<Opcion>();
+
+        opcionesCorrectas.add(opcion1);
+        opcionesIncorrectas.add(opcion2);
+
+        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.",opciones);
         var proxyPreguntaConPenalidad = new ProxyConPenalidad(pregunta);
-        var respuesta = new RespuestaVerdaderoFalso(true, new Jugador("Pepe"));
-        var respuestaIncorrecta = new RespuestaVerdaderoFalso(false, new Jugador("Pepin"));
+        var respuesta = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
+        var respuestaIncorrecta = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
 
 
 
@@ -103,5 +149,110 @@ public class IntegrationTest {
         Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuestaIncorrecta));
         Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
     }
+    @Test
+    public void PreguntaMultipleChoiceConPuntajeParcialIndicandoleLasOpcionesCorrectas(){
+        var opcion1 = new Opcion("Celeste", true);
+        var opcion2 = new Opcion("Blanco", true);
+        var opcion3 = new Opcion("Marron", false);
+        var opcion4 = new Opcion("Amarillo", true);
+
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+        opciones.add(opcion3);
+        opciones.add(opcion4);
+
+        var pregunta = new MultipleChoice("Colón llegó a América en el siglo XV.",opciones);
+        var proxyPreguntaConPuntajeParcial = new ProxyConPuntajeParcial(pregunta);
+
+        var opcionesJugadorUno = new ArrayList<Opcion>();
+        opcionesJugadorUno.add(opcion1);
+        opcionesJugadorUno.add(opcion2);
+
+        var respuestaJugadoUno = new RespuestaMultipleChoice(opcionesJugadorUno, new Jugador("Pepe"));
+
+        var respuesta = new ArrayList<IRespuesta>();
+        respuesta.add(respuestaJugadoUno);
+
+        var resultadoJugadorUno = proxyPreguntaConPuntajeParcial.obtenerResultados(respuesta).get(0);
+
+        Assertions.assertEquals(resultadoJugadorUno.obtenerPuntaje(), 2);
+    }
+
+    @Test
+    public void PreguntaMultipleChoiceConPuntajeParcialOtorgaPuntosALosJugadoresCorrectamente(){
+
+        var jugadorUno = new Jugador("Pepe");
+        var jugadorDos = new Jugador("Pepin");
+
+        var opcion1 = new Opcion("Celeste", true);
+        var opcion2 = new Opcion("Blanco", true);
+        var opcion3 = new Opcion("Marron", false);
+        var opcion4 = new Opcion("Amarillo", true);
+
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+        opciones.add(opcion3);
+        opciones.add(opcion4);
+
+        var pregunta = new MultipleChoice("Colón llegó a América en el siglo XV.",opciones);
+        var proxyPreguntaConPuntajeParcial = new ProxyConPuntajeParcial(pregunta);
+
+        var opcionesJugadorUno = new ArrayList<Opcion>();
+        opcionesJugadorUno.add(opcion1);
+        opcionesJugadorUno.add(opcion2);
+
+        var opcionesJugadorDos = new ArrayList<Opcion>();
+        opcionesJugadorDos.add(opcion2);
+        opcionesJugadorDos.add(opcion3);
+
+
+        var ronda = new Ronda(proxyPreguntaConPuntajeParcial);
+
+        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesJugadorUno, jugadorUno);
+        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesJugadorDos, jugadorDos);
+
+        ronda.agregarRespuesta(respuestaJugadorUno);
+        ronda.agregarRespuesta(respuestaJugadorDos);
+
+        ronda.finalizar();
+        assertEquals(jugadorUno.obtenerPuntaje(),2);
+        assertEquals(jugadorDos.obtenerPuntaje(), 0);
+    }
+
+//    @Test
+//    public void PreguntaVerdaderoFalsoConPenalidadOtorgaPuntosCorrectamente(){
+//        var jugadorUno = new Jugador("Pepe");
+//        var jugadorDos = new Jugador("Pepin");
+//
+//        var opcion1 = new Opcion("Verdadero", true);
+//        var opcion2 = new Opcion("Falso", false);
+//
+//        var opciones = new ArrayList<Opcion>();
+//        opciones.add(opcion1);
+//        opciones.add(opcion2);
+//
+//
+//        var opcionesCorrectas = new ArrayList<Opcion>();
+//        var opcionesIncorrectas = new ArrayList<Opcion>();
+//
+//        opcionesCorrectas.add(opcion1);
+//        opcionesIncorrectas.add(opcion2);
+//
+//
+//
+//        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.",opciones);
+//        var proxyPreguntaConPenalidad = new ProxyConPenalidad(pregunta);
+//
+//        var ronda = new Ronda(proxyPreguntaConPenalidad);
+//
+//        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
+//        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
+//        
+//
+//
+//
+//    }
 
 }

@@ -3,15 +3,15 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class Ronda {
-    private final VerdaderoFalso pregunta;
-    private final ArrayList<RespuestaVerdaderoFalso> respuestas;
+    private final IPregunta pregunta;
+    private final ArrayList<IRespuesta> respuestas;
 
-    public Ronda(VerdaderoFalso pregunta) {
+    public Ronda(IPregunta pregunta) {
         this.pregunta = pregunta;
         this.respuestas = new ArrayList<>();
     }
 
-    public void agregarRespuesta(RespuestaVerdaderoFalso respuesta) {
+    public void agregarRespuesta(IRespuesta respuesta) {
         this.respuestas.add(respuesta);
     }
 
@@ -20,3 +20,5 @@ public class Ronda {
         resultados.forEach( resultado -> resultado.actualizar());
     }
 }
+
+

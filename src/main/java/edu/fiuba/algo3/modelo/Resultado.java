@@ -16,4 +16,8 @@ public class Resultado {
     public void actualizar() {
         this.jugador.actualizarPuntaje(this.puntos);
     }
+
+    public int obtenerPuntaje() {
+        return this.puntos;
+    }
 }
