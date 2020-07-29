@@ -20,8 +20,30 @@ public class MultipleChoice implements IPregunta{
     }
 
     public ArrayList<Resultado> obtenerResultados(ArrayList<IRespuesta> respuestas){
-        new UnsupportedOperationException();
-        return new ArrayList<Resultado>();
+        var resultados = new ArrayList<Resultado>();
+        respuestas.forEach(respuesta -> resultados.add(this.obtenerResultado(respuesta)));
+        return resultados;
+    }
+
+    private Resultado obtenerResultado(IRespuesta respuesta) {
+        var opcionesCorrectas = this.obtenerOpcionesCorrectas();
+        var opcionesElegidas = respuesta.obtenerOpcionesElegidas();
+        var posicion = 0;
+        var puntaje = 1;
+        var continuar = true;
+        if (opcionesCorrectas.size() == opcionesElegidas.size()) {
+            while (continuar && (opcionesElegidas.size() > posicion)) {
+                continuar = opcionesCorrectas.contains(opcionesElegidas.get(posicion));
+                if (!continuar) {
+                    puntaje = 0;
+                }
+                posicion++;
+            }
+        } 
+        else {
+            puntaje = 0;
+        }
+        return new Resultado(puntaje,respuesta.obtenerJugador());
     }
 
     public Boolean respuestaEsCorrecta(IRespuesta respuesta){

@@ -119,7 +119,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void PreguntaMultipleChoiceSeCreaIndicandoleLasOpcionesCorrectas() {
+    public void PreguntaMultipleChoiceClasicoSeCreaIndicandoleLasOpcionesCorrectas() {
         // Una Pregunta de Múltiple Choice clásico puede crearse indicándole cuales son las opciones
         // correctas
 
@@ -150,7 +150,7 @@ public class IntegrationTest {
         Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
     }
     @Test
-    public void PreguntaMultipleChoiceConPuntajeParcialIndicandoleLasOpcionesCorrectas(){
+    public void PreguntaMultipleChoiceConPuntajeParcialSeCreaIndicandoleLasOpcionesCorrectas(){
         var opcion1 = new Opcion("Celeste", true);
         var opcion2 = new Opcion("Blanco", true);
         var opcion3 = new Opcion("Marron", false);
@@ -221,38 +221,81 @@ public class IntegrationTest {
         assertEquals(jugadorDos.obtenerPuntaje(), 0);
     }
 
-//    @Test
-//    public void PreguntaVerdaderoFalsoConPenalidadOtorgaPuntosCorrectamente(){
-//        var jugadorUno = new Jugador("Pepe");
-//        var jugadorDos = new Jugador("Pepin");
-//
-//        var opcion1 = new Opcion("Verdadero", true);
-//        var opcion2 = new Opcion("Falso", false);
-//
-//        var opciones = new ArrayList<Opcion>();
-//        opciones.add(opcion1);
-//        opciones.add(opcion2);
-//
-//
-//        var opcionesCorrectas = new ArrayList<Opcion>();
-//        var opcionesIncorrectas = new ArrayList<Opcion>();
-//
-//        opcionesCorrectas.add(opcion1);
-//        opcionesIncorrectas.add(opcion2);
-//
-//
-//
-//        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.",opciones);
-//        var proxyPreguntaConPenalidad = new ProxyConPenalidad(pregunta);
-//
-//        var ronda = new Ronda(proxyPreguntaConPenalidad);
-//
-//        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
-//        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
-//        
-//
-//
-//
-//    }
+    @Test
+    public void PreguntaVerdaderoFalsoConPenalidadOtorgaPuntosCorrectamente(){
+        var jugadorUno = new Jugador("Pepe");
+        var jugadorDos = new Jugador("Pepin");
+
+        var opcion1 = new Opcion("Verdadero", true);
+        var opcion2 = new Opcion("Falso", false);
+
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+
+        var opcionesCorrectas = new ArrayList<Opcion>();
+        var opcionesIncorrectas = new ArrayList<Opcion>();
+
+        opcionesCorrectas.add(opcion1);
+        opcionesIncorrectas.add(opcion2);
+
+        var pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.",opciones);
+        var proxyPreguntaConPenalidad = new ProxyConPenalidad(pregunta);
+        var ronda = new Ronda(proxyPreguntaConPenalidad);
+       
+        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
+        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
+      
+        ronda.agregarRespuesta(respuestaJugadorUno);
+        ronda.agregarRespuesta(respuestaJugadorDos);
+
+        ronda.finalizar();
+
+        assertEquals(jugadorUno.obtenerPuntaje(),1);
+        assertEquals(jugadorDos.obtenerPuntaje(), -1);
+   }
+
+   @Test
+   public void PreguntaMultipleChoiceClasicoOtorgaPuntosALosJugadoresCorrectamente(){
+
+    var jugadorUno = new Jugador("Pepe");
+    var jugadorDos = new Jugador("Pepin");
+
+    var opcion1 = new Opcion("Celeste", true);
+    var opcion2 = new Opcion("Blanco", true);
+    var opcion3 = new Opcion("Marron", false);
+    var opcion4 = new Opcion("Amarillo", true);
+
+    var opciones = new ArrayList<Opcion>();
+    opciones.add(opcion1);
+    opciones.add(opcion2);
+    opciones.add(opcion3);
+    opciones.add(opcion4);
+
+    var pregunta = new MultipleChoice("Colón llegó a América en el siglo XV.",opciones);
+
+    var opcionesJugadorUno = new ArrayList<Opcion>();
+    opcionesJugadorUno.add(opcion1);
+    opcionesJugadorUno.add(opcion2);
+    opcionesJugadorUno.add(opcion4);
+    
+    var opcionesJugadorDos = new ArrayList<Opcion>();
+    opcionesJugadorDos.add(opcion1);
+    opcionesJugadorDos.add(opcion2);
+
+
+    var ronda = new Ronda(pregunta);
+
+    var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesJugadorUno, jugadorUno);
+    var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesJugadorDos, jugadorDos);
+
+    ronda.agregarRespuesta(respuestaJugadorUno);
+    ronda.agregarRespuesta(respuestaJugadorDos);
+
+    ronda.finalizar();
+
+    assertEquals(jugadorUno.obtenerPuntaje(),1);
+    assertEquals(jugadorDos.obtenerPuntaje(), 0);
+}
 
 }
