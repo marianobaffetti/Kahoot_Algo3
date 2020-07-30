@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 
 public class ProxyConPenalidad implements IPregunta{
-    private VerdaderoFalso pregunta;
+    private IPregunta pregunta;
 
-    public ProxyConPenalidad(VerdaderoFalso pregunta) {
+    public ProxyConPenalidad(IPregunta pregunta) {
         this.pregunta = pregunta;
     }
 
