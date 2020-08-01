@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MultipleChoice implements IPregunta {
     private final List<Opcion> opciones;
@@ -13,55 +13,33 @@ public class MultipleChoice implements IPregunta {
     }
 
     public List<Opcion> obtenerOpcionesCorrectas() {
-        var opcionesCorrectas = new ArrayList<Opcion>();
-        this.opciones.forEach(opcion -> {
-            if (opcion.esCorrecta()) opcionesCorrectas.add(opcion);
-        });
-        return opcionesCorrectas;
+        return this.opciones
+                .stream()
+                .filter(opcion -> opcion.esCorrecta())
+                .collect(Collectors.toList());
     }
 
     public List<Resultado> obtenerResultados(List<IRespuesta> respuestas) {
-        var resultados = new ArrayList<Resultado>();
-        respuestas.forEach(respuesta -> resultados.add(this.obtenerResultado(respuesta)));
-        return resultados;
+        return respuestas
+                .stream()
+                .map(respuesta -> this.obtenerResultado(respuesta))
+                .collect(Collectors.toList());
     }
 
     private Resultado obtenerResultado(IRespuesta respuesta) {
-        var opcionesCorrectas = this.obtenerOpcionesCorrectas();
-        var opcionesElegidas = respuesta.obtenerOpcionesElegidas();
-        var posicion = 0;
-        var puntaje = 1;
-        var continuar = true;
-        if (opcionesCorrectas.size() == opcionesElegidas.size()) {
-            while (continuar && (opcionesElegidas.size() > posicion)) {
-                continuar = opcionesCorrectas.contains(opcionesElegidas.get(posicion));
-                if (!continuar) {
-                    puntaje = 0;
-                }
-                posicion++;
-            }
-        } else {
-            puntaje = 0;
-        }
-        return new Resultado(puntaje, respuesta.obtenerJugador());
+        var correctas = this.obtenerOpcionesCorrectas();
+        var puntos = respuesta
+                .obtenerOpcionesElegidas()
+                .stream()
+                .filter(elegida -> correctas.contains(elegida))
+                .count();
+
+        return new Resultado((puntos == correctas.size() ? puntos : 0), respuesta.obtenerJugador());
     }
 
     public Boolean respuestaEsCorrecta(IRespuesta respuesta) {
-        //Obtenemos lista de opciones correctas disponibles
-        //Obtenemos lista de opciones elegidas
-        //Verificamos que cada opcion elegida este en la lista de opciones correctas
-        var opcionesCorrectas = this.obtenerOpcionesCorrectas();
-        var opcionesElegidas = respuesta.obtenerOpcionesElegidas();
-        var posicion = 0;
-        var cantCorrectas = 0;
-        var continuar = true;
-        while (continuar && (opcionesElegidas.size() > posicion)) {
-            continuar = opcionesCorrectas.contains(opcionesElegidas.get(posicion));
-            if (continuar) {
-                cantCorrectas++;
-            }
-            posicion++;
-        }
-        return (cantCorrectas == opcionesCorrectas.size());
+        return respuesta.obtenerOpcionesElegidas()
+                .stream()
+                .allMatch(opcion -> this.obtenerOpcionesCorrectas().contains(opcion));
     }
 }

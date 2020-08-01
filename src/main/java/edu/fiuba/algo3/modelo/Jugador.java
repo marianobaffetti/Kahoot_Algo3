@@ -13,8 +13,8 @@ public class Jugador {
         return this.puntaje;
     }
 
-    public void actualizarPuntaje(int puntos) {
-        this.puntaje+=puntos;
+    public void actualizarPuntaje(long puntos) {
+        this.puntaje += puntos;
     }
 
     public String obtenerNombre() {

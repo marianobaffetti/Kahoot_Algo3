@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProxyConPenalidad implements IPregunta {
-    private IPregunta pregunta;
+    private final IPregunta pregunta;
 
     public ProxyConPenalidad(IPregunta pregunta) {
         this.pregunta = pregunta;
@@ -15,9 +15,10 @@ public class ProxyConPenalidad implements IPregunta {
     }
 
     public List<Resultado> obtenerResultados(List<IRespuesta> respuestas) {
-        var resultados = new ArrayList<Resultado>();
-        respuestas.forEach(respuesta -> resultados.add(this.obtenerResultado(respuesta)));
-        return resultados;
+        return respuestas
+                .stream()
+                .map(respuesta -> this.obtenerResultado(respuesta))
+                .collect(Collectors.toList());
     }
 
     public List<Opcion> obtenerOpcionesCorrectas() {
@@ -25,21 +26,11 @@ public class ProxyConPenalidad implements IPregunta {
     }
 
     private Resultado obtenerResultado(IRespuesta respuesta) {
+        var correctas = this.obtenerOpcionesCorrectas();
+        var elegidas = respuesta.obtenerOpcionesElegidas();
+        var aciertos = elegidas.stream().filter(opcion -> correctas.contains(opcion)).count();
+        var puntos = aciertos - (elegidas.size() - aciertos);
 
-        var opcionesCorrectas = this.pregunta.obtenerOpcionesCorrectas();
-        var opcionesElegidas = respuesta.obtenerOpcionesElegidas();
-        var posicion = 0;
-        var puntaje = 0;
-        var continuar = true;
-        while (opcionesElegidas.size() > posicion) {
-            continuar = opcionesCorrectas.contains(opcionesElegidas.get(posicion));
-            if (continuar) {
-                puntaje++;
-            } else {
-                puntaje--;
-            }
-            posicion++;
-        }
-        return new Resultado(puntaje, respuesta.obtenerJugador());
+        return new Resultado(puntos, respuesta.obtenerJugador());
     }
 }
