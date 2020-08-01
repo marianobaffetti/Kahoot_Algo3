@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class RespuestaMultipleChoice implements IRespuesta{
-    private final ArrayList<Opcion> opcionesElegidas;
+public class RespuestaMultipleChoice implements IRespuesta {
+    private final List<Opcion> opcionesElegidas;
     private final Jugador jugador;
 
-    public RespuestaMultipleChoice(ArrayList<Opcion> opcionesElegidas, Jugador jugador) {
+    public RespuestaMultipleChoice(List<Opcion> opcionesElegidas, Jugador jugador) {
         this.opcionesElegidas = opcionesElegidas;
         this.jugador = jugador;
     }
@@ -15,7 +15,7 @@ public class RespuestaMultipleChoice implements IRespuesta{
         return this.jugador;
     }
 
-    public ArrayList<Opcion> obtenerOpcionesElegidas(){
+    public List<Opcion> obtenerOpcionesElegidas() {
         return this.opcionesElegidas;
     }
 }

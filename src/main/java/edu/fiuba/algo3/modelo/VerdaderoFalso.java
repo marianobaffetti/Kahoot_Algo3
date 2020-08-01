@@ -1,24 +1,25 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
-public class VerdaderoFalso implements IPregunta{
+public class VerdaderoFalso implements IPregunta {
     private final Opcion respuestaCorrecta;
     private final MultipleChoice multipleChoice;
 
-    public VerdaderoFalso(String texto, ArrayList<Opcion> opciones) {
+    public VerdaderoFalso(String texto, List<Opcion> opciones) {
         this.respuestaCorrecta = opciones.stream().filter(opcion -> opcion.esCorrecta()).collect(Collectors.toList()).get(0);
-        this.multipleChoice = new MultipleChoice(texto,opciones);
+        this.multipleChoice = new MultipleChoice(texto, opciones);
     }
 
-    public ArrayList<Resultado> obtenerResultados(ArrayList<IRespuesta> respuestas) {
+    public List<Resultado> obtenerResultados(List<IRespuesta> respuestas) {
         var resultados = new ArrayList<Resultado>();
         respuestas.forEach(respuesta -> resultados.add(this.obtenerResultado(respuesta)));
         return resultados;
     }
 
-    private Resultado obtenerResultado (IRespuesta respuesta) {
+    private Resultado obtenerResultado(IRespuesta respuesta) {
         var puntos = 0;
         if (this.multipleChoice.respuestaEsCorrecta(respuesta)) {
             puntos = 1;
@@ -26,10 +27,11 @@ public class VerdaderoFalso implements IPregunta{
         return new Resultado(puntos, respuesta.obtenerJugador());
     }
 
-    public Boolean respuestaEsCorrecta(IRespuesta respuesta){
+    public Boolean respuestaEsCorrecta(IRespuesta respuesta) {
         return this.multipleChoice.respuestaEsCorrecta(respuesta);
     }
-    public ArrayList<Opcion> obtenerOpcionesCorrectas(){
-       return this.multipleChoice.obtenerOpcionesCorrectas();
+
+    public List<Opcion> obtenerOpcionesCorrectas() {
+        return this.multipleChoice.obtenerOpcionesCorrectas();
     }
 }

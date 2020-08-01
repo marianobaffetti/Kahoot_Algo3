@@ -1,17 +1,17 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class RespuestaVerdaderoFalso implements IRespuesta {
-    private final ArrayList<Opcion> opcionesElegidas;
+    private final List<Opcion> opcionesElegidas;
     private final Jugador jugador;
 
-    public RespuestaVerdaderoFalso(ArrayList<Opcion> opcionesElegidas, Jugador jugador) {
+    public RespuestaVerdaderoFalso(List<Opcion> opcionesElegidas, Jugador jugador) {
         this.opcionesElegidas = opcionesElegidas;
         this.jugador = jugador;
     }
 
-    public ArrayList<Opcion> obtenerOpcionesElegidas() {
+    public List<Opcion> obtenerOpcionesElegidas() {
         return this.opcionesElegidas;
     }
 

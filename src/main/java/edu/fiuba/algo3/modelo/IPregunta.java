@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IPregunta {
 
-    public ArrayList<Resultado> obtenerResultados(ArrayList<IRespuesta> respuestas);
+    public List<Resultado> obtenerResultados(List<IRespuesta> respuestas);
 
     public Boolean respuestaEsCorrecta(IRespuesta respuesta);
 
-    public ArrayList<Opcion> obtenerOpcionesCorrectas();
+    public List<Opcion> obtenerOpcionesCorrectas();
 }

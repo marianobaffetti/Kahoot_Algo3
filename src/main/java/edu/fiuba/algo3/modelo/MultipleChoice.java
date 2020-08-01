@@ -1,25 +1,26 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MultipleChoice implements IPregunta{
-    private final ArrayList<Opcion> opciones;
+public class MultipleChoice implements IPregunta {
+    private final List<Opcion> opciones;
     private final String texto;
 
-    public MultipleChoice(String texto, ArrayList<Opcion> opciones) {
+    public MultipleChoice(String texto, List<Opcion> opciones) {
         this.texto = texto;
         this.opciones = opciones;
     }
 
-    public ArrayList<Opcion> obtenerOpcionesCorrectas(){
+    public List<Opcion> obtenerOpcionesCorrectas() {
         var opcionesCorrectas = new ArrayList<Opcion>();
-        this.opciones.forEach(opcion ->{
-            if(opcion.esCorrecta()) opcionesCorrectas.add(opcion);
+        this.opciones.forEach(opcion -> {
+            if (opcion.esCorrecta()) opcionesCorrectas.add(opcion);
         });
         return opcionesCorrectas;
     }
 
-    public ArrayList<Resultado> obtenerResultados(ArrayList<IRespuesta> respuestas){
+    public List<Resultado> obtenerResultados(List<IRespuesta> respuestas) {
         var resultados = new ArrayList<Resultado>();
         respuestas.forEach(respuesta -> resultados.add(this.obtenerResultado(respuesta)));
         return resultados;
@@ -39,14 +40,13 @@ public class MultipleChoice implements IPregunta{
                 }
                 posicion++;
             }
-        } 
-        else {
+        } else {
             puntaje = 0;
         }
-        return new Resultado(puntaje,respuesta.obtenerJugador());
+        return new Resultado(puntaje, respuesta.obtenerJugador());
     }
 
-    public Boolean respuestaEsCorrecta(IRespuesta respuesta){
+    public Boolean respuestaEsCorrecta(IRespuesta respuesta) {
         //Obtenemos lista de opciones correctas disponibles
         //Obtenemos lista de opciones elegidas
         //Verificamos que cada opcion elegida este en la lista de opciones correctas
@@ -55,12 +55,12 @@ public class MultipleChoice implements IPregunta{
         var posicion = 0;
         var cantCorrectas = 0;
         var continuar = true;
-        while (continuar && (opcionesElegidas.size() > posicion)){
+        while (continuar && (opcionesElegidas.size() > posicion)) {
             continuar = opcionesCorrectas.contains(opcionesElegidas.get(posicion));
-            if (continuar){
+            if (continuar) {
                 cantCorrectas++;
             }
-            posicion ++;
+            posicion++;
         }
         return (cantCorrectas == opcionesCorrectas.size());
     }

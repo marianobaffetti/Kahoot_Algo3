@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IRespuesta {
 
-    ArrayList<Opcion> obtenerOpcionesElegidas();
+    List<Opcion> obtenerOpcionesElegidas();
 
     Jugador obtenerJugador();
 }
