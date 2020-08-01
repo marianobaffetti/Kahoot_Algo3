@@ -7,88 +7,14 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class IntegrationTest {
-    @Test
-    public void PreguntaVerdaderoFalsoClasicoSeCreaYSeVerificaRespuesta() {
-        // Una Pregunta de Verdadero/Falso clásico puede crearse indicándole cual es la respuesta
-        // correcta
-
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
-
-        var opcion1 = new Opcion("Verdadero", true);
-        var opcion2 = new Opcion("Falso", false);
-
-        var opciones = new ArrayList<Opcion>();
-        opciones.add(opcion1);
-        opciones.add(opcion2);
-
-        var opcionesCorrectas = new ArrayList<Opcion>();
-        opcionesCorrectas.add(opcion1);
-
-        var builder = new PreguntasBuilder();
-
-        var pregunta = builder.crearVerdaderOFalso("Colón llegó a América en el siglo XV.", opciones).get();
-        var respuesta = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
-
-        Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
-
-
-        // Respuesta incorrecta
-
-        var opcionesIncorrectas = new ArrayList<Opcion>();
-        opcionesIncorrectas.add(opcion2);
-
-        pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", opciones);
-        respuesta = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
-
-        Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuesta));
-    }
-
-    @Test
-    public void PreguntaVerdaderoFalsoClasicoRecibeMultiplesRespuestasYAsignaPuntosAJugadores() {
-        // Una Pregunta de Verdadero/Falso clásico recibe una lista de respuestas y asigna
-        // correctamente puntos a los jugadores que respondieron correctamente
-        int puntosEsperadosJugadorUno = 1;
-        int puntosEsperadosJugadorDos = 0;
-
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
-
-        var opcion1 = new Opcion("Verdadero", true);
-        var opcion2 = new Opcion("Falso", false);
-
-        var opciones = new ArrayList<Opcion>();
-        opciones.add(opcion1);
-        opciones.add(opcion2);
-
-        var opcionCorrecta = new ArrayList<Opcion>();
-        var opcionIncorrecta = new ArrayList<Opcion>();
-
-        opcionCorrecta.add(opcion1);
-        opcionIncorrecta.add(opcion2);
-
-        var builder = new PreguntasBuilder();
-        var pregunta = builder.crearVerdaderOFalso("Colón llegó a América en el siglo XV.", opciones).get();
-
-        var ronda = new Ronda(pregunta);
-
-        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionCorrecta, jugadorUno);
-        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionIncorrecta, jugadorDos);
-
-        ronda.agregarRespuesta(respuestaJugadorUno);
-        ronda.agregarRespuesta(respuestaJugadorDos);
-
-        ronda.finalizar();
-
-        Assertions.assertEquals(jugadorUno.obtenerPuntaje(), puntosEsperadosJugadorUno);
-        Assertions.assertEquals(jugadorDos.obtenerPuntaje(), puntosEsperadosJugadorDos);
-    }
-
+public class Entrega_1_Test {
     @Test
     public void PreguntaVerdaderoFalsoConPenalidadSeCreaIndicandoleLaRespuestaCorrecta() {
-        // Una Pregunta de Verdadero/Falso con penalidad puede crearse indicándole cual es la
-        // respuesta correcta
+        /*
+            Una Pregunta de Verdadero/Falso con penalidad puede crearse indicándole cual es la
+            respuesta correcta
+        */
+
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
@@ -98,7 +24,6 @@ public class IntegrationTest {
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcion1);
         opciones.add(opcion2);
-
 
         var opcionesCorrectas = new ArrayList<Opcion>();
         var opcionesIncorrectas = new ArrayList<Opcion>();
@@ -120,32 +45,34 @@ public class IntegrationTest {
 
     @Test
     public void PreguntaMultipleChoiceClasicoSeCreaIndicandoleLasOpcionesCorrectas() {
-        // Una Pregunta de Múltiple Choice clásico puede crearse indicándole cuales son las opciones
-        // correctas
+        /*
+            Una Pregunta de Múltiple Choice clásico puede crearse indicándole cuales son las opciones
+            correctas
+        */
 
-        var opcion1 = new Opcion("Celeste", true);
-        var opcion2 = new Opcion("Blanco", true);
-        var opcion3 = new Opcion("Marron", false);
-        var opcion4 = new Opcion("Amarillo", true);
+        var opcionCorrecta1 = new Opcion("Celeste", true);
+        var opcionCorrecta2 = new Opcion("Blanco", true);
+        var opcionIncorrecta = new Opcion("Marron", false);
+        var opcionCorrecta3 = new Opcion("Amarillo", true);
 
         var opciones = new ArrayList<Opcion>();
-        opciones.add(opcion1);
-        opciones.add(opcion2);
-        opciones.add(opcion3);
-        opciones.add(opcion4);
+        opciones.add(opcionCorrecta1);
+        opciones.add(opcionCorrecta2);
+        opciones.add(opcionIncorrecta);
+        opciones.add(opcionCorrecta3);
 
         var builder = new PreguntasBuilder();
         var pregunta = builder.crearMultipleChoice("Que colores tiene la bandera Argentina.", opciones).get();
 
         var opcionesCorrecta = new ArrayList<Opcion>();
-        opcionesCorrecta.add(opcion1);
-        opcionesCorrecta.add(opcion2);
-        opcionesCorrecta.add(opcion4);
+        opcionesCorrecta.add(opcionCorrecta1);
+        opcionesCorrecta.add(opcionCorrecta2);
+        opcionesCorrecta.add(opcionCorrecta3);
         var respuesta = new RespuestaMultipleChoice(opcionesCorrecta, new Jugador("Pepe"));
 
         var opcionesIncorrectas = new ArrayList<Opcion>();
-        opcionesIncorrectas.add(opcion1);
-        opcionesIncorrectas.add(opcion3);
+        opcionesIncorrectas.add(opcionCorrecta1);
+        opcionesIncorrectas.add(opcionIncorrecta);
         var respuestaIncorrecta = new RespuestaMultipleChoice(opcionesIncorrectas, new Jugador("Pepin"));
 
         Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuestaIncorrecta));
@@ -154,16 +81,20 @@ public class IntegrationTest {
 
     @Test
     public void PreguntaMultipleChoiceConPuntajeParcialSeCreaIndicandoleLasOpcionesCorrectas() {
-        var opcion1 = new Opcion("Celeste", true);
-        var opcion2 = new Opcion("Blanco", true);
-        var opcion3 = new Opcion("Marron", false);
-        var opcion4 = new Opcion("Amarillo", true);
+        /*
+            Una Pregunta de Múltiple Choice con puntaje parcial puede crearse indicándole cuales son
+            las opciones correctas
+        */
+        var opcionCorrecta1 = new Opcion("Celeste", true);
+        var opcionCorrecta2 = new Opcion("Blanco", true);
+        var opcionIncorrecta = new Opcion("Marron", false);
+        var opcionCorrecta3 = new Opcion("Amarillo", true);
 
         var opciones = new ArrayList<Opcion>();
-        opciones.add(opcion1);
-        opciones.add(opcion2);
-        opciones.add(opcion3);
-        opciones.add(opcion4);
+        opciones.add(opcionCorrecta1);
+        opciones.add(opcionCorrecta2);
+        opciones.add(opcionIncorrecta);
+        opciones.add(opcionCorrecta3);
 
         var builder = new PreguntasBuilder();
         var pregunta = builder.crearMultipleChoice("Colón llegó a América en el siglo XV.", opciones)
@@ -171,8 +102,8 @@ public class IntegrationTest {
                 .get();
 
         var opcionesJugadorUno = new ArrayList<Opcion>();
-        opcionesJugadorUno.add(opcion1);
-        opcionesJugadorUno.add(opcion2);
+        opcionesJugadorUno.add(opcionCorrecta1);
+        opcionesJugadorUno.add(opcionCorrecta2);
 
         var respuestaJugadoUno = new RespuestaMultipleChoice(opcionesJugadorUno, new Jugador("Pepe"));
 
@@ -181,11 +112,17 @@ public class IntegrationTest {
 
         var resultadoJugadorUno = pregunta.obtenerResultados(respuesta).get(0);
 
-        Assertions.assertEquals(resultadoJugadorUno.obtenerPuntaje(), 2);
+        Assertions.assertEquals(2, resultadoJugadorUno.obtenerPuntaje());
     }
 
     @Test
     public void PreguntaMultipleChoiceConPuntajeParcialOtorgaPuntosALosJugadoresCorrectamente() {
+        /*
+            Una Pregunta de Multiple Choice con puntaje parcial recibe una lista de respuestas y
+            asigna correctamente puntos a los jugadores según las opciones correctas que hayan
+            respondido
+        */
+
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
@@ -223,12 +160,19 @@ public class IntegrationTest {
         ronda.agregarRespuesta(respuestaJugadorDos);
 
         ronda.finalizar();
-        assertEquals(jugadorUno.obtenerPuntaje(), 2);
-        assertEquals(jugadorDos.obtenerPuntaje(), 0);
+
+        assertEquals(2, jugadorUno.obtenerPuntaje());
+        assertEquals(0, jugadorDos.obtenerPuntaje());
     }
 
     @Test
     public void PreguntaVerdaderoFalsoConPenalidadOtorgaPuntosCorrectamente() {
+        /*
+            Una Pregunta de Verdadero/Falso con penalidad recibe una lista de respuestas y asigna
+            correctamente puntos a los jugadores que respondieron correctamente, y resta
+            correctamente puntos a los jugadores que respondieron en forma incorrecta
+        */
+
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
@@ -260,12 +204,17 @@ public class IntegrationTest {
 
         ronda.finalizar();
 
-        assertEquals(jugadorUno.obtenerPuntaje(), 1);
-        assertEquals(jugadorDos.obtenerPuntaje(), -1);
+        assertEquals(1, jugadorUno.obtenerPuntaje());
+        assertEquals(-1, jugadorDos.obtenerPuntaje());
     }
 
     @Test
     public void PreguntaMultipleChoiceClasicoOtorgaPuntosALosJugadoresCorrectamente() {
+        /*
+            Una Pregunta de Multiple Choice clasico recibe una lista de respuestas y asigna
+            correctamente puntos a los jugadores que respondieron correctamente
+        */
+
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
         var jugadorTres = new Jugador("Pepon");
