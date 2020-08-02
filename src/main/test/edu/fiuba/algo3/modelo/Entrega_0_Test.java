@@ -16,8 +16,8 @@ public class Entrega_0_Test {
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
-        var opcion1 = new Opcion("Verdadero", true);
-        var opcion2 = new Opcion("Falso", false);
+        var opcion1 = new OpcionDefault("Verdadero", true);
+        var opcion2 = new OpcionDefault("Falso", false);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcion1);
@@ -54,8 +54,8 @@ public class Entrega_0_Test {
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
-        var opcion1 = new Opcion("Verdadero", true);
-        var opcion2 = new Opcion("Falso", false);
+        var opcion1 = new OpcionDefault("Verdadero", true);
+        var opcion2 = new OpcionDefault("Falso", false);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcion1);

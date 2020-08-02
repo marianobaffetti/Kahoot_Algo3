@@ -18,8 +18,8 @@ public class Entrega_1_Test {
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
-        var opcion1 = new Opcion("Verdadero", true);
-        var opcion2 = new Opcion("Falso", false);
+        var opcion1 = new OpcionDefault("Verdadero", true);
+        var opcion2 = new OpcionDefault("Falso", false);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcion1);
@@ -50,10 +50,10 @@ public class Entrega_1_Test {
             correctas
         */
 
-        var opcionCorrecta1 = new Opcion("Celeste", true);
-        var opcionCorrecta2 = new Opcion("Blanco", true);
-        var opcionIncorrecta = new Opcion("Marron", false);
-        var opcionCorrecta3 = new Opcion("Amarillo", true);
+        var opcionCorrecta1 = new OpcionDefault("Celeste", true);
+        var opcionCorrecta2 = new OpcionDefault("Blanco", true);
+        var opcionIncorrecta = new OpcionDefault("Marron", false);
+        var opcionCorrecta3 = new OpcionDefault("Amarillo", true);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcionCorrecta1);
@@ -85,10 +85,10 @@ public class Entrega_1_Test {
             Una Pregunta de Múltiple Choice con puntaje parcial puede crearse indicándole cuales son
             las opciones correctas
         */
-        var opcionCorrecta1 = new Opcion("Celeste", true);
-        var opcionCorrecta2 = new Opcion("Blanco", true);
-        var opcionIncorrecta = new Opcion("Marron", false);
-        var opcionCorrecta3 = new Opcion("Amarillo", true);
+        var opcionCorrecta1 = new OpcionDefault("Celeste", true);
+        var opcionCorrecta2 = new OpcionDefault("Blanco", true);
+        var opcionIncorrecta = new OpcionDefault("Marron", false);
+        var opcionCorrecta3 = new OpcionDefault("Amarillo", true);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcionCorrecta1);
@@ -126,10 +126,10 @@ public class Entrega_1_Test {
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
-        var opcionCorrecta1 = new Opcion("Celeste", true);
-        var opcionCorrecta2 = new Opcion("Blanco", true);
-        var opcionIncorrecta = new Opcion("Marron", false);
-        var opcionCorrecta3 = new Opcion("Amarillo", true);
+        var opcionCorrecta1 = new OpcionDefault("Celeste", true);
+        var opcionCorrecta2 = new OpcionDefault("Blanco", true);
+        var opcionIncorrecta = new OpcionDefault("Marron", false);
+        var opcionCorrecta3 = new OpcionDefault("Amarillo", true);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcionCorrecta1);
@@ -176,8 +176,8 @@ public class Entrega_1_Test {
         var jugadorUno = new Jugador("Pepe");
         var jugadorDos = new Jugador("Pepin");
 
-        var opcion1 = new Opcion("Verdadero", true);
-        var opcion2 = new Opcion("Falso", false);
+        var opcion1 = new OpcionDefault("Verdadero", true);
+        var opcion2 = new OpcionDefault("Falso", false);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcion1);
@@ -219,10 +219,10 @@ public class Entrega_1_Test {
         var jugadorDos = new Jugador("Pepin");
         var jugadorTres = new Jugador("Pepon");
 
-        var opcionCorrecta1 = new Opcion("Celeste", true);
-        var opcionCorrecta2 = new Opcion("Blanco", true);
-        var opcionIncorrecta = new Opcion("Marron", false);
-        var opcionCorrecta3 = new Opcion("Amarillo", true);
+        var opcionCorrecta1 = new OpcionDefault("Celeste", true);
+        var opcionCorrecta2 = new OpcionDefault("Blanco", true);
+        var opcionIncorrecta = new OpcionDefault("Marron", false);
+        var opcionCorrecta3 = new OpcionDefault("Amarillo", true);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcionCorrecta1);

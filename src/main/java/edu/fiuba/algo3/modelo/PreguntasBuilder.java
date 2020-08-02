@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PreguntasBuilder {
@@ -26,6 +27,11 @@ public class PreguntasBuilder {
 
     public PreguntasBuilder conPuntajeParcial() {
         this.preguntaActual = new ProxyConPuntajeParcial(this.preguntaActual);
+        return this;
+    }
+
+    public PreguntasBuilder crearOrderedChoice(String texto, List<Opcion> opciones) {
+        this.preguntaActual = new OrderedChoice(texto, opciones);
         return this;
     }
 }
