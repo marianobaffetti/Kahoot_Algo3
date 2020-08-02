@@ -17,6 +17,11 @@ public class ProxyConPuntajeParcial extends Pregunta {
         return this.pregunta.obtenerOpcionesCorrectas();
     }
 
+    @Override
+    public void asignarMultiplicadorX2AJugador(Jugador jugador) {
+        throw new NoSePuedeUtilizarMultiplicadorError();
+    }
+
     public Resultado obtenerResultado(Respuesta respuesta) {
         var correctas = this.obtenerOpcionesCorrectas();
         var elegidas = respuesta.obtenerOpcionesElegidas();

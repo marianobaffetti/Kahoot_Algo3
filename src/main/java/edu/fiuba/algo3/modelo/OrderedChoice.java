@@ -29,4 +29,9 @@ public class OrderedChoice extends Pregunta {
     public List<Opcion> obtenerOpcionesCorrectas() {
         return null;
     }
+
+    @Override
+    public void asignarMultiplicadorX2AJugador(Jugador jugador) {
+        jugador.usarMultiplicador(new MultiplicadorX2());
+    }
 }

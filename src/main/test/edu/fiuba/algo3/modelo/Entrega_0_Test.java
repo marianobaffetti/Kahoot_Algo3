@@ -70,7 +70,11 @@ public class Entrega_0_Test {
         var builder = new PreguntasBuilder();
         var pregunta = builder.crearVerdaderOFalso("Colón llegó a América en el siglo XV.", opciones).get();
 
-        var ronda = new Ronda(pregunta);
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(jugadorUno);
+        jugadores.add(jugadorDos);
+
+        var ronda = new Ronda(pregunta, jugadores);
 
         var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionCorrecta, jugadorUno);
         var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionIncorrecta, jugadorDos);

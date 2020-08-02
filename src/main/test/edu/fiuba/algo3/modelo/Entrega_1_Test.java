@@ -150,8 +150,11 @@ public class Entrega_1_Test {
         opcionesJugadorDos.add(opcionCorrecta2);
         opcionesJugadorDos.add(opcionIncorrecta);
 
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(jugadorUno);
+        jugadores.add(jugadorDos);
 
-        var ronda = new Ronda(pregunta);
+        var ronda = new Ronda(pregunta, jugadores);
 
         var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesJugadorUno, jugadorUno);
         var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesJugadorDos, jugadorDos);
@@ -194,7 +197,11 @@ public class Entrega_1_Test {
                 .conPenalidad()
                 .get();
 
-        var ronda = new Ronda(pregunta);
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(jugadorUno);
+        jugadores.add(jugadorDos);
+
+        var ronda = new Ronda(pregunta, jugadores);
 
         var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
         var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
@@ -247,7 +254,11 @@ public class Entrega_1_Test {
         opcionesJugadorTres.add(opcionCorrecta2);
         opcionesJugadorTres.add(opcionIncorrecta);
 
-        var ronda = new Ronda(pregunta);
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(jugadorUno);
+        jugadores.add(jugadorDos);
+
+        var ronda = new Ronda(pregunta, jugadores);
 
         var respuestaJugadorUno = new RespuestaMultipleChoice(opcionesJugadorUno, jugadorUno);
         var respuestaJugadorDos = new RespuestaMultipleChoice(opcionesJugadorDos, jugadorDos);

@@ -16,4 +16,6 @@ public abstract class Pregunta {
     public abstract Boolean respuestaEsCorrecta(Respuesta respuesta);
 
     public abstract List<Opcion> obtenerOpcionesCorrectas();
+
+    public abstract void asignarMultiplicadorX2AJugador(Jugador jugador);
 }

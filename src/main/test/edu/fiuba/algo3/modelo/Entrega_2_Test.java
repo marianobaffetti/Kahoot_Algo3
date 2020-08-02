@@ -41,8 +41,11 @@ public class Entrega_2_Test {
         var opcionesJugadorDos = new ArrayList<Opcion>();
         opcionesJugadorDos.add(opcionIncorrecta);
 
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(jugadorUno);
+        jugadores.add(jugadorDos);
 
-        var ronda = new Ronda(pregunta);
+        var ronda = new Ronda(pregunta, jugadores);
 
         var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesJugadorUno, jugadorUno);
         var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesJugadorDos, jugadorDos);
@@ -102,7 +105,11 @@ public class Entrega_2_Test {
         Jugador pepin = new Jugador("Pepin");
         var respuestaPepin = new RespuestaOrderedChoice(opcionesPepin, pepin);
 
-        var ronda = new Ronda(pregunta);
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(pepe);
+        jugadores.add(pepin);
+
+        var ronda = new Ronda(pregunta, jugadores);
 
         ronda.agregarRespuesta(respuestaPepe);
         ronda.agregarRespuesta(respuestaPepin);
@@ -111,6 +118,50 @@ public class Entrega_2_Test {
 
         assertEquals(3, pepe.obtenerPuntaje());
         assertEquals(0, pepin.obtenerPuntaje());
+    }
+
+    @Test
+    public void jugadorUsaMultiplicadorYSeAsignanPuntosCorrectamente() {
+        /*
+            Una Pregunta de Verdadero/Falso con penalidad recibe una lista de respuestas y asigna
+            correctamente puntos a los jugadores que respondieron correctamente, y resta
+            correctamente puntos a los jugadores que respondieron en forma incorrecta. Además multiplica
+            puntos correspondientes.
+        */
+
+        var pepe = new Jugador("Pepe");
+
+        var opcion1 = new OpcionDefault("Verdadero", true);
+        var opcion2 = new OpcionDefault("Falso", false);
+
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+
+        var opcionesCorrectas = new ArrayList<Opcion>();
+        var opcionesIncorrectas = new ArrayList<Opcion>();
+
+        opcionesCorrectas.add(opcion1);
+        opcionesIncorrectas.add(opcion2);
+
+        var builder = new PreguntasBuilder();
+        var pregunta = builder.crearMultipleChoice("Colón llegó a América en el siglo XV.", opciones)
+                .conPenalidad()
+                .get();
+
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(pepe);
+
+        var ronda = new Ronda(pregunta, jugadores);
+
+        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesCorrectas, pepe);
+
+        ronda.asignarMultiplicadorX2AJugador(pepe);
+        ronda.agregarRespuesta(respuestaJugadorUno);
+
+        ronda.finalizar();
+
+        assertEquals(2, pepe.obtenerPuntaje());
     }
 }
 

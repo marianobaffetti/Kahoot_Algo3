@@ -17,6 +17,11 @@ public class ProxyConPenalidad extends Pregunta {
         return this.pregunta.obtenerOpcionesCorrectas();
     }
 
+    @Override
+    public void asignarMultiplicadorX2AJugador(Jugador jugador) {
+        this.pregunta.asignarMultiplicadorX2AJugador(jugador);
+    }
+
     public Resultado obtenerResultado(Respuesta respuesta) {
         var correctas = this.obtenerOpcionesCorrectas();
         var elegidas = respuesta.obtenerOpcionesElegidas();
@@ -25,4 +30,5 @@ public class ProxyConPenalidad extends Pregunta {
 
         return new Resultado(puntos, respuesta.obtenerJugador());
     }
+
 }

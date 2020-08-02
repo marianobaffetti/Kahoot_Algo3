@@ -27,4 +27,9 @@ public class VerdaderoFalso extends Pregunta {
     public List<Opcion> obtenerOpcionesCorrectas() {
         return this.multipleChoice.obtenerOpcionesCorrectas();
     }
+
+    @Override
+    public void asignarMultiplicadorX2AJugador(Jugador jugador) {
+        jugador.usarMultiplicador(new MultiplicadorX2());
+    }
 }
