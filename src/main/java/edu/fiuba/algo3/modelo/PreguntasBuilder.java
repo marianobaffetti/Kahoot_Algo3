@@ -3,14 +3,14 @@ package edu.fiuba.algo3.modelo;
 import java.util.List;
 
 public class PreguntasBuilder {
-    private IPregunta preguntaActual;
+    private Pregunta preguntaActual;
 
     public PreguntasBuilder crearVerdaderOFalso(String texto, List<Opcion> opciones) {
         this.preguntaActual = new VerdaderoFalso(texto, opciones);
         return this;
     }
 
-    public IPregunta get() {
+    public Pregunta get() {
         return this.preguntaActual;
     }
 

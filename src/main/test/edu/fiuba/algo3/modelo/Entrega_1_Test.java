@@ -107,7 +107,7 @@ public class Entrega_1_Test {
 
         var respuestaJugadoUno = new RespuestaMultipleChoice(opcionesJugadorUno, new Jugador("Pepe"));
 
-        var respuesta = new ArrayList<IRespuesta>();
+        var respuesta = new ArrayList<Respuesta>();
         respuesta.add(respuestaJugadoUno);
 
         var resultadoJugadorUno = pregunta.obtenerResultados(respuesta).get(0);

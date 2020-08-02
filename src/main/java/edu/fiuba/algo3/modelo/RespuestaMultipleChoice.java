@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.List;
 
-public class RespuestaMultipleChoice implements IRespuesta {
+public class RespuestaMultipleChoice implements Respuesta {
     private final List<Opcion> opcionesElegidas;
     private final Jugador jugador;
 

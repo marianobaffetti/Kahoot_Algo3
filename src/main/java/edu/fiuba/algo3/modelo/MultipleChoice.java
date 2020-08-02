@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MultipleChoice implements IPregunta {
+public class MultipleChoice extends Pregunta {
     private final List<Opcion> opciones;
     private final String texto;
 
@@ -19,14 +19,7 @@ public class MultipleChoice implements IPregunta {
                 .collect(Collectors.toList());
     }
 
-    public List<Resultado> obtenerResultados(List<IRespuesta> respuestas) {
-        return respuestas
-                .stream()
-                .map(respuesta -> this.obtenerResultado(respuesta))
-                .collect(Collectors.toList());
-    }
-
-    private Resultado obtenerResultado(IRespuesta respuesta) {
+    public Resultado obtenerResultado(Respuesta respuesta) {
         var correctas = this.obtenerOpcionesCorrectas();
         var puntos = respuesta
                 .obtenerOpcionesElegidas()
@@ -37,7 +30,7 @@ public class MultipleChoice implements IPregunta {
         return new Resultado((puntos == correctas.size() ? puntos : 0), respuesta.obtenerJugador());
     }
 
-    public Boolean respuestaEsCorrecta(IRespuesta respuesta) {
+    public Boolean respuestaEsCorrecta(Respuesta respuesta) {
         return respuesta.obtenerOpcionesElegidas()
                 .stream()
                 .allMatch(opcion -> this.obtenerOpcionesCorrectas().contains(opcion));

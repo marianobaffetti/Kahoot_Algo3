@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 public class Resultado {
-    private Jugador jugador;
-    private long puntos;
+    private final Jugador jugador;
+    private final long puntos;
 
     public Resultado(long puntos, Jugador jugador) {
         this.puntos = puntos;

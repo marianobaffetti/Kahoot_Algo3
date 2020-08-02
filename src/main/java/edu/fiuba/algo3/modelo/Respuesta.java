@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.List;
 
-public interface IRespuesta {
+public interface Respuesta {
 
     List<Opcion> obtenerOpcionesElegidas();
 

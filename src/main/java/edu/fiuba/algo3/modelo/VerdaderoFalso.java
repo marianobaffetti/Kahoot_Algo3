@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class VerdaderoFalso implements IPregunta {
+public class VerdaderoFalso extends Pregunta {
     private final Opcion respuestaCorrecta;
     private final MultipleChoice multipleChoice;
 
@@ -13,13 +12,7 @@ public class VerdaderoFalso implements IPregunta {
         this.multipleChoice = new MultipleChoice(texto, opciones);
     }
 
-    public List<Resultado> obtenerResultados(List<IRespuesta> respuestas) {
-        var resultados = new ArrayList<Resultado>();
-        respuestas.forEach(respuesta -> resultados.add(this.obtenerResultado(respuesta)));
-        return resultados;
-    }
-
-    private Resultado obtenerResultado(IRespuesta respuesta) {
+    public Resultado obtenerResultado(Respuesta respuesta) {
         var puntos = 0;
         if (this.multipleChoice.respuestaEsCorrecta(respuesta)) {
             puntos = 1;
@@ -27,7 +20,7 @@ public class VerdaderoFalso implements IPregunta {
         return new Resultado(puntos, respuesta.obtenerJugador());
     }
 
-    public Boolean respuestaEsCorrecta(IRespuesta respuesta) {
+    public Boolean respuestaEsCorrecta(Respuesta respuesta) {
         return this.multipleChoice.respuestaEsCorrecta(respuesta);
     }
 
