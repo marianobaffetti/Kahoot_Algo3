@@ -17,10 +17,9 @@ public class Jugador {
 
     public void actualizarPuntaje(long puntos) {
         this.puntaje += this.multiplcador.multiplicar(puntos);
-        this.reset();
     }
 
-    private void reset() {
+    public void finalizarRonda() {
         this.multiplcador = new MultiplicadorDefault();
     }
 

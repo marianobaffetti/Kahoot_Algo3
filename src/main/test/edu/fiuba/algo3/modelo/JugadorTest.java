@@ -29,4 +29,25 @@ public class JugadorTest {
 
         Assertions.assertEquals(1, jugador.obtenerPuntaje());
     }
+
+    @Test
+    public void usarMultiplicadorDefineUnaEstrategiaDeMultiplicacionDePuntaje() {
+        Jugador pepe = new Jugador("Pepe");
+        pepe.usarMultiplicador(new MultiplicadorX2());
+
+        pepe.actualizarPuntaje(1);
+
+        Assertions.assertEquals(2, pepe.obtenerPuntaje());
+    }
+
+    @Test
+    public void alFinalizarRondaLaEstrategiaDeMultiplicacionVuelveASerLaDefault() {
+        Jugador pepe = new Jugador("Pepe");
+        pepe.usarMultiplicador(new MultiplicadorX2());
+
+        pepe.finalizarRonda();
+        pepe.actualizarPuntaje(1);
+
+        Assertions.assertEquals(1, pepe.obtenerPuntaje());
+    }
 }
