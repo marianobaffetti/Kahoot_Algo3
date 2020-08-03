@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class JugadorTest {
     @Test
-    public void jugadorSeCreaConNombre(){
+    public void jugadorSeCreaConNombre() {
         var nombre = "Pepe";
         var jugador = new Jugador(nombre);
 

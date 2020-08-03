@@ -14,7 +14,7 @@ public class OpcionOrderedChoice implements Opcion {
     }
 
     public Boolean coincideCon(Opcion opcion) {
-        return opcion.coincideCon(this.texto,this.orden);
+        return opcion.coincideCon(this.texto, this.orden);
     }
 
     public <T> Boolean coincideCon(String texto, T condicion) {

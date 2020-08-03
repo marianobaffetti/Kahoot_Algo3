@@ -21,11 +21,6 @@ public class MultipleChoice extends Pregunta {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public void asignarMultiplicadorX2AJugador(Jugador jugador) {
-        jugador.usarMultiplicador(new MultiplicadorX2());
-    }
-
     public Resultado obtenerResultado(Respuesta respuesta) {
         var correctas = this.obtenerOpcionesCorrectas();
         var puntos = respuesta

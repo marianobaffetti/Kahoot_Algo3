@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.modelo.Preguntas;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.Resultado;
 
 import java.util.List;
 
@@ -22,18 +25,11 @@ public class OrderedChoice extends Pregunta {
         return new Resultado(ordenCorrecto ? this.opciones.size() : 0, respuesta.obtenerJugador());
     }
 
-    @Override
     public Boolean respuestaEsCorrecta(Respuesta respuesta) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
-    @Override
     public List<Opcion> obtenerOpcionesCorrectas() {
         return null;
-    }
-
-    @Override
-    public void asignarMultiplicadorX2AJugador(Jugador jugador) {
-        jugador.usarMultiplicador(new MultiplicadorX2());
     }
 }

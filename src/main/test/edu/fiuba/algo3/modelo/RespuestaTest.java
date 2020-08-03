@@ -13,8 +13,8 @@ public class RespuestaTest {
         new OpcionOrderedChoice("git add", 1);
         new OpcionOrderedChoice("git add", 1);
         List<Opcion> opciones = List.of(
-            new OpcionOrderedChoice("git add", 1),
-            new OpcionOrderedChoice("git commit", 2)
+                new OpcionOrderedChoice("git add", 1),
+                new OpcionOrderedChoice("git commit", 2)
         );
         var pepe = new Jugador("Pepe");
 
@@ -34,6 +34,6 @@ public class RespuestaTest {
         var pepe = new Jugador("Pepe");
         Respuesta respuesta = new Respuesta(opciones, pepe);
 
-        Assertions.assertTrue(respuesta.concideCon(new OpcionOrderedChoice("git add", 1) ));
+        Assertions.assertTrue(respuesta.concideCon(new OpcionOrderedChoice("git add", 1)));
     }
 }

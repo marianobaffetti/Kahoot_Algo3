@@ -13,11 +13,7 @@ public class VerdaderoFalso extends Pregunta {
     }
 
     public Resultado obtenerResultado(Respuesta respuesta) {
-        var puntos = 0;
-        if (this.multipleChoice.respuestaEsCorrecta(respuesta)) {
-            puntos = 1;
-        }
-        return new Resultado(puntos, respuesta.obtenerJugador());
+        return new Resultado(this.multipleChoice.respuestaEsCorrecta(respuesta) ? 1 : 0, respuesta.obtenerJugador());
     }
 
     public Boolean respuestaEsCorrecta(Respuesta respuesta) {
@@ -26,10 +22,5 @@ public class VerdaderoFalso extends Pregunta {
 
     public List<Opcion> obtenerOpcionesCorrectas() {
         return this.multipleChoice.obtenerOpcionesCorrectas();
-    }
-
-    @Override
-    public void asignarMultiplicadorX2AJugador(Jugador jugador) {
-        jugador.usarMultiplicador(new MultiplicadorX2());
     }
 }

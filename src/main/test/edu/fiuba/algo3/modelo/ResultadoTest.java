@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class ResultadoTest {
     @Test
-    public void resultadoEsCorrectoSiElPuntajeEsPositivo(){
+    public void resultadoEsCorrectoSiElPuntajeEsPositivo() {
         var resultado = new Resultado(1, new Jugador("pepe"));
 
         Assertions.assertTrue(resultado.esCorrecto());
