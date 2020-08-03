@@ -1,9 +1,16 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Preguntas;
+
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.Resultado;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class Pregunta {
+    protected List<Opcion> opciones;
+
     public List<Resultado> obtenerResultados(List<Respuesta> respuestas) {
         return respuestas
                 .stream()

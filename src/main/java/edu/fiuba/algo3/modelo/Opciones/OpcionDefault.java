@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Opciones;
 
 public class OpcionDefault implements Opcion {
     private final String texto;
@@ -13,13 +13,11 @@ public class OpcionDefault implements Opcion {
         return esVerdadera;
     }
 
-    @Override
     public Boolean coincideCon(Opcion opcion) {
-        return opcion.coincideCon(this.texto,this.esVerdadera);
+        return opcion.coincideCon(this.texto, this.esVerdadera);
     }
 
-    @Override
     public <T> Boolean coincideCon(String texto, T condicion) {
         return this.texto == texto && condicion.equals(this.esVerdadera);
     }
-    }
+}

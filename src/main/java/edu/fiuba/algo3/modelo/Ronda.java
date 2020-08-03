@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collector;
 
 public class Ronda {
     private final Pregunta pregunta;

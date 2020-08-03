@@ -1,14 +1,14 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Preguntas;
+
+import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class VerdaderoFalso extends Pregunta {
-    private final Opcion respuestaCorrecta;
     private final MultipleChoice multipleChoice;
 
     public VerdaderoFalso(String texto, List<Opcion> opciones) {
-        this.respuestaCorrecta = opciones.stream().filter(opcion -> opcion.esCorrecta()).collect(Collectors.toList()).get(0);
         this.multipleChoice = new MultipleChoice(texto, opciones);
     }
 

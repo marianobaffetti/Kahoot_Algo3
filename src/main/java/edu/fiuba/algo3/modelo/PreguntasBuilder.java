@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Preguntas.*;
+
 import java.util.List;
 
 public class PreguntasBuilder {

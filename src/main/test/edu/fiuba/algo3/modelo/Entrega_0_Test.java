@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
+import edu.fiuba.algo3.modelo.Preguntas.VerdaderoFalso;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

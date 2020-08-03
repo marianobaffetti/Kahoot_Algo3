@@ -1,10 +1,12 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Preguntas;
+
+import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 
 import java.util.List;
 
 public class OrderedChoice extends Pregunta {
     private final String texto;
-    private final List<Opcion> opciones;
 
     public OrderedChoice(String texto, List<Opcion> opciones) {
         super();
