@@ -47,8 +47,8 @@ public class Entrega_2_Test {
 
         var ronda = new Ronda(pregunta, jugadores);
 
-        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesJugadorUno, jugadorUno);
-        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesJugadorDos, jugadorDos);
+        var respuestaJugadorUno = new Respuesta(opcionesJugadorUno, jugadorUno);
+        var respuestaJugadorDos = new Respuesta(opcionesJugadorDos, jugadorDos);
 
         ronda.agregarRespuesta(respuestaJugadorUno);
         ronda.agregarRespuesta(respuestaJugadorDos);
@@ -101,9 +101,9 @@ public class Entrega_2_Test {
         opcionesPepin.add(elegida3Pepin);
 
         Jugador pepe = new Jugador("Pepe");
-        var respuestaPepe = new RespuestaOrderedChoice(opcionesPepe, pepe);
+        var respuestaPepe = new Respuesta(opcionesPepe, pepe);
         Jugador pepin = new Jugador("Pepin");
-        var respuestaPepin = new RespuestaOrderedChoice(opcionesPepin, pepin);
+        var respuestaPepin = new Respuesta(opcionesPepin, pepin);
 
         var jugadores = new ArrayList<Jugador>();
         jugadores.add(pepe);
@@ -154,7 +154,7 @@ public class Entrega_2_Test {
 
         var ronda = new Ronda(pregunta, jugadores);
 
-        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesCorrectas, pepe);
+        var respuestaJugadorUno = new Respuesta(opcionesCorrectas, pepe);
 
         ronda.asignarMultiplicadorX2AJugador(pepe);
         ronda.agregarRespuesta(respuestaJugadorUno);

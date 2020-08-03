@@ -29,7 +29,7 @@ public class Entrega_0_Test {
         var builder = new PreguntasBuilder();
 
         var pregunta = builder.crearVerdaderOFalso("Colón llegó a América en el siglo XV.", opciones).get();
-        var respuesta = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
+        var respuesta = new Respuesta(opcionesCorrectas, jugadorUno);
 
         Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
 
@@ -39,7 +39,7 @@ public class Entrega_0_Test {
         opcionesIncorrectas.add(opcion2);
 
         pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", opciones);
-        respuesta = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
+        respuesta = new Respuesta(opcionesIncorrectas, jugadorDos);
 
         Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuesta));
     }
@@ -76,8 +76,8 @@ public class Entrega_0_Test {
 
         var ronda = new Ronda(pregunta, jugadores);
 
-        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionCorrecta, jugadorUno);
-        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionIncorrecta, jugadorDos);
+        var respuestaJugadorUno = new Respuesta(opcionCorrecta, jugadorUno);
+        var respuestaJugadorDos = new Respuesta(opcionIncorrecta, jugadorDos);
 
         ronda.agregarRespuesta(respuestaJugadorUno);
         ronda.agregarRespuesta(respuestaJugadorDos);

@@ -2,9 +2,20 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.List;
 
-public interface Respuesta {
+public class Respuesta {
+    private final List<Opcion> opcionesElegidas;
+    private final Jugador jugador;
 
-    List<Opcion> obtenerOpcionesElegidas();
+    public Respuesta(List<Opcion> opcionesElegidas, Jugador jugador) {
+        this.opcionesElegidas = opcionesElegidas;
+        this.jugador = jugador;
+    }
 
-    Jugador obtenerJugador();
+    public Jugador obtenerJugador() {
+        return this.jugador;
+    }
+
+    public List<Opcion> obtenerOpcionesElegidas() {
+        return this.opcionesElegidas;
+    }
 }

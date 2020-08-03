@@ -36,8 +36,8 @@ public class Entrega_1_Test {
                 .conPenalidad()
                 .get();
 
-        var respuesta = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
-        var respuestaIncorrecta = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
+        var respuesta = new Respuesta(opcionesCorrectas, jugadorUno);
+        var respuestaIncorrecta = new Respuesta(opcionesIncorrectas, jugadorDos);
 
         Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuestaIncorrecta));
         Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
@@ -68,12 +68,12 @@ public class Entrega_1_Test {
         opcionesCorrecta.add(opcionCorrecta1);
         opcionesCorrecta.add(opcionCorrecta2);
         opcionesCorrecta.add(opcionCorrecta3);
-        var respuesta = new RespuestaMultipleChoice(opcionesCorrecta, new Jugador("Pepe"));
+        var respuesta = new Respuesta(opcionesCorrecta, new Jugador("Pepe"));
 
         var opcionesIncorrectas = new ArrayList<Opcion>();
         opcionesIncorrectas.add(opcionCorrecta1);
         opcionesIncorrectas.add(opcionIncorrecta);
-        var respuestaIncorrecta = new RespuestaMultipleChoice(opcionesIncorrectas, new Jugador("Pepin"));
+        var respuestaIncorrecta = new Respuesta(opcionesIncorrectas, new Jugador("Pepin"));
 
         Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuestaIncorrecta));
         Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
@@ -105,7 +105,7 @@ public class Entrega_1_Test {
         opcionesJugadorUno.add(opcionCorrecta1);
         opcionesJugadorUno.add(opcionCorrecta2);
 
-        var respuestaJugadoUno = new RespuestaMultipleChoice(opcionesJugadorUno, new Jugador("Pepe"));
+        var respuestaJugadoUno = new Respuesta(opcionesJugadorUno, new Jugador("Pepe"));
 
         var respuesta = new ArrayList<Respuesta>();
         respuesta.add(respuestaJugadoUno);
@@ -156,8 +156,8 @@ public class Entrega_1_Test {
 
         var ronda = new Ronda(pregunta, jugadores);
 
-        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesJugadorUno, jugadorUno);
-        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesJugadorDos, jugadorDos);
+        var respuestaJugadorUno = new Respuesta(opcionesJugadorUno, jugadorUno);
+        var respuestaJugadorDos = new Respuesta(opcionesJugadorDos, jugadorDos);
 
         ronda.agregarRespuesta(respuestaJugadorUno);
         ronda.agregarRespuesta(respuestaJugadorDos);
@@ -203,8 +203,8 @@ public class Entrega_1_Test {
 
         var ronda = new Ronda(pregunta, jugadores);
 
-        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
-        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
+        var respuestaJugadorUno = new Respuesta(opcionesCorrectas, jugadorUno);
+        var respuestaJugadorDos = new Respuesta(opcionesIncorrectas, jugadorDos);
 
         ronda.agregarRespuesta(respuestaJugadorUno);
         ronda.agregarRespuesta(respuestaJugadorDos);
@@ -260,8 +260,8 @@ public class Entrega_1_Test {
 
         var ronda = new Ronda(pregunta, jugadores);
 
-        var respuestaJugadorUno = new RespuestaMultipleChoice(opcionesJugadorUno, jugadorUno);
-        var respuestaJugadorDos = new RespuestaMultipleChoice(opcionesJugadorDos, jugadorDos);
+        var respuestaJugadorUno = new Respuesta(opcionesJugadorUno, jugadorUno);
+        var respuestaJugadorDos = new Respuesta(opcionesJugadorDos, jugadorDos);
 
         ronda.agregarRespuesta(respuestaJugadorUno);
         ronda.agregarRespuesta(respuestaJugadorDos);
