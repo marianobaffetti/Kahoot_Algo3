@@ -18,4 +18,8 @@ public class Respuesta {
     public List<Opcion> obtenerOpcionesElegidas() {
         return this.opcionesElegidas;
     }
+
+    public boolean concideCon(Opcion opcion) {
+        return this.opcionesElegidas.stream().anyMatch(elegida -> opcion.coincideCon(elegida));
+    }
 }

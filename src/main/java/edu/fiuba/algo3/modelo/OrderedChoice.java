@@ -15,7 +15,7 @@ public class OrderedChoice extends Pregunta {
     public Resultado obtenerResultado(Respuesta respuesta) {
         var ordenCorrecto = this.opciones
                 .stream()
-                .allMatch(opcion -> opcion.coincideConAlgunaDe(respuesta));
+                .allMatch(opcion -> respuesta.concideCon(opcion));
 
         return new Resultado(ordenCorrecto ? this.opciones.size() : 0, respuesta.obtenerJugador());
     }

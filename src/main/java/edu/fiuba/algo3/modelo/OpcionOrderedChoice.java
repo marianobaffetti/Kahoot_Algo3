@@ -14,13 +14,12 @@ public class OpcionOrderedChoice implements Opcion {
     }
 
     @Override
-    public Boolean coincideCon(String texto, int orden) {
-        return this.texto == texto && this.orden == orden;
+    public Boolean coincideCon(Opcion opcion) {
+        return opcion.coincideCon(this.texto,this.orden);
     }
 
-    public Boolean coincideConAlgunaDe(Respuesta respuesta) {
-        return  respuesta.obtenerOpcionesElegidas()
-                .stream()
-                .anyMatch(opcionElegida -> opcionElegida.coincideCon(this.texto, this.orden));
+    @Override
+    public <T> Boolean coincideCon(String texto, T condicion) {
+        return this.texto == texto && condicion.equals(this.orden);
     }
 }

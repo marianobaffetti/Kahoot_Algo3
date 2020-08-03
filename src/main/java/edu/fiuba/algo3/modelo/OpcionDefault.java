@@ -13,12 +13,13 @@ public class OpcionDefault implements Opcion {
         return esVerdadera;
     }
 
-    public Boolean coincideCon(String texto, int orden) {
-        return true;
+    @Override
+    public Boolean coincideCon(Opcion opcion) {
+        return opcion.coincideCon(this.texto,this.esVerdadera);
     }
 
     @Override
-    public Boolean coincideConAlgunaDe(Respuesta respuesta) {
-        return null;
+    public <T> Boolean coincideCon(String texto, T condicion) {
+        return this.texto == texto && condicion.equals(this.esVerdadera);
     }
-}
+    }
