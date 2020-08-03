@@ -36,4 +36,9 @@ public class PreguntasBuilder {
         this.preguntaActual = new OrderedChoice(texto, opciones);
         return this;
     }
+
+    public PreguntasBuilder crearGroupChoice(String texto, List<Opcion> opciones) {
+        this.preguntaActual = new GroupChoice(texto, opciones);
+        return this;
+    }
 }

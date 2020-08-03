@@ -10,7 +10,7 @@ public class OpcionOrderedChoice implements Opcion {
     }
 
     public Boolean esCorrecta() {
-        return true;
+        throw new UnsupportedOperationException();
     }
 
     public Boolean coincideCon(Opcion opcion) {

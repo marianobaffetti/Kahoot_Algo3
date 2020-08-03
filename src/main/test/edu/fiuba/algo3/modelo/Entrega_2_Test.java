@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Opciones.OpcionOrderedChoice;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -165,6 +166,66 @@ public class Entrega_2_Test {
         ronda.finalizar();
 
         assertEquals(2, pepe.obtenerPuntaje());
+    }
+
+    @Test
+    public void PreguntaGroupChoiceSeCreaYAsignaPuntosCorrectamente() {
+        /*
+            Una Pregunta de Group Choice puede crearse indicándole cuales son
+            las opciones correctas
+        */
+
+        List<Opcion> opciones = List.of(
+            new OpcionGroupChoice("Argentina", "America"),
+            new OpcionGroupChoice("Canada", "America"),
+            new OpcionGroupChoice("España", "Europa"),
+            new OpcionGroupChoice("Francia", "Europa")
+        );
+
+        var builder = new PreguntasBuilder();
+        var pregunta = builder
+                .crearGroupChoice("Agrupar países por continente", opciones)
+                .get();
+
+        // Opciones elegidas por el primer jugador
+
+        var elegida1Pepe = new OpcionGroupChoice("Argentina", "America");
+        var elegida2Pepe = new OpcionGroupChoice("Canada", "America");
+        var elegida3Pepe = new OpcionGroupChoice("España", "Europa");
+        var elegida4Pepe = new OpcionGroupChoice("Francia", "Europa");
+
+        var opcionesPepe = new ArrayList<Opcion>();
+        opcionesPepe.add(elegida1Pepe);
+        opcionesPepe.add(elegida2Pepe);
+        opcionesPepe.add(elegida3Pepe);
+        opcionesPepe.add(elegida4Pepe);
+
+        // Opciones elegidas por el segundo jugador
+        var elegida1Pepin = new OpcionGroupChoice("Argentina", "America");
+        var elegida2Pepin = new OpcionGroupChoice("Canada", "Europa");
+        var elegida3Pepin = new OpcionGroupChoice("España", "America");
+        var elegida4Pepin = new OpcionGroupChoice("Francia", "Europa");
+
+        var opcionesPepin = new ArrayList<Opcion>();
+        opcionesPepin.add(elegida1Pepin);
+        opcionesPepin.add(elegida2Pepin);
+        opcionesPepin.add(elegida3Pepin);
+        opcionesPepin.add(elegida4Pepin);
+
+        Jugador pepe = new Jugador("Pepe");
+        var respuestaPepe = new Respuesta(opcionesPepe, pepe);
+        Jugador pepin = new Jugador("Pepin");
+        var respuestaPepin = new Respuesta(opcionesPepin, pepin);
+
+        var ronda = new Ronda(pregunta, List.of(pepe, pepin));
+
+        ronda.agregarRespuesta(respuestaPepe);
+        ronda.agregarRespuesta(respuestaPepin);
+
+        ronda.finalizar();
+
+        assertEquals(4, pepe.obtenerPuntaje());
+        assertEquals(0, pepin.obtenerPuntaje());
     }
 }
 
