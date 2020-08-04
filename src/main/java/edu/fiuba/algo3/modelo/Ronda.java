@@ -25,9 +25,12 @@ public class Ronda {
         resultados.forEach(resultado -> resultado.actualizar());
     }
 
-
     public void asignarMultiplicadorX2AJugador(Jugador jugador) {
         this.pregunta.asignarMultiplicadorX2AJugador(jugador);
+    }
+
+    public void asignarMultiplicadorX3AJugador(Jugador jugador) {
+        this.pregunta.asignarMultiplicadorX3AJugador(jugador);
     }
 }
 

@@ -17,8 +17,8 @@ public class Entrega_1_Test {
             respuesta correcta
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
 
         var opcion1 = new OpcionDefault("Verdadero", true);
         var opcion2 = new OpcionDefault("Falso", false);
@@ -70,12 +70,12 @@ public class Entrega_1_Test {
         opcionesCorrecta.add(opcionCorrecta1);
         opcionesCorrecta.add(opcionCorrecta2);
         opcionesCorrecta.add(opcionCorrecta3);
-        var respuesta = new Respuesta(opcionesCorrecta, new Jugador("Pepe"));
+        var respuesta = new Respuesta(opcionesCorrecta, new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>()));
 
         var opcionesIncorrectas = new ArrayList<Opcion>();
         opcionesIncorrectas.add(opcionCorrecta1);
         opcionesIncorrectas.add(opcionIncorrecta);
-        var respuestaIncorrecta = new Respuesta(opcionesIncorrectas, new Jugador("Pepin"));
+        var respuestaIncorrecta = new Respuesta(opcionesIncorrectas, new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>()));
 
         Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuestaIncorrecta));
         Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
@@ -107,7 +107,7 @@ public class Entrega_1_Test {
         opcionesJugadorUno.add(opcionCorrecta1);
         opcionesJugadorUno.add(opcionCorrecta2);
 
-        var respuestaJugadoUno = new Respuesta(opcionesJugadorUno, new Jugador("Pepe"));
+        var respuestaJugadoUno = new Respuesta(opcionesJugadorUno, new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>()));
 
         var respuesta = new ArrayList<Respuesta>();
         respuesta.add(respuestaJugadoUno);
@@ -125,8 +125,8 @@ public class Entrega_1_Test {
             respondido
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
 
         var opcionCorrecta1 = new OpcionDefault("Celeste", true);
         var opcionCorrecta2 = new OpcionDefault("Blanco", true);
@@ -178,8 +178,8 @@ public class Entrega_1_Test {
             correctamente puntos a los jugadores que respondieron en forma incorrecta
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
 
         var opcion1 = new OpcionDefault("Verdadero", true);
         var opcion2 = new OpcionDefault("Falso", false);
@@ -224,9 +224,9 @@ public class Entrega_1_Test {
             correctamente puntos a los jugadores que respondieron correctamente
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
-        var jugadorTres = new Jugador("Pepon");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorTres = new Jugador("Pepon", new ArrayList<EstrategiaDeMultiplicacion>());
 
         var opcionCorrecta1 = new OpcionDefault("Celeste", true);
         var opcionCorrecta2 = new OpcionDefault("Blanco", true);

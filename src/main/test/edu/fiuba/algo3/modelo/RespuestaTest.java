@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Opciones.OpcionOrderedChoice;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RespuestaTest {
@@ -16,7 +17,7 @@ public class RespuestaTest {
                 new OpcionOrderedChoice("git add", 1),
                 new OpcionOrderedChoice("git commit", 2)
         );
-        var pepe = new Jugador("Pepe");
+        var pepe = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
 
         Respuesta respuesta = new Respuesta(opciones, pepe);
 
@@ -31,7 +32,7 @@ public class RespuestaTest {
                 new OpcionOrderedChoice("git add", 1),
                 new OpcionOrderedChoice("git commit", 2)
         );
-        var pepe = new Jugador("Pepe");
+        var pepe = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
         Respuesta respuesta = new Respuesta(opciones, pepe);
 
         Assertions.assertTrue(respuesta.concideCon(new OpcionOrderedChoice("git add", 1)));

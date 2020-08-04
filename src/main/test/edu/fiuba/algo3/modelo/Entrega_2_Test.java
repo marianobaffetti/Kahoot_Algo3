@@ -20,8 +20,8 @@ public class Entrega_2_Test {
             respondido
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
 
         var opcionCorrecta1 = new OpcionDefault("Celeste", true);
         var opcionCorrecta2 = new OpcionDefault("Blanco", true);
@@ -105,9 +105,9 @@ public class Entrega_2_Test {
         opcionesPepin.add(elegida2Pepin);
         opcionesPepin.add(elegida3Pepin);
 
-        Jugador pepe = new Jugador("Pepe");
+        Jugador pepe = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
         var respuestaPepe = new Respuesta(opcionesPepe, pepe);
-        Jugador pepin = new Jugador("Pepin");
+        Jugador pepin = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
         var respuestaPepin = new Respuesta(opcionesPepin, pepin);
 
         var jugadores = new ArrayList<Jugador>();
@@ -134,7 +134,7 @@ public class Entrega_2_Test {
             puntos correspondientes.
         */
 
-        var pepe = new Jugador("Pepe");
+        var pepe = new Jugador("Pepe", List.of(new MultiplicadorX3()));
 
         var opcion1 = new OpcionDefault("Verdadero", true);
         var opcion2 = new OpcionDefault("Falso", false);
@@ -161,12 +161,12 @@ public class Entrega_2_Test {
 
         var respuestaJugadorUno = new Respuesta(opcionesCorrectas, pepe);
 
-        ronda.asignarMultiplicadorX2AJugador(pepe);
+        ronda.asignarMultiplicadorX3AJugador(pepe);
         ronda.agregarRespuesta(respuestaJugadorUno);
 
         ronda.finalizar();
 
-        assertEquals(2, pepe.obtenerPuntaje());
+        assertEquals(3, pepe.obtenerPuntaje());
     }
 
     @Test
@@ -213,9 +213,9 @@ public class Entrega_2_Test {
         opcionesPepin.add(elegida3Pepin);
         opcionesPepin.add(elegida4Pepin);
 
-        Jugador pepe = new Jugador("Pepe");
+        Jugador pepe = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
         var respuestaPepe = new Respuesta(opcionesPepe, pepe);
-        Jugador pepin = new Jugador("Pepin");
+        Jugador pepin = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
         var respuestaPepin = new Respuesta(opcionesPepin, pepin);
 
         var ronda = new Ronda(pregunta, List.of(pepe, pepin));

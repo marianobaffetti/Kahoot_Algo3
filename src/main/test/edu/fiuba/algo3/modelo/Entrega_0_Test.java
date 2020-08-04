@@ -16,8 +16,8 @@ public class Entrega_0_Test {
             correcta
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
 
         var opcion1 = new OpcionDefault("Verdadero", true);
         var opcion2 = new OpcionDefault("Falso", false);
@@ -54,8 +54,8 @@ public class Entrega_0_Test {
             correctamente puntos a los jugadores que respondieron correctamente
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
 
         var opcion1 = new OpcionDefault("Verdadero", true);
         var opcion2 = new OpcionDefault("Falso", false);
