@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.Resultado;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,5 +32,9 @@ public abstract class Pregunta {
 
     public void asignarMultiplicadorX3AJugador(Jugador jugador) {
         jugador.usarMultiplicador("MULTIPLICADOR_X_3");
+    }
+
+    public List<Opcion> obtenerOpciones() {
+        return this.opciones;
     }
 }

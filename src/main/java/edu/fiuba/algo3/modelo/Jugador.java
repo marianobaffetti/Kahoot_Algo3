@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Excepciones.NoSeEncuentraElMultiplicadorError;
 import edu.fiuba.algo3.modelo.Excepciones.YaHayUnMultiplicadorEnUsoError;
 
 import java.util.List;
-import java.util.Optional;
 
 public class Jugador {
     private final String nombre;

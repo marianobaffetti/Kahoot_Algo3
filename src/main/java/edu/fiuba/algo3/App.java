@@ -1,9 +1,10 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.controlador.KahootControlador;
+import edu.fiuba.algo3.modelo.Kahoot;
+import edu.fiuba.algo3.vista.KahootVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -11,20 +12,21 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
-    @Override
-    public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
-
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        StackPane layout = new StackPane(label);
-        var scene = new Scene(layout, 640, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public static void main(String[] args) {
         launch();
+    }
+
+    @Override
+    public void start(Stage stage) {
+        var kahootControlador = new KahootControlador();
+        var kahootVista = new KahootVista(kahootControlador);
+        var kahootModelo = Kahoot.getInstance();
+        kahootModelo.addObserver(kahootVista);
+
+        var scene = new Scene(kahootVista, 640, 480);
+        stage.setScene(scene);
+        stage.setTitle(kahootVista.getTitle());
+        stage.show();
     }
 
 }

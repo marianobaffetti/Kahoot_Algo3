@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Ronda {
@@ -31,6 +32,14 @@ public class Ronda {
 
     public void asignarMultiplicadorX3AJugador(Jugador jugador) {
         this.pregunta.asignarMultiplicadorX3AJugador(jugador);
+    }
+
+    public List<Jugador> obtenerJugadores() {
+        return this.jugadores;
+    }
+
+    public Pregunta obtenerPregunta() {
+        return this.pregunta;
     }
 }
 
