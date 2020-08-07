@@ -8,9 +8,11 @@ import java.util.List;
 public class Jugador {
     private final String nombre;
     private final List<EstrategiaDeMultiplicacion> multiplicadores;
-    private int puntaje;
+    private double puntaje;
     private EstrategiaDeMultiplicacion multiplicador;
     private boolean multiplicadorEnUso;
+    private boolean exclusividadEnUso;
+    private int cantidadDeExclusividades;
 
     public Jugador(String nombre, List<EstrategiaDeMultiplicacion> multiplicadores) {
         this.nombre = nombre;
@@ -18,20 +20,23 @@ public class Jugador {
         this.multiplicador = new MultiplicadorDefault();
         this.multiplicadores = multiplicadores;
         this.multiplicadorEnUso = false;
+        this.exclusividadEnUso = false;
+        this.cantidadDeExclusividades = 2;
     }
 
-    public int obtenerPuntaje() {
+    public double obtenerPuntaje() {
         return this.puntaje;
     }
 
-    public void actualizarPuntaje(long puntos) {
+    public void actualizarPuntaje(double puntos) {
         this.puntaje += this.multiplicador.multiplicar(puntos);
-        this.resetearMultiplicadores();
+        this.resetear();
     }
 
-    private void resetearMultiplicadores() {
+    private void resetear() {
         this.multiplicador = new MultiplicadorDefault();
         this.multiplicadorEnUso = false;
+        this.exclusividadEnUso = false;
     }
 
     public String obtenerNombre() {
@@ -50,5 +55,18 @@ public class Jugador {
 
         this.multiplicador = mulitiplicadorElegido.get();
         this.multiplicadorEnUso = true;
+    }
+
+    public void usarExclusividad() {
+        if (this.exclusividadEnUso) throw new YaHayUnaExclusividadEnUsoError();
+
+        if (cantidadDeExclusividades == 0) throw new NoHayExclusividadesDisponiblesError();
+
+        exclusividadEnUso = true;
+        cantidadDeExclusividades--;
+    }
+
+    public boolean activoExclusividad() {
+        return this.exclusividadEnUso;
     }
 }

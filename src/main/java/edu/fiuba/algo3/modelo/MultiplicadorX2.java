@@ -5,7 +5,7 @@ public class MultiplicadorX2 extends EstrategiaDeMultiplicacion {
         this.nombre = "MULTIPLICADOR_X_2";
     }
 
-    public long multiplicar(long puntos) {
+    public double multiplicar(double puntos) {
         return puntos * 2;
     }
 }

@@ -4,7 +4,9 @@ import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Ronda {
     private final Pregunta pregunta;
@@ -23,7 +25,41 @@ public class Ronda {
 
     public void finalizar() {
         var resultados = this.pregunta.obtenerResultados(respuestas);
+        this.aplicarExclusividad(resultados);
         resultados.forEach(resultado -> resultado.actualizar());
+    }
+
+    private void aplicarExclusividad(List<Resultado> resultados) {
+        long cantidadDeExclusividadesActivas = this.jugadores
+                .stream()
+                .filter(jugador -> jugador.activoExclusividad())
+                .count();
+
+        if (cantidadDeExclusividadesActivas > 0) {
+            var puntajeMax = resultados.stream()
+                    .map(resultado -> resultado.obtenerPuntaje())
+                    .max(Comparator.comparing(a->a))
+                    .get();
+
+            var jugadoresConPuntajeMaximo = resultados.stream()
+                    .filter(resultado -> resultado.obtenerPuntaje() == puntajeMax).collect(Collectors.toList());
+
+            if (jugadoresConPuntajeMaximo.size() > 1){
+                resultados.stream().forEach(resultado -> resultado.actualizarPuntaje(0));
+            } else {
+                jugadoresConPuntajeMaximo
+                        .stream()
+                        .findFirst()
+                        .get()
+                        .actualizarPuntaje(Math.pow(2, cantidadDeExclusividadesActivas) * puntajeMax);
+                resultados.forEach(resultado ->
+                        {
+                            if (resultado.obtenerPuntaje() < puntajeMax){
+                                resultado.actualizarPuntaje(0);
+                            }
+                        });
+            }
+        }
     }
 
     public void asignarMultiplicadorX2AJugador(Jugador jugador) {
@@ -41,6 +77,8 @@ public class Ronda {
     public Pregunta obtenerPregunta() {
         return this.pregunta;
     }
+
+    public void usarExclusividad(Jugador jugador) {
+        this.pregunta.usarExclusividad(jugador);
+    }
 }
-
-

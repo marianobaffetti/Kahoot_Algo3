@@ -28,6 +28,11 @@ public class ProxyConPenalidad extends Pregunta {
         this.pregunta.asignarMultiplicadorX2AJugador(jugador);
     }
 
+    @Override
+    public void asignarMultiplicadorX3AJugador(Jugador jugador) {
+        this.pregunta.asignarMultiplicadorX3AJugador(jugador);
+    }
+
     public Resultado obtenerResultado(Respuesta respuesta) {
         var correctas = this.obtenerOpcionesCorrectas();
         var elegidas = respuesta.obtenerOpcionesElegidas();
@@ -35,6 +40,11 @@ public class ProxyConPenalidad extends Pregunta {
         var puntos = aciertos - (elegidas.size() - aciertos);
 
         return new Resultado(puntos, respuesta.obtenerJugador());
+    }
+
+    @Override
+    public void usarExclusividad(Jugador jugador){
+        throw new NoSePuedeUtilizarExclusividadError();
     }
 
 }

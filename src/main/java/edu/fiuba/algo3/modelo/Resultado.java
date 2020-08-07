@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 public class Resultado {
     private final Jugador jugador;
-    private final long puntos;
+    private double puntos;
 
-    public Resultado(long puntos, Jugador jugador) {
+    public Resultado(double puntos, Jugador jugador) {
         this.puntos = puntos;
         this.jugador = jugador;
     }
@@ -17,7 +17,11 @@ public class Resultado {
         this.jugador.actualizarPuntaje(this.puntos);
     }
 
-    public long obtenerPuntaje() {
+    public double obtenerPuntaje() {
         return this.puntos;
+    }
+
+    public void actualizarPuntaje(double puntos) {
+        this.puntos = puntos;
     }
 }

@@ -28,6 +28,12 @@ public class ProxyConPuntajeParcial extends Pregunta {
         throw new NoSePuedeUtilizarMultiplicadorError();
     }
 
+    @Override
+    public void asignarMultiplicadorX3AJugador(Jugador jugador) {
+        throw new NoSePuedeUtilizarMultiplicadorError();
+    }
+
+
     public Resultado obtenerResultado(Respuesta respuesta) {
         var correctas = this.obtenerOpcionesCorrectas();
         var elegidas = respuesta.obtenerOpcionesElegidas();

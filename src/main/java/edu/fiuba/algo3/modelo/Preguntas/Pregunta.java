@@ -37,4 +37,6 @@ public abstract class Pregunta {
     public List<Opcion> obtenerOpciones() {
         return this.opciones;
     }
+
+    public void usarExclusividad(Jugador jugador){ jugador.usarExclusividad(); }
 }
