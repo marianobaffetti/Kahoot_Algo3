@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.Preguntas;
 
+import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeUtilizarExclusividadError;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
-import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.Resultado;
 
@@ -43,7 +43,7 @@ public class ProxyConPenalidad extends Pregunta {
     }
 
     @Override
-    public void usarExclusividad(Jugador jugador){
+    public void usarExclusividad(Jugador jugador) {
         throw new NoSePuedeUtilizarExclusividadError();
     }
 

@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class ExclusividadDePuntaje {
     private final List<Jugador> jugadores;
-    private List<Resultado> resultados;
+    private final List<Resultado> resultados;
 
     public ExclusividadDePuntaje(List<Resultado> resultados, List<Jugador> jugadores) {
         this.jugadores = jugadores;

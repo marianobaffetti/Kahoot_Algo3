@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
-import edu.fiuba.algo3.modelo.Opciones.Opcion;
-
 public class OpcionGroupChoice implements Opcion {
     private final String texto;
     private final String grupo;

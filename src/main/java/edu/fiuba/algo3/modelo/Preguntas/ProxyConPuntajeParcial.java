@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Preguntas;
 
-import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeUtilizarMultiplicadorError;
+import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.Resultado;
@@ -32,7 +32,6 @@ public class ProxyConPuntajeParcial extends Pregunta {
     public void asignarMultiplicadorX3AJugador(Jugador jugador) {
         throw new NoSePuedeUtilizarMultiplicadorError();
     }
-
 
     public Resultado obtenerResultado(Respuesta respuesta) {
         var correctas = this.obtenerOpcionesCorrectas();

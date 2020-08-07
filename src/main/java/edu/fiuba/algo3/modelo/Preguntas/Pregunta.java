@@ -25,7 +25,7 @@ public abstract class Pregunta {
     public abstract List<Opcion> obtenerOpcionesCorrectas();
 
     public void asignarMultiplicadorX2AJugador(Jugador jugador) {
-            jugador.usarMultiplicador("MULTIPLICADOR_X_2");
+        jugador.usarMultiplicador("MULTIPLICADOR_X_2");
     }
 
     public void asignarMultiplicadorX3AJugador(Jugador jugador) {
@@ -36,5 +36,7 @@ public abstract class Pregunta {
         return this.opciones;
     }
 
-    public void usarExclusividad(Jugador jugador){ jugador.usarExclusividad(); }
+    public void usarExclusividad(Jugador jugador) {
+        jugador.usarExclusividad();
+    }
 }
