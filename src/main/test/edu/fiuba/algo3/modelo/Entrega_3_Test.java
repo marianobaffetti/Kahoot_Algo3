@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Entrega_3_Test{
     @Test
-    public void xxxxxxx() {
+    public void ExclusividadDePuntajeSeAplicaCorrectamente() {
 
         var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
         var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());

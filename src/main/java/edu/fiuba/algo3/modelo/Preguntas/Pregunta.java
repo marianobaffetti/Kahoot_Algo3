@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.modelo.Preguntas;
 
 import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.Resultado;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
+import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 import edu.fiuba.algo3.modelo.Opciones.OpcionGroupChoice;

@@ -1,7 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Excepciones.NoHayExclusividadesDisponiblesError;
 import edu.fiuba.algo3.modelo.Excepciones.NoSeEncuentraElMultiplicadorError;
 import edu.fiuba.algo3.modelo.Excepciones.YaHayUnMultiplicadorEnUsoError;
+import edu.fiuba.algo3.modelo.Excepciones.YaHayUnaExclusividadEnUsoError;
+import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
+import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorDefault;
 
 import java.util.List;
 

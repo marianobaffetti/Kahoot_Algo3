@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Excepciones.NoSeEncuentraElMultiplicadorError;
 import edu.fiuba.algo3.modelo.Excepciones.YaHayUnMultiplicadorEnUsoError;
+import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX2;
+import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX3;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

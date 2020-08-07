@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Multiplicadores;
 
 public class MultiplicadorX2 extends EstrategiaDeMultiplicacion {
     public MultiplicadorX2() {
