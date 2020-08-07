@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
+import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
@@ -128,7 +129,7 @@ public class Entrega_2_Test {
     }
 
     @Test
-    public void jugadorUsaMultiplicadorYSeAsignanPuntosCorrectamente() {
+    public void jugadorUsaMultiplicadorX3YSeAsignanPuntosCorrectamente() {
         /*
             Una Pregunta de Verdadero/Falso con penalidad recibe una lista de respuestas y asigna
             correctamente puntos a los jugadores que respondieron correctamente, y resta
@@ -169,6 +170,50 @@ public class Entrega_2_Test {
         ronda.finalizar();
 
         assertEquals(3, pepe.obtenerPuntaje());
+    }
+
+    @Test
+    public void jugadorUsaMultiplicadorX2YSeAsignanPuntosCorrectamente() {
+        /*
+            Una Pregunta de Verdadero/Falso con penalidad recibe una lista de respuestas y asigna
+            correctamente puntos a los jugadores que respondieron correctamente, y resta
+            correctamente puntos a los jugadores que respondieron en forma incorrecta. Además multiplica
+            puntos correspondientes.
+        */
+
+        var pepe = new Jugador("Pepe", List.of(new MultiplicadorX2()));
+
+        var opcion1 = new OpcionDefault("Verdadero", true);
+        var opcion2 = new OpcionDefault("Falso", false);
+
+        var opciones = new ArrayList<Opcion>();
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+
+        var opcionesCorrectas = new ArrayList<Opcion>();
+        var opcionesIncorrectas = new ArrayList<Opcion>();
+
+        opcionesCorrectas.add(opcion1);
+        opcionesIncorrectas.add(opcion2);
+
+        var builder = new PreguntasBuilder();
+        var pregunta = builder.crearMultipleChoice("Colón llegó a América en el siglo XV.", opciones)
+                .conPenalidad()
+                .get();
+
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(pepe);
+
+        var ronda = new Ronda(pregunta, jugadores);
+
+        var respuestaJugadorUno = new Respuesta(opcionesCorrectas, pepe);
+
+        ronda.asignarMultiplicadorX2AJugador(pepe);
+        ronda.agregarRespuesta(respuestaJugadorUno);
+
+        ronda.finalizar();
+
+        assertEquals(2, pepe.obtenerPuntaje());
     }
 
     @Test
