@@ -35,4 +35,18 @@ public class RondaTest {
 
         Assertions.assertEquals("Pepin", ronda.jugadorActual().obtenerNombre());
     }
+
+    @Test
+    public void rondaLuegoDeAgregarUltimaRespuestaSeFinalizaRondaActualizandoPuntosAJugadores() {
+        List<Opcion> opciones = List.of(new OpcionDefault("", true));
+        Jugador pepe = new Jugador("Pepe", new ArrayList<>());
+        List < Jugador > jugadores = List.of(pepe);
+        Ronda ronda = new Ronda(new VerdaderoFalso("1", opciones), jugadores);
+        ronda.iniciar();
+        Assertions.assertEquals(0, pepe.obtenerPuntaje());
+
+        ronda.agregarRespuesta(new Respuesta(opciones, pepe));
+
+        Assertions.assertEquals(1, pepe.obtenerPuntaje());
+    }
 }

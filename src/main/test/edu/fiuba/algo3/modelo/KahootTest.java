@@ -25,4 +25,24 @@ public class KahootTest {
 
         Assertions.assertTrue(kahoot.hayRondaEnJuego());
     }
+
+    /*
+    TODO: actualmente el test falla porque no se puede resetear el singleton Kahoot
+    @Test
+    public void kahootObtenerNumeroDeRondaDeVuelveNumeroDeRondaActual() {
+        List<Opcion> opciones = List.of(new OpcionDefault("", true));
+        List<Jugador> jugadores = List.of(new Jugador("Pepe", new ArrayList<>()));
+        Ronda ronda1 = new Ronda(new VerdaderoFalso("1", opciones), jugadores);
+        Ronda ronda2 = new Ronda(new VerdaderoFalso("2", opciones), jugadores);
+
+        var kahoot = Kahoot.getInstance();
+        kahoot.agregarRondas(List.of(ronda1, ronda2));
+        kahoot.agregarJugadores(jugadores);
+        Assertions.assertFalse(kahoot.hayRondaEnJuego());
+
+        kahoot.siguienteRonda();
+        kahoot.siguienteRonda();
+
+        Assertions.assertEquals(2, kahoot.obtenerNumeroDeRonda());
+    }*/
 }

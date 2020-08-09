@@ -65,7 +65,9 @@ public class Ronda {
     }
 
     private void siguienteTurno() {
-        if (!this.iteradorJugadores.hasNext()) throw new NoHayMasJugadoresEnLaRondaError();
-        this.jugadorActual = this.iteradorJugadores.next();
+        if (this.iteradorJugadores.hasNext())
+            this.jugadorActual = this.iteradorJugadores.next();
+        else
+            this.finalizar();
     }
 }

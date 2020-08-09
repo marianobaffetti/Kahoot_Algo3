@@ -69,4 +69,12 @@ public class Kahoot extends Observable {
         if (!this.iteradorRondas.hasNext()) throw new NoHayMasRondasError();
         this.rondaActual = this.iteradorRondas.next();
     }
+
+    public int obtenerNumeroDeRonda() {
+        return this.rondas.indexOf(this.rondaActual) + 1;
+    }
+
+    public void agregarRespuesta(Respuesta respuesta) {
+        this.rondaActual.agregarRespuesta(respuesta);
+    }
 }
