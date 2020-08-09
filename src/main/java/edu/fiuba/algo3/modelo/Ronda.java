@@ -1,23 +1,29 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Excepciones.NoHayMasJugadoresEnLaRondaError;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Ronda {
     private final Pregunta pregunta;
     private final List<Respuesta> respuestas;
     private final List<Jugador> jugadores;
+    private final Iterator<Jugador> iteradorJugadores;
+    private Jugador jugadorActual;
 
     public Ronda(Pregunta pregunta, List<Jugador> jugadores) {
         this.pregunta = pregunta;
         this.respuestas = new ArrayList<>();
         this.jugadores = jugadores;
+        this.iteradorJugadores = jugadores.iterator();
     }
 
     public void agregarRespuesta(Respuesta respuesta) {
         this.respuestas.add(respuesta);
+        this.siguienteTurno();
     }
 
     public void finalizar() {
@@ -50,7 +56,16 @@ public class Ronda {
         this.pregunta.usarExclusividad(jugador);
     }
 
-    public String obtenerTipoDePregunta() {
-        return this.pregunta.obtenerTipo();
+    public void iniciar() {
+        siguienteTurno();
+    }
+
+    public Jugador jugadorActual() {
+        return this.jugadorActual;
+    }
+
+    private void siguienteTurno() {
+        if (!this.iteradorJugadores.hasNext()) throw new NoHayMasJugadoresEnLaRondaError();
+        this.jugadorActual = this.iteradorJugadores.next();
     }
 }

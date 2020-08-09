@@ -10,19 +10,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RondaTest {
-    /*@Test
-    public void RondaSeInicializaConPreguntasYJugadores() {
-        List<Opcion> opciones = List.of(
-            new OpcionDefault("Opcion 1", true),
-            new OpcionDefault("Opcion 2", false)
-        );
+    @Test
+    public void rondaIniciaSeleccionadoPrimerJugador() {
+        List<Opcion> opciones = List.of(new OpcionDefault("", true));
+        List<Jugador> jugadores = List.of(new Jugador("Pepe", new ArrayList<>()));
+        Ronda ronda = new Ronda(new VerdaderoFalso("1", opciones), jugadores);
 
-        var ronda = new Ronda(
-            new VerdaderoFalso("La Opcion 1 es falsa.", opciones),
-            List.of(new Jugador("Pepe", new ArrayList<>()))
-        );
+        ronda.iniciar();
 
-        Assertions.assertEquals(1, ronda.obtenerJugadores().size());
-        Assertions.assertEquals(2, ronda.obtenerPregunta().obtenerOpciones().size());
-    }*/
+        Assertions.assertEquals("Pepe", ronda.jugadorActual().obtenerNombre());
+    }
+
+    @Test
+    public void rondaLuegoDeAgregarRespuestaSeleccionaSiguienteJugador() {
+        List<Opcion> opciones = List.of(new OpcionDefault("", true));
+        Jugador pepe = new Jugador("Pepe", new ArrayList<>());
+                List < Jugador > jugadores = List.of(
+                        pepe,
+                        new Jugador("Pepin", new ArrayList<>())
+                );
+        Ronda ronda = new Ronda(new VerdaderoFalso("1", opciones), jugadores);
+        ronda.iniciar();
+        ronda.agregarRespuesta(new Respuesta(opciones, pepe));
+
+        Assertions.assertEquals("Pepin", ronda.jugadorActual().obtenerNombre());
+    }
 }

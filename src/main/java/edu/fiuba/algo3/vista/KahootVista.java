@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Box;
 import javafx.scene.text.Font;
 
 import java.util.List;
@@ -65,7 +64,7 @@ public class KahootVista extends BorderPane implements Observer {
     @Override
     public void update(Observable modelo, Object o) {
         Kahoot kahoot = (Kahoot) modelo;
-        if (kahoot.hayRonda()){
+        if (kahoot.hayRondaEnJuego()){
             if (kahoot.obtenerTipoDePregunta() == "VERDADERO_O_FALSO") {
                 mostrarTextoDePregunta(kahoot);
                 mostrarOpciones(kahoot);

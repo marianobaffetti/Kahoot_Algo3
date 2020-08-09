@@ -1,15 +1,20 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Excepciones.NoHayMasRondasError;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 
 public class Kahoot extends Observable {
     private static Kahoot kahoot;
     private Ronda rondaActual;
+    private List<Ronda> rondas;
+    private List<Jugador> jugadores;
+    private Iterator<Ronda> iteradorRondas;
 
     private Kahoot() {
     }
@@ -19,12 +24,12 @@ public class Kahoot extends Observable {
         return kahoot;
     }
 
-    public boolean hayRonda() {
-        return this.rondaActual !=  null;
+    public boolean hayRondaEnJuego() {
+        return this.rondaActual != null;
     }
 
     public String obtenerTipoDePregunta() {
-        return this.rondaActual.obtenerTipoDePregunta();
+        return this.rondaActual.obtenerPregunta().obtenerTipo();
     }
 
 
@@ -49,5 +54,19 @@ public class Kahoot extends Observable {
 
     public List<Opcion> obtenerOpciones() {
         return this.rondaActual.obtenerPregunta().obtenerOpciones();
+    }
+
+    public void agregarRondas(List<Ronda> rondas) {
+        this.rondas = rondas;
+        this.iteradorRondas = rondas.iterator();
+    }
+
+    public void agregarJugadores(List<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    public void siguienteRonda() {
+        if (!this.iteradorRondas.hasNext()) throw new NoHayMasRondasError();
+        this.rondaActual = this.iteradorRondas.next();
     }
 }
