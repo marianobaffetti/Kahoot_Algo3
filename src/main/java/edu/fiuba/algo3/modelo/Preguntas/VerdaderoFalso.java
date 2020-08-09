@@ -10,7 +10,7 @@ public class VerdaderoFalso extends Pregunta {
     private final MultipleChoice multipleChoice;
 
     public VerdaderoFalso(String texto, List<Opcion> opciones) {
-        super(texto);
+        super(texto, opciones);
         this.multipleChoice = new MultipleChoice(texto, opciones);
     }
 

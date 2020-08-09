@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 
 import java.util.ArrayList;
@@ -44,5 +45,9 @@ public class Kahoot extends Observable {
 
     public String obtenerTextoDePregunta() {
         return this.rondaActual.obtenerPregunta().obtenerTexto();
+    }
+
+    public List<Opcion> obtenerOpciones() {
+        return this.rondaActual.obtenerPregunta().obtenerOpciones();
     }
 }

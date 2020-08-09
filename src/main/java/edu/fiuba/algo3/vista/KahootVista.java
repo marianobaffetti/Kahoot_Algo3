@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.KahootControlador;
 import edu.fiuba.algo3.modelo.Kahoot;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -11,7 +12,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Box;
+import javafx.scene.text.Font;
 
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -30,7 +35,7 @@ public class KahootVista extends BorderPane implements Observer {
 
     private void inicializar(KahootControlador controlador) {
         this.controlador = controlador;
-        establecerFondoDePantalla();
+        /*establecerFondoDePantalla();*/
         agregarBotonDeInicio();
     }
 
@@ -62,13 +67,40 @@ public class KahootVista extends BorderPane implements Observer {
         Kahoot kahoot = (Kahoot) modelo;
         if (kahoot.hayRonda()){
             if (kahoot.obtenerTipoDePregunta() == "VERDADERO_O_FALSO") {
-                this.setBottom(new Label(kahoot.obtenerTextoDePregunta()));
-                /*var preguntaVista = new VerdaderoFalsoVista();
-                this.setBottom();*/
+                mostrarTextoDePregunta(kahoot);
+                mostrarOpciones(kahoot);
             }
         }
+        quitarBotonInicio();
+    }
 
-        this.mostrarMensaje("Empieza el juego!!!");
+    private void mostrarOpciones(Kahoot kahoot) {
+        List<Opcion> opciones = kahoot.obtenerOpciones();
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER);
+        opciones.forEach(opcion -> {
+            Button botonOpcion = new Button(opcion.obtenerTexto());
+            botonOpcion.setPadding(new Insets(20, 20, 20, 20));
+            botonOpcion.setMinSize(200, 100);
+            VBox box = new VBox(botonOpcion);
+            box.setPadding(new Insets(0, 5, 0, 5));
+            hBox.getChildren().add(box);
+        });
+
+        this.setCenter(hBox);
+    }
+
+    private void quitarBotonInicio() {
+        this.setBottom(new Label(""));
+    }
+
+    private void mostrarTextoDePregunta(Kahoot kahoot) {
+        Label lblPregunta = new Label(kahoot.obtenerTextoDePregunta());
+        lblPregunta.setFont(new Font(26));
+        HBox hBox = new HBox(lblPregunta);
+        hBox.setAlignment(Pos.TOP_CENTER);
+        hBox.setPadding(new Insets(30, 0, 50, 0));
+        this.setTop(hBox);
     }
 
     public String getTitle() {

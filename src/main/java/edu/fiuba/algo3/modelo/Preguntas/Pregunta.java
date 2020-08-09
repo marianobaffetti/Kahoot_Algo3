@@ -12,6 +12,11 @@ public abstract class Pregunta {
     protected final String texto;
     protected List<Opcion> opciones;
 
+    public Pregunta(String texto, List<Opcion> opciones) {
+        this.texto = texto;
+        this.opciones = opciones;
+    }
+
     public Pregunta(Pregunta pregunta) {
         this.texto = pregunta.texto;
     }

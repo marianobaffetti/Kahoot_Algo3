@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
-public class OpcionGroupChoice implements Opcion {
-    private final String texto;
+public class OpcionGroupChoice extends Opcion {
     private final String grupo;
 
     public OpcionGroupChoice(String texto, String grupo) {
-        this.texto = texto;
+        super(texto);
         this.grupo = grupo;
     }
 
