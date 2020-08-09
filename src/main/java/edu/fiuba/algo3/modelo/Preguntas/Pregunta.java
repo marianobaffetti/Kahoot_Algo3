@@ -9,7 +9,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class Pregunta {
+    protected final String texto;
     protected List<Opcion> opciones;
+
+    public Pregunta(Pregunta pregunta) {
+        this.texto = pregunta.texto;
+    }
+
+    public Pregunta(String texto) {
+        this.texto = texto;
+    }
 
     public List<Resultado> obtenerResultados(List<Respuesta> respuestas) {
         return respuestas
@@ -38,5 +47,11 @@ public abstract class Pregunta {
 
     public void usarExclusividad(Jugador jugador) {
         jugador.usarExclusividad();
+    }
+
+    public abstract String obtenerTipo();
+
+    public String obtenerTexto() {
+        return this.texto;
     }
 }

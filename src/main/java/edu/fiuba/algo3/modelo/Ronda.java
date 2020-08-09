@@ -50,4 +50,7 @@ public class Ronda {
         this.pregunta.usarExclusividad(jugador);
     }
 
+    public String obtenerTipoDePregunta() {
+        return this.pregunta.obtenerTipo();
+    }
 }

@@ -7,11 +7,8 @@ import edu.fiuba.algo3.modelo.Resultado;
 import java.util.List;
 
 public class OrderedChoice extends Pregunta {
-    private final String texto;
-
     public OrderedChoice(String texto, List<Opcion> opciones) {
-        super();
-        this.texto = texto;
+        super(texto);
         this.opciones = opciones;
     }
 
@@ -29,5 +26,10 @@ public class OrderedChoice extends Pregunta {
 
     public List<Opcion> obtenerOpcionesCorrectas() {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String obtenerTipo() {
+        return "ORDERED CHOICE";
     }
 }

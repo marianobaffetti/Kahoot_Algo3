@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.KahootControlador;
+import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -57,7 +58,16 @@ public class KahootVista extends BorderPane implements Observer {
     }
 
     @Override
-    public void update(Observable observable, Object o) {
+    public void update(Observable modelo, Object o) {
+        Kahoot kahoot = (Kahoot) modelo;
+        if (kahoot.hayRonda()){
+            if (kahoot.obtenerTipoDePregunta() == "VERDADERO_O_FALSO") {
+                this.setBottom(new Label(kahoot.obtenerTextoDePregunta()));
+                /*var preguntaVista = new VerdaderoFalsoVista();
+                this.setBottom();*/
+            }
+        }
+
         this.mostrarMensaje("Empieza el juego!!!");
     }
 

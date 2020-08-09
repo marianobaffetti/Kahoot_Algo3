@@ -12,6 +12,7 @@ public class ProxyConPenalidad extends Pregunta {
     private final Pregunta pregunta;
 
     public ProxyConPenalidad(Pregunta pregunta) {
+        super(pregunta.texto);
         this.pregunta = pregunta;
     }
 
@@ -45,6 +46,11 @@ public class ProxyConPenalidad extends Pregunta {
     @Override
     public void usarExclusividad(Jugador jugador) {
         throw new NoSePuedeUtilizarExclusividadError();
+    }
+
+    @Override
+    public String obtenerTipo() {
+        return this.pregunta.obtenerTipo() + "_CON_PENALIDAD";
     }
 
 }

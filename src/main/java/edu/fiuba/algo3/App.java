@@ -22,11 +22,9 @@ public class App extends Application {
         var kahootVista = new KahootVista(kahootControlador);
         var kahootModelo = Kahoot.getInstance();
         kahootModelo.addObserver(kahootVista);
-
         var scene = new Scene(kahootVista, 640, 480);
         stage.setScene(scene);
         stage.setTitle(kahootVista.getTitle());
         stage.show();
     }
-
 }

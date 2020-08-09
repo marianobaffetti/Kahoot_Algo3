@@ -10,6 +10,7 @@ public class VerdaderoFalso extends Pregunta {
     private final MultipleChoice multipleChoice;
 
     public VerdaderoFalso(String texto, List<Opcion> opciones) {
+        super(texto);
         this.multipleChoice = new MultipleChoice(texto, opciones);
     }
 
@@ -23,5 +24,10 @@ public class VerdaderoFalso extends Pregunta {
 
     public List<Opcion> obtenerOpcionesCorrectas() {
         return this.multipleChoice.obtenerOpcionesCorrectas();
+    }
+
+    @Override
+    public String obtenerTipo() {
+        return "VERDADERO_O_FALSO";
     }
 }

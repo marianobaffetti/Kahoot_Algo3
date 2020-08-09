@@ -12,6 +12,7 @@ public class ProxyConPuntajeParcial extends Pregunta {
     private final Pregunta pregunta;
 
     public ProxyConPuntajeParcial(Pregunta pregunta) {
+        super(pregunta.obtenerTexto());
         this.pregunta = pregunta;
     }
 
@@ -31,6 +32,11 @@ public class ProxyConPuntajeParcial extends Pregunta {
     @Override
     public void asignarMultiplicadorX3AJugador(Jugador jugador) {
         throw new NoSePuedeUtilizarMultiplicadorError();
+    }
+
+    @Override
+    public String obtenerTipo() {
+        return this.pregunta.obtenerTipo() + "_CON_PUNTAJE_PARCIAL";
     }
 
     public Resultado obtenerResultado(Respuesta respuesta) {
