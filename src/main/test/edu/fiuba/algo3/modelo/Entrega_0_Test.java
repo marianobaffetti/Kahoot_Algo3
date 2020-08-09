@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
+import edu.fiuba.algo3.modelo.Preguntas.VerdaderoFalso;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,11 +16,11 @@ public class Entrega_0_Test {
             correcta
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
 
-        var opcion1 = new Opcion("Verdadero", true);
-        var opcion2 = new Opcion("Falso", false);
+        var opcion1 = new OpcionDefault("Verdadero", true);
+        var opcion2 = new OpcionDefault("Falso", false);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcion1);
@@ -29,7 +32,7 @@ public class Entrega_0_Test {
         var builder = new PreguntasBuilder();
 
         var pregunta = builder.crearVerdaderOFalso("Colón llegó a América en el siglo XV.", opciones).get();
-        var respuesta = new RespuestaVerdaderoFalso(opcionesCorrectas, jugadorUno);
+        var respuesta = new Respuesta(opcionesCorrectas, jugadorUno);
 
         Assertions.assertTrue(pregunta.respuestaEsCorrecta(respuesta));
 
@@ -39,7 +42,7 @@ public class Entrega_0_Test {
         opcionesIncorrectas.add(opcion2);
 
         pregunta = new VerdaderoFalso("Colón llegó a América en el siglo XV.", opciones);
-        respuesta = new RespuestaVerdaderoFalso(opcionesIncorrectas, jugadorDos);
+        respuesta = new Respuesta(opcionesIncorrectas, jugadorDos);
 
         Assertions.assertFalse(pregunta.respuestaEsCorrecta(respuesta));
     }
@@ -51,11 +54,11 @@ public class Entrega_0_Test {
             correctamente puntos a los jugadores que respondieron correctamente
         */
 
-        var jugadorUno = new Jugador("Pepe");
-        var jugadorDos = new Jugador("Pepin");
+        var jugadorUno = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>());
+        var jugadorDos = new Jugador("Pepin", new ArrayList<EstrategiaDeMultiplicacion>());
 
-        var opcion1 = new Opcion("Verdadero", true);
-        var opcion2 = new Opcion("Falso", false);
+        var opcion1 = new OpcionDefault("Verdadero", true);
+        var opcion2 = new OpcionDefault("Falso", false);
 
         var opciones = new ArrayList<Opcion>();
         opciones.add(opcion1);
@@ -70,10 +73,14 @@ public class Entrega_0_Test {
         var builder = new PreguntasBuilder();
         var pregunta = builder.crearVerdaderOFalso("Colón llegó a América en el siglo XV.", opciones).get();
 
-        var ronda = new Ronda(pregunta);
+        var jugadores = new ArrayList<Jugador>();
+        jugadores.add(jugadorUno);
+        jugadores.add(jugadorDos);
 
-        var respuestaJugadorUno = new RespuestaVerdaderoFalso(opcionCorrecta, jugadorUno);
-        var respuestaJugadorDos = new RespuestaVerdaderoFalso(opcionIncorrecta, jugadorDos);
+        var ronda = new Ronda(pregunta, jugadores);
+
+        var respuestaJugadorUno = new Respuesta(opcionCorrecta, jugadorUno);
+        var respuestaJugadorDos = new Respuesta(opcionIncorrecta, jugadorDos);
 
         ronda.agregarRespuesta(respuestaJugadorUno);
         ronda.agregarRespuesta(respuestaJugadorDos);

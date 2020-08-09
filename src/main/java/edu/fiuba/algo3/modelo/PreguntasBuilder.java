@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Preguntas.*;
+
 import java.util.List;
 
 public class PreguntasBuilder {
@@ -26,6 +29,16 @@ public class PreguntasBuilder {
 
     public PreguntasBuilder conPuntajeParcial() {
         this.preguntaActual = new ProxyConPuntajeParcial(this.preguntaActual);
+        return this;
+    }
+
+    public PreguntasBuilder crearOrderedChoice(String texto, List<Opcion> opciones) {
+        this.preguntaActual = new OrderedChoice(texto, opciones);
+        return this;
+    }
+
+    public PreguntasBuilder crearGroupChoice(String texto, List<Opcion> opciones) {
+        this.preguntaActual = new GroupChoice(texto, opciones);
         return this;
     }
 }

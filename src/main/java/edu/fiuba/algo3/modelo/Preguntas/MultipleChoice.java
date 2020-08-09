@@ -1,10 +1,12 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Preguntas;
+
+import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class MultipleChoice extends Pregunta {
-    private final List<Opcion> opciones;
     private final String texto;
 
     public MultipleChoice(String texto, List<Opcion> opciones) {

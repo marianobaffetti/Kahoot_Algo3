@@ -1,4 +1,10 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Preguntas;
+
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeUtilizarMultiplicadorError;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.Resultado;
 
 import java.util.List;
 
@@ -15,6 +21,11 @@ public class ProxyConPuntajeParcial extends Pregunta {
 
     public List<Opcion> obtenerOpcionesCorrectas() {
         return this.pregunta.obtenerOpcionesCorrectas();
+    }
+
+    @Override
+    public void asignarMultiplicadorX2AJugador(Jugador jugador) {
+        throw new NoSePuedeUtilizarMultiplicadorError();
     }
 
     public Resultado obtenerResultado(Respuesta respuesta) {
