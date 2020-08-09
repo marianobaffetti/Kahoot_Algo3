@@ -11,7 +11,7 @@ public class OpcionGroupChoice implements Opcion {
 
     @Override
     public Boolean esCorrecta() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     public Boolean coincideCon(Opcion opcion) {
