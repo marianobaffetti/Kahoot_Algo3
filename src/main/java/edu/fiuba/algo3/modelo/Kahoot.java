@@ -77,4 +77,8 @@ public class Kahoot extends Observable {
     public void agregarRespuesta(Respuesta respuesta) {
         this.rondaActual.agregarRespuesta(respuesta);
     }
+
+    public String obtenerEtapa() {
+        return "MOSTRAR_PREGUNTA";
+    }
 }
