@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Entrega_2_Test {
     @Test
-    public void PreguntaMultipleChoiceConPuntajePenalidadOtorgaPuntosALosJugadoresCorrectamente() {
+    public void PreguntaMultipleChoiceConPenalidadOtorgaPuntosALosJugadoresCorrectamente() {
         /*
             Una Pregunta de Multiple Choice con penalidad recibe una lista de respuestas y
             asigna correctamente puntos a los jugadores según las opciones correctas que hayan
