@@ -30,6 +30,6 @@ public class OrderedChoice extends Pregunta {
 
     @Override
     public String obtenerTipo() {
-        return "ORDERED CHOICE";
+        return "ORDERED_CHOICE";
     }
 }
