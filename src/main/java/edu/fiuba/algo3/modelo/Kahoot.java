@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 public class Kahoot extends Observable {
     private static Kahoot instance;
+    private String estado;
     private int numeroDeRonda;
     private Ronda rondaActual;
     private List<Ronda> rondas;
@@ -18,6 +19,7 @@ public class Kahoot extends Observable {
     private Kahoot() {
         this.iteradorRondas = Collections.emptyIterator();
         this.numeroDeRonda = 0;
+        this.estado = "MOSTRAR_PREGUNTA";
     }
 
     public static Kahoot getInstance() {
@@ -61,7 +63,13 @@ public class Kahoot extends Observable {
             this.rondaActual = this.iteradorRondas.next();
             this.rondaActual.iniciar();
             this.numeroDeRonda++;
+        } else {
+            this.finalizar();
         }
+    }
+
+    private void finalizar() {
+        this.estado = "MOSTRAR_PUNTAJES";
     }
 
     public int obtenerNumeroDeRonda() {
@@ -70,13 +78,18 @@ public class Kahoot extends Observable {
 
     public void agregarRespuesta(Respuesta respuesta) {
         this.rondaActual.agregarRespuesta(respuesta);
+        setChanged();
     }
 
     public String obtenerEtapa() {
-        return "MOSTRAR_PREGUNTA";
+        return this.estado;
     }
 
     public Ronda obtenerRondaActual() {
         return this.rondaActual;
+    }
+
+    public List<Jugador> obtenerJugadores() {
+        return this.jugadores;
     }
 }
