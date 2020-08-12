@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.VerdaderoFalso;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -69,13 +70,13 @@ public class Entrega_3_Test{
     public void cuandoElUltimoJugadorRespondeSePasaALaSiguienteRonda() {
         List<Opcion> opciones = List.of(new OpcionDefault("", true));
         Jugador pepe = new Jugador("Pepe", new ArrayList<>());
-        List < Jugador > jugadores = List.of(pepe);
-        Ronda ronda1 = new Ronda(new VerdaderoFalso("1", opciones), jugadores);
-        Ronda ronda2 = new Ronda(new VerdaderoFalso("2", opciones), jugadores);
+        List <Jugador> jugadores = List.of(pepe);
+        var pregunta1 = new VerdaderoFalso("1", opciones);
+        var pregunta2 = new VerdaderoFalso("2", opciones);
 
         var kahoot = Kahoot.getInstance();
-        kahoot.agregarRondas(List.of(ronda1, ronda2));
         kahoot.agregarJugadores(List.of(pepe));
+        kahoot.agregarPreguntas(List.of(pregunta1, pregunta2));
         kahoot.iniciar();
         kahoot.agregarRespuesta(new Respuesta(opciones, pepe));
 
@@ -86,13 +87,13 @@ public class Entrega_3_Test{
     public void kahootSeIniciaConRondasYJugadoresYDevuelveNumeroDeRonda() {
         List<Opcion> opciones = List.of(new OpcionDefault("", true));
         Jugador pepe = new Jugador("Pepe", new ArrayList<>());
-        List < Jugador > jugadores = List.of(pepe);
-        Ronda ronda1 = new Ronda(new VerdaderoFalso("1", opciones), jugadores);
-        Ronda ronda2 = new Ronda(new VerdaderoFalso("2", opciones), jugadores);
+        List <Jugador> jugadores = List.of(pepe);
+        var pregunta1 = new VerdaderoFalso("1", opciones);
+        var pregunta2 = new VerdaderoFalso("2", opciones);
 
         var kahoot = Kahoot.getInstance();
-        kahoot.agregarRondas(List.of(ronda1, ronda2));
         kahoot.agregarJugadores(List.of(pepe));
+        kahoot.agregarPreguntas(List.of(pregunta1, pregunta2));
         kahoot.iniciar();
 
         Assertions.assertEquals(1, Kahoot.getInstance().obtenerNumeroDeRonda());
