@@ -42,7 +42,7 @@ public class KahootVista extends StackPane implements Observer {
                 mostrar(factory.crear(tipoPregunta, kahoot));
                 break;
             case "MOSTRAR_PUNTAJES":
-                mostrar(new MostrarPuntajesVista(kahoot));
+                mostrar(new PuntajesFinalesVista(kahoot));
                 break;
         }
     }

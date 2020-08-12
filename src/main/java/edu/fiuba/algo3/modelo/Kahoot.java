@@ -76,8 +76,8 @@ public class Kahoot extends Observable {
         return this.numeroDeRonda;
     }
 
-    public void agregarRespuesta(Respuesta respuesta) {
-        this.rondaActual.agregarRespuesta(respuesta);
+    public void agregarRespuesta(List<Opcion> opciones) {
+        this.rondaActual.agregarRespuesta(new Respuesta(opciones,this.rondaActual.jugadorActual()));
         setChanged();
     }
 

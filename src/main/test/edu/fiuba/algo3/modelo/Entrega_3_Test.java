@@ -3,7 +3,6 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
-import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.VerdaderoFalso;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -78,7 +77,7 @@ public class Entrega_3_Test{
         kahoot.agregarJugadores(List.of(pepe));
         kahoot.agregarPreguntas(List.of(pregunta1, pregunta2));
         kahoot.iniciar();
-        kahoot.agregarRespuesta(new Respuesta(opciones, pepe));
+        kahoot.agregarRespuesta(opciones);
 
         Assertions.assertEquals(2, Kahoot.getInstance().obtenerNumeroDeRonda());
     }
