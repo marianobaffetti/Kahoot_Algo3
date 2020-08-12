@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Observable;
 
 public class Kahoot extends Observable {
-    private static Kahoot kahoot;
+    private static Kahoot instance;
     private Ronda rondaActual;
     private List<Ronda> rondas;
     private List<Jugador> jugadores;
@@ -20,8 +20,8 @@ public class Kahoot extends Observable {
     }
 
     public static Kahoot getInstance() {
-        if (kahoot == null) kahoot = new Kahoot();
-        return kahoot;
+        if (instance == null) instance = new Kahoot();
+        return instance;
     }
 
     public boolean hayRondaEnJuego() {

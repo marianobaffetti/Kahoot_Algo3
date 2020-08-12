@@ -1,8 +1,8 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.controlador.KahootControlador;
+import edu.fiuba.algo3.controladores.KahootControlador;
 import edu.fiuba.algo3.modelo.Kahoot;
-import edu.fiuba.algo3.vista.KahootVista;
+import edu.fiuba.algo3.vistas.KahootVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

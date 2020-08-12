@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vistas;
 
-import edu.fiuba.algo3.controlador.KahootControlador;
+import edu.fiuba.algo3.controladores.KahootControlador;
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -15,11 +15,11 @@ public class KahootVista extends StackPane implements Observer {
     public KahootVista(KahootControlador controlador) {
         super();
         this.factory = new FactoryPreguntasVistas();
-        iniciar(controlador);
+        this.controlador = controlador;
+        iniciar();
     }
 
-    private void iniciar(KahootControlador controlador) {
-        this.controlador = controlador;
+    private void iniciar() {
         mostrar(new InicioVista(this.controlador));
     }
 
@@ -36,13 +36,13 @@ public class KahootVista extends StackPane implements Observer {
 
         switch (etapa){
             case "CREAR_JUGADORES":
-                //mostrar(new CrearJugadoresVista(this.controlador, kahoot))
+                //mostrar(new CrearJugadoresVista(this.controlador, kahoot));
                 break;
             case "MOSTRAR_PREGUNTA":
-                mostrar(factory.crear(tipoPregunta, this.controlador, kahoot));
+                mostrar(factory.crear(tipoPregunta, kahoot));
                 break;
             case "MOSTRAR_PUNTAJES":
-                //mostrar(new MostrarPuntajesVista(this.controlador, kahoot))
+                //mostrar(new MostrarPuntajesVista(this.controlador, kahoot));
                 break;
         }
     }

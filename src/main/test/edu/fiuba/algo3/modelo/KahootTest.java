@@ -4,12 +4,21 @@ import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 import edu.fiuba.algo3.modelo.Preguntas.VerdaderoFalso;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 public class KahootTest {
+    @BeforeEach
+    public void resetSingleton() throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+        Field kahoot = Kahoot.class.getDeclaredField("instance");
+        kahoot.setAccessible(true);
+        kahoot.set(null, null);
+    }
+
     @Test
     public void kahootAvanzaALaSiguienteRonda() {
         List<Opcion> opciones = List.of(new OpcionDefault("", true));
@@ -26,8 +35,7 @@ public class KahootTest {
         Assertions.assertTrue(kahoot.hayRondaEnJuego());
     }
 
-    /*
-    TODO: actualmente el test falla porque no se puede resetear el singleton Kahoot
+
     @Test
     public void kahootObtenerNumeroDeRondaDeVuelveNumeroDeRondaActual() {
         List<Opcion> opciones = List.of(new OpcionDefault("", true));
@@ -44,5 +52,5 @@ public class KahootTest {
         kahoot.siguienteRonda();
 
         Assertions.assertEquals(2, kahoot.obtenerNumeroDeRonda());
-    }*/
+    }
 }

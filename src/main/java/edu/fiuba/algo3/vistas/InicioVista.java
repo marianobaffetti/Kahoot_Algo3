@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vistas;
 
-import edu.fiuba.algo3.controlador.KahootControlador;
+import edu.fiuba.algo3.controladores.KahootControlador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
