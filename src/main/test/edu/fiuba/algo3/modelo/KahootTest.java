@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Excepciones.NoSePuedenAgregarPreguntasSiNoHayJugadoresError;
+import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayJugadoresError;
+import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayPreguntasError;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
-import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.VerdaderoFalso;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,6 +31,7 @@ public class KahootTest {
         kahoot.agregarJugadores(jugadores);
         kahoot.agregarPreguntas(List.of(pregunta1));
         Assertions.assertFalse(kahoot.hayRondaEnJuego());
+        kahoot.iniciar();
 
         kahoot.siguienteRonda();
 
@@ -48,20 +49,30 @@ public class KahootTest {
         var kahoot = Kahoot.getInstance();
         kahoot.agregarJugadores(jugadores);
         kahoot.agregarPreguntas(List.of(pregunta1, pregunta2));
-        Assertions.assertFalse(kahoot.hayRondaEnJuego());
+        kahoot.iniciar();
 
-        kahoot.siguienteRonda();
         kahoot.siguienteRonda();
 
         Assertions.assertEquals(2, kahoot.obtenerNumeroDeRonda());
     }
 
     @Test
-    public void siSeAgreganPreguntasAntesDeAgregarJugadoresSeLanzaExcepcionCorrespondiente() {
+    public void kahootLanzaUnaExcepcionSiNoHayJugadoresAlMomentoDeIniciar() {
         List<Opcion> opciones = List.of(new OpcionDefault("", true));
-        List<Pregunta> preguntas = List.of(new VerdaderoFalso("1", opciones));
+        var pregunta1 = new VerdaderoFalso("1", opciones);
+        var pregunta2 = new VerdaderoFalso("2", opciones);
         var kahoot = Kahoot.getInstance();
+        kahoot.agregarPreguntas(List.of(pregunta1, pregunta2));
 
-        Assertions.assertThrows(NoSePuedenAgregarPreguntasSiNoHayJugadoresError.class, ()-> kahoot.agregarPreguntas(preguntas));
+        Assertions.assertThrows(NoSePuedeIniciarJuegoSiNoHayJugadoresError.class, () ->kahoot.iniciar() );
+    }
+
+    @Test
+    public void kahootLanzaUnaExcepcionSiNoHayPreguntasAlMomentoDeIniciar() {
+        List<Jugador> jugadores = List.of(new Jugador("Pepe", new ArrayList<>()));
+        var kahoot = Kahoot.getInstance();
+        kahoot.agregarJugadores(jugadores);
+
+        Assertions.assertThrows(NoSePuedeIniciarJuegoSiNoHayPreguntasError.class, () ->kahoot.iniciar() );
     }
 }

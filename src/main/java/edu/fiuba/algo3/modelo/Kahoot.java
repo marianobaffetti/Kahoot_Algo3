@@ -1,10 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Excepciones.NoSePuedenAgregarPreguntasSiNoHayJugadoresError;
+import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayJugadoresError;
+import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayPreguntasError;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Observable;
 import java.util.stream.Collectors;
 
 public class Kahoot extends Observable {
@@ -15,6 +19,7 @@ public class Kahoot extends Observable {
     private List<Ronda> rondas;
     private List<Jugador> jugadores;
     private Iterator<Ronda> iteradorRondas;
+    private List<Pregunta> preguntas;
 
     private Kahoot() {
         this.iteradorRondas = Collections.emptyIterator();
@@ -36,7 +41,10 @@ public class Kahoot extends Observable {
     }
 
     public void iniciar() {
-        this.siguienteRonda();
+        if (this.jugadores == null) throw new NoSePuedeIniciarJuegoSiNoHayJugadoresError();
+        if (this.preguntas == null) throw new NoSePuedeIniciarJuegoSiNoHayPreguntasError();
+        crearRondas();
+        siguienteRonda();
         setChanged();
     }
 
@@ -49,8 +57,12 @@ public class Kahoot extends Observable {
     }
 
     public void agregarPreguntas(List<Pregunta> preguntas) {
-        if (this.jugadores == null) throw new NoSePuedenAgregarPreguntasSiNoHayJugadoresError();
-        this.rondas = preguntas.stream().map(pregunta -> new Ronda(pregunta, this.jugadores)).collect(Collectors.toList());
+        this.preguntas = preguntas;
+
+    }
+
+    private void crearRondas() {
+        this.rondas = this.preguntas.stream().map(pregunta -> new Ronda(pregunta, this.jugadores)).collect(Collectors.toList());
         this.iteradorRondas = this.rondas.iterator();
     }
 

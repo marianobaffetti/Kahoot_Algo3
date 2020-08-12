@@ -3,9 +3,9 @@ package edu.fiuba.algo3.modelo.Opciones;
 public class OpcionDefault extends Opcion {
     private final Boolean esVerdadera;
 
-    public OpcionDefault(String texto, Boolean esVerdadera) {
+    public OpcionDefault(String texto, Boolean esCorrecta) {
         super(texto);
-        this.esVerdadera = esVerdadera;
+        this.esVerdadera = esCorrecta;
     }
 
     public Boolean esCorrecta() {

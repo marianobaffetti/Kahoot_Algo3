@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.PreguntasBuilder;
-import edu.fiuba.algo3.modelo.Ronda;
 import edu.fiuba.algo3.vistas.KahootVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -45,7 +44,7 @@ public class App extends Application {
                 List.of(new OpcionDefault("Verdadero", true),
                         new OpcionDefault("Falso", false)
                 )).get();
-        return  List.of(pregunta);
+        return List.of(pregunta);
     }
 
     private List<Jugador> obtenerJugadores() {
