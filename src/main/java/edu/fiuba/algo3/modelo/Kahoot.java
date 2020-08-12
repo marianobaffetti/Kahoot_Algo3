@@ -1,22 +1,23 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Excepciones.NoHayMasRondasError;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
-import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 
 public class Kahoot extends Observable {
     private static Kahoot instance;
+    private int numeroDeRonda;
     private Ronda rondaActual;
     private List<Ronda> rondas;
     private List<Jugador> jugadores;
     private Iterator<Ronda> iteradorRondas;
 
     private Kahoot() {
+        this.iteradorRondas = Collections.emptyIterator();
+        this.numeroDeRonda = 0;
     }
 
     public static Kahoot getInstance() {
@@ -32,19 +33,8 @@ public class Kahoot extends Observable {
         return this.rondaActual.obtenerPregunta().obtenerTipo();
     }
 
-
     public void iniciar() {
-        Jugador pepe = new Jugador("Pepe", new ArrayList<>());
-        var pregunta = new PreguntasBuilder().crearVerdaderOFalso(
-                "Colón llegó a América en el siglo XV.",
-                List.of(new OpcionDefault("Verdadero", true),
-                        new OpcionDefault("Falso", false)
-                )
-        ).get();
-
-        Ronda ronda = new Ronda(pregunta, List.of(pepe));
-        this.rondaActual = ronda;
-
+        this.siguienteRonda();
         setChanged();
     }
 
@@ -66,12 +56,15 @@ public class Kahoot extends Observable {
     }
 
     public void siguienteRonda() {
-        if (!this.iteradorRondas.hasNext()) throw new NoHayMasRondasError();
-        this.rondaActual = this.iteradorRondas.next();
+        if (this.iteradorRondas.hasNext()) {
+            this.rondaActual = this.iteradorRondas.next();
+            this.rondaActual.iniciar();
+            this.numeroDeRonda++;
+        }
     }
 
     public int obtenerNumeroDeRonda() {
-        return this.rondas.indexOf(this.rondaActual) + 1;
+        return this.numeroDeRonda;
     }
 
     public void agregarRespuesta(Respuesta respuesta) {
@@ -80,5 +73,9 @@ public class Kahoot extends Observable {
 
     public String obtenerEtapa() {
         return "MOSTRAR_PREGUNTA";
+    }
+
+    public Ronda obtenerRondaActual() {
+        return this.rondaActual;
     }
 }

@@ -15,5 +15,6 @@ public abstract class Opcion {
 
     public String obtenerTexto() {
         return this.texto;
-    };
+    }
+
 }

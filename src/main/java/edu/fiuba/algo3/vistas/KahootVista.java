@@ -10,7 +10,7 @@ import java.util.Observer;
 
 public class KahootVista extends StackPane implements Observer {
     private final FactoryPreguntasVistas factory;
-    private KahootControlador controlador;
+    private final KahootControlador controlador;
 
     public KahootVista(KahootControlador controlador) {
         super();
@@ -34,7 +34,7 @@ public class KahootVista extends StackPane implements Observer {
         var etapa = kahoot.obtenerEtapa();
         var tipoPregunta = kahoot.obtenerTipoDePregunta();
 
-        switch (etapa){
+        switch (etapa) {
             case "CREAR_JUGADORES":
                 //mostrar(new CrearJugadoresVista(this.controlador, kahoot));
                 break;

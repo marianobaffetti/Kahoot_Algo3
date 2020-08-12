@@ -13,7 +13,7 @@ import java.util.List;
 
 public class KahootTest {
     @BeforeEach
-    public void resetSingleton() throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+    public void reiniciarKahoot() throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Field kahoot = Kahoot.class.getDeclaredField("instance");
         kahoot.setAccessible(true);
         kahoot.set(null, null);

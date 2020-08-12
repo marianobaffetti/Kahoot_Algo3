@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Excepciones.NoHayMasJugadoresEnLaRondaError;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 
 import java.util.ArrayList;
@@ -30,6 +29,7 @@ public class Ronda {
         var resultados = this.pregunta.obtenerResultados(respuestas);
         this.aplicarExclusividad(resultados);
         resultados.forEach(resultado -> resultado.actualizar());
+        Kahoot.getInstance().siguienteRonda();
     }
 
     private void aplicarExclusividad(List<Resultado> resultados) {
