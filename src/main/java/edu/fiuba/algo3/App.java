@@ -28,7 +28,9 @@ public class App extends Application {
         var kahootControlador = new KahootControlador();
         var kahootVista = new KahootVista(kahootControlador);
         var kahootModelo = Kahoot.getInstance();
+/*
         kahootModelo.agregarJugadores(obtenerJugadores());
+*/
         kahootModelo.agregarPreguntas(obtenerPreguntas());
         kahootModelo.addObserver(kahootVista);
 
@@ -44,10 +46,20 @@ public class App extends Application {
                 List.of(new OpcionDefault("Verdadero", true),
                         new OpcionDefault("Falso", false)
                 )).get();
-        return List.of(pregunta);
+
+        var pregunta1 = new PreguntasBuilder().crearVerdaderOFalso(
+                "Colón llegó a América en el siglo XIV.",
+                List.of(new OpcionDefault("Verdadero", false),
+                        new OpcionDefault("Falso", true)
+                )).get();
+
+        return List.of(pregunta, pregunta1);
     }
 
-    private List<Jugador> obtenerJugadores() {
-        return List.of(new Jugador("Pepe", new ArrayList<>()));
-    }
+    /*private List<Jugador> obtenerJugadores() {
+        return List.of(
+                new Jugador("Pepe", new ArrayList<>()),
+                new Jugador("Pepin", new ArrayList<>())
+        );
+    }*/
 }

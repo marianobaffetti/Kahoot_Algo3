@@ -32,14 +32,13 @@ public class KahootVista extends StackPane implements Observer {
     public void update(Observable modelo, Object o) {
         var kahoot = (Kahoot) modelo;
         var etapa = kahoot.obtenerEtapa();
-        var tipoPregunta = kahoot.obtenerTipoDePregunta();
 
         switch (etapa) {
             case "CREAR_JUGADORES":
-                //mostrar(new CrearJugadoresVista(kahoot));
+                mostrar(new CrearJugadoresVista(kahoot));
                 break;
             case "MOSTRAR_PREGUNTA":
-                mostrar(factory.crear(tipoPregunta, kahoot));
+                mostrar(factory.crear(kahoot.obtenerTipoDePregunta(), kahoot));
                 break;
             case "MOSTRAR_PUNTAJES":
                 mostrar(new PuntajesFinalesVista(kahoot));

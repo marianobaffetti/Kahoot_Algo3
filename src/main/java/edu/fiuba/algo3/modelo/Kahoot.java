@@ -2,13 +2,11 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayJugadoresError;
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayPreguntasError;
+import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Observable;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Kahoot extends Observable {
@@ -25,6 +23,7 @@ public class Kahoot extends Observable {
         this.iteradorRondas = Collections.emptyIterator();
         this.numeroDeRonda = 0;
         this.estado = "MOSTRAR_PREGUNTA";
+        this.jugadores = new ArrayList<>();
     }
 
     public static Kahoot getInstance() {
@@ -40,9 +39,10 @@ public class Kahoot extends Observable {
         return this.rondaActual.obtenerPregunta().obtenerTipo();
     }
 
-    public void iniciar() {
-        if (this.jugadores == null) throw new NoSePuedeIniciarJuegoSiNoHayJugadoresError();
+    public void iniciarRondas() {
+        if (this.jugadores.isEmpty()) throw new NoSePuedeIniciarJuegoSiNoHayJugadoresError();
         if (this.preguntas == null) throw new NoSePuedeIniciarJuegoSiNoHayPreguntasError();
+        this.estado = "MOSTRAR_PREGUNTA";
         crearRondas();
         siguienteRonda();
         setChanged();
@@ -64,10 +64,6 @@ public class Kahoot extends Observable {
     private void crearRondas() {
         this.rondas = this.preguntas.stream().map(pregunta -> new Ronda(pregunta, this.jugadores)).collect(Collectors.toList());
         this.iteradorRondas = this.rondas.iterator();
-    }
-
-    public void agregarJugadores(List<Jugador> jugadores) {
-        this.jugadores = jugadores;
     }
 
     public void siguienteRonda() {
@@ -103,5 +99,16 @@ public class Kahoot extends Observable {
 
     public List<Jugador> obtenerJugadores() {
         return this.jugadores;
+    }
+
+    public void iniciar() {
+        this.estado = "CREAR_JUGADORES";
+        setChanged();
+    }
+
+    public void agregarJugador(String nombre) {
+        var multiplicadores = new ArrayList<EstrategiaDeMultiplicacion>();
+        this.jugadores.add(new Jugador(nombre, multiplicadores));
+        setChanged();
     }
 }
