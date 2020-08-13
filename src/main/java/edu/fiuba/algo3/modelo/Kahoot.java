@@ -111,4 +111,8 @@ public class Kahoot extends Observable {
         this.jugadores.add(new Jugador(nombre, multiplicadores));
         setChanged();
     }
+
+    public Jugador obtenerJugadorActual() {
+        return this.rondaActual.obtenerJugadorActual();
+    }
 }

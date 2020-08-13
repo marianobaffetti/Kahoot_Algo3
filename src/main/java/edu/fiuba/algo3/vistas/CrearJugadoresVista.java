@@ -30,6 +30,7 @@ public class CrearJugadoresVista extends BorderPane {
         btnAgregar.setOnMouseClicked((evento) -> controlador.agregarJugador(txtNombre.getCharacters().toString()));
 
         //TODO: Validar que haya la cantidad necesaria de jugadores
+
         Button btnIniciar = new Button("Iniciar");
         btnIniciar.setOnMouseClicked((event) -> controlador.iniciarRondas());
 
@@ -44,6 +45,8 @@ public class CrearJugadoresVista extends BorderPane {
         vBox.setPadding(new Insets(0,0,0,100));
 
         this.setCenter(vBox);
+
+        this.setRight(new ListaJugadoresVista(kahoot));
     }
 }
 

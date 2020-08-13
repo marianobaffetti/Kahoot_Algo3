@@ -70,4 +70,8 @@ public class Ronda {
         else
             this.finalizar();
     }
+
+    public Jugador obtenerJugadorActual() {
+        return this.jugadorActual;
+    }
 }
