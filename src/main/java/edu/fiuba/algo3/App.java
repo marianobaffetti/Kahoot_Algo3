@@ -1,7 +1,6 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.KahootControlador;
-import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
@@ -11,7 +10,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,9 +26,7 @@ public class App extends Application {
         var kahootControlador = new KahootControlador();
         var kahootVista = new KahootVista(kahootControlador);
         var kahootModelo = Kahoot.getInstance();
-/*
-        kahootModelo.agregarJugadores(obtenerJugadores());
-*/
+
         kahootModelo.agregarPreguntas(obtenerPreguntas());
         kahootModelo.addObserver(kahootVista);
 
@@ -55,11 +51,4 @@ public class App extends Application {
 
         return List.of(pregunta, pregunta1);
     }
-
-    /*private List<Jugador> obtenerJugadores() {
-        return List.of(
-                new Jugador("Pepe", new ArrayList<>()),
-                new Jugador("Pepin", new ArrayList<>())
-        );
-    }*/
 }

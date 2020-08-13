@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.controladores.KahootControlador;
 import edu.fiuba.algo3.modelo.Kahoot;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
@@ -31,6 +32,8 @@ public class KahootVista extends StackPane implements Observer {
     @Override
     public void update(Observable modelo, Object o) {
         var kahoot = (Kahoot) modelo;
+
+        if (!kahoot.obtenerMensaje().isEmpty()) mostrarMensaje(kahoot);
         var etapa = kahoot.obtenerEtapa();
 
         switch (etapa) {
@@ -44,6 +47,14 @@ public class KahootVista extends StackPane implements Observer {
                 mostrar(new PuntajesFinalesVista(kahoot));
                 break;
         }
+    }
+
+    private void mostrarMensaje(Kahoot kahoot) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText("Alerta!!!");
+        alert.setContentText(kahoot.obtenerMensaje());
+        alert.setOnHiding((evento) -> this.controlador.limpiarMensaje());
+        alert.show();
     }
 
     public String getTitle() {

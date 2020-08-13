@@ -48,23 +48,23 @@ public class Jugador {
     }
 
     public void usarMultiplicador(String nombreDeMultiplicador) {
-        if (this.multiplicadorEnUso) throw new YaHayUnMultiplicadorEnUsoError();
+        if (this.multiplicadorEnUso) throw new YaHayUnMultiplicadorEnUsoError("Ya hay un multiplicador en uso.");
 
         var mulitiplicadorElegido = this.multiplicadores
                 .stream()
                 .filter(multiplicador -> multiplicador.obtenerNombre().equals(nombreDeMultiplicador))
                 .findFirst();
 
-        if (mulitiplicadorElegido.isEmpty()) throw new NoSeEncuentraElMultiplicadorError();
+        if (mulitiplicadorElegido.isEmpty()) throw new NoSeEncuentraElMultiplicadorError("No se encuentra el multiplicador.");
 
         this.multiplicador = mulitiplicadorElegido.get();
         this.multiplicadorEnUso = true;
     }
 
     public void usarExclusividad() {
-        if (this.exclusividadEnUso) throw new YaHayUnaExclusividadEnUsoError();
+        if (this.exclusividadEnUso) throw new YaHayUnaExclusividadEnUsoError("Ya hay una exclusividad en uso.");
 
-        if (cantidadDeExclusividades == 0) throw new NoHayExclusividadesDisponiblesError();
+        if (cantidadDeExclusividades == 0) throw new NoHayExclusividadesDisponiblesError("No hay exclusividades disponibles.");
 
         exclusividadEnUso = true;
         cantidadDeExclusividades--;

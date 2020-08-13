@@ -15,15 +15,16 @@ import java.util.List;
 public class VerdaderoFalsoVista extends BorderPane {
     public VerdaderoFalsoVista(Kahoot kahoot) {
         mostrarOpciones(kahoot);
-        mostrarJugador(kahoot);
+        mostrarEncabezado(kahoot);
+        mostrarBonificaciones(kahoot);
     }
 
-    private void mostrarJugador(Kahoot kahoot) {
+    private void mostrarBonificaciones(Kahoot kahoot) {
+        this.setBottom(new BonificacionesVista(kahoot));
+    }
+
+    private void mostrarEncabezado(Kahoot kahoot) {
         this.setTop(new EncabezadoPreguntaVista(kahoot));
-//        this.setTop(new Label(
-//                "Turno: " +
-//                kahoot.obtenerJugadorActual().obtenerNombre())
-//        );
     }
 
     private void mostrarOpciones(Kahoot kahoot) {

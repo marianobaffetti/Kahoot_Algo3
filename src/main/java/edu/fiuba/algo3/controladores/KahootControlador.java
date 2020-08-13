@@ -7,4 +7,8 @@ public class KahootControlador {
         Kahoot.getInstance().iniciar();
         Kahoot.getInstance().notifyObservers();
     }
+
+    public void limpiarMensaje() {
+        Kahoot.getInstance().limpiarMensaje();
+    }
 }

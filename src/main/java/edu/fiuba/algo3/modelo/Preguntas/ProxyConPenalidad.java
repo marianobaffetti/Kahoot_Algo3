@@ -45,7 +45,7 @@ public class ProxyConPenalidad extends Pregunta {
 
     @Override
     public void usarExclusividad(Jugador jugador) {
-        throw new NoSePuedeUtilizarExclusividadError();
+        throw new NoSePuedeUtilizarExclusividadError("No se puede utilizar exclusividad en éste tipo de preguntas.");
     }
 
     @Override
