@@ -52,12 +52,13 @@ public class Jugador {
 
         var mulitiplicadorElegido = this.multiplicadores
                 .stream()
-                .filter(multiplicador -> multiplicador.obtenerNombre().equals(nombreDeMultiplicador))
+                .filter(multiplicador -> multiplicador.obtenerNombre().equals(nombreDeMultiplicador) && multiplicador.activo())
                 .findFirst();
 
         if (mulitiplicadorElegido.isEmpty()) throw new NoSeEncuentraElMultiplicadorError("No se encuentra el multiplicador.");
 
         this.multiplicador = mulitiplicadorElegido.get();
+        this.multiplicador.desactivar();
         this.multiplicadorEnUso = true;
     }
 

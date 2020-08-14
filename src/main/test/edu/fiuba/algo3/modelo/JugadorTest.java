@@ -76,4 +76,13 @@ public class JugadorTest {
         Assertions.assertEquals(3, pepe.obtenerPuntaje());
     }
 
+    @Test
+    public void elMultiplicadorSeEliminaDespuesDeUtilizarlo() {
+        Jugador pepe = new Jugador("Pepe", List.of(new MultiplicadorX2()));
+        pepe.usarMultiplicador("MULTIPLICADOR_X_2");
+
+        pepe.actualizarPuntaje(1);
+
+        Assertions.assertThrows(NoSeEncuentraElMultiplicadorError.class, () -> pepe.usarMultiplicador("MULTIPLICADOR_X_2"));
+    }
 }
