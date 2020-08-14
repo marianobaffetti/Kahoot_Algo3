@@ -17,6 +17,9 @@ public class CrearJugadoresVista extends BorderPane {
         var controlador = new CrearJugadoresControlador();
 
         Label lblNombre = new Label("Nombre: ");
+        lblNombre.setStyle("-fx-text-fill: white;" +
+                "-fx-font-size: 12pt;"
+        );
         TextField txtNombre = new TextField();
         txtNombre.setPromptText("Ingrese un nombre");
         HBox hBox1 = new HBox();
@@ -34,7 +37,7 @@ public class CrearJugadoresVista extends BorderPane {
         Button btnIniciar = new Button("Iniciar");
         btnIniciar.setOnMouseClicked((event) -> controlador.iniciarRondas());
 
-    hBox2.getChildren().add(btnAgregar);
+        hBox2.getChildren().add(btnAgregar);
         hBox2.getChildren().add(btnIniciar);
 
         VBox vBox = new VBox();
@@ -46,6 +49,7 @@ public class CrearJugadoresVista extends BorderPane {
 
         this.setCenter(vBox);
 
+        this.setStyle("-fx-background-color: #9E31F2");
         this.setRight(new ListaJugadoresVista(kahoot));
     }
 }

@@ -14,20 +14,34 @@ public class EncabezadoPreguntaVista extends StackPane {
         Jugador jugador = kahoot.obtenerJugadorActual();
 
         HBox hBoxJugador = new HBox();
-        hBoxJugador.getChildren().add( new Label("Jugador: " + jugador.obtenerNombre()));
+        Label lblJugador = new Label("Jugador: " + jugador.obtenerNombre());
+        lblJugador.setStyle("-fx-text-fill: white;");
+        hBoxJugador.getChildren().add(lblJugador);
         hBoxJugador.setAlignment(Pos.TOP_LEFT);
 
+
         HBox hBoxRonda= new HBox();
-        hBoxRonda.getChildren().add(new Label("Ronda: " + kahoot.obtenerNumeroDeRonda()));
+        Label lblRonda = new Label("Ronda: " + kahoot.obtenerNumeroDeRonda());
+        lblRonda.setStyle("-fx-text-fill: white;");
+        hBoxRonda.getChildren().add(lblRonda);
         hBoxRonda.setAlignment(Pos.TOP_CENTER);
 
         HBox hBoxPuntos = new HBox();
-        hBoxPuntos.getChildren().add( new Label("Puntos: " + jugador.obtenerPuntaje()));
+        Label lblPuntos = new Label("Puntos: " + jugador.obtenerPuntaje());
+        lblPuntos.setStyle("-fx-text-fill: white;");
+        hBoxPuntos.getChildren().add(lblPuntos);
         hBoxPuntos.setAlignment(Pos.TOP_RIGHT);
 
-        hBoxJugador.setPadding(new Insets(10, 0, 0 , 10));
-        hBoxRonda.setPadding(new Insets(10, 0, 0 , 0));
-        hBoxPuntos.setPadding(new Insets(10, 10, 0 , 0));
+        hBoxJugador.setPadding(new Insets(10, 0, 2 , 10));
+        hBoxRonda.setPadding(new Insets(10, 0, 2 , 0));
+        hBoxPuntos.setPadding(new Insets(10, 10, 2 , 0));
+
+        this.setStyle("-fx-border-style: solid;" +
+                "-fx-border-width: 0 0 2 0;" +
+                "-fx-border-insets: 5;" +
+//                "-fx-border-radius: 90;" +
+                "-fx-border-color: white;"
+        );
 
         this.getChildren().add(hBoxJugador);
         this.getChildren().add(hBoxRonda);

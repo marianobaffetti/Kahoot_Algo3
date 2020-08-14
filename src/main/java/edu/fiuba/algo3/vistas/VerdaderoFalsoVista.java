@@ -17,6 +17,7 @@ public class VerdaderoFalsoVista extends BorderPane {
         mostrarOpciones(kahoot);
         mostrarEncabezado(kahoot);
         mostrarBonificaciones(kahoot);
+        this.setStyle("-fx-background-color: #9E31F2");
     }
 
     private void mostrarBonificaciones(Kahoot kahoot) {
@@ -46,7 +47,9 @@ public class VerdaderoFalsoVista extends BorderPane {
 
     private HBox obtenerTexto(Kahoot kahoot) {
         Label lblPregunta = new Label(kahoot.obtenerTextoDePregunta());
-        lblPregunta.setFont(new Font(26));
+        lblPregunta.setStyle("-fx-font-size: 26;" +
+                    "-fx-text-fill: white;"
+                );
         HBox hBox = new HBox(lblPregunta);
         hBox.setAlignment(Pos.TOP_CENTER);
         hBox.setPadding(new Insets(30, 0, 50, 0));
