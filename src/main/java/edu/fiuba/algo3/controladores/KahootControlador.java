@@ -11,4 +11,10 @@ public class KahootControlador {
     public void limpiarMensaje() {
         Kahoot.getInstance().limpiarMensaje();
     }
+
+    public void agrandarPantalla() {
+    }
+
+    public void cerrarJuego() {
+    }
 }

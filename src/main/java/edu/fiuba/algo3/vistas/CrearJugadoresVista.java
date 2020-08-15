@@ -21,9 +21,11 @@ public class CrearJugadoresVista extends BorderPane {
         );
         TextField txtNombre = new TextField();
         txtNombre.setPromptText("Ingrese un nombre");
+        txtNombre.setMinWidth(70);
         HBox hBox1 = new HBox();
         hBox1.getChildren().add(lblNombre);
         hBox1.getChildren().add(txtNombre);
+        hBox1.setPadding(new Insets(0, 0, 0, 5));
 
         HBox hBox2 = new HBox();
         hBox2.setSpacing(10);
@@ -45,14 +47,13 @@ public class CrearJugadoresVista extends BorderPane {
         vBox.setSpacing(10);
         vBox.getChildren().add(hBox1);
         vBox.getChildren().add(hBox2);
-        vBox.getChildren().add(new ReglasVista(kahoot));
+        vBox.getChildren().add(new ListaJugadoresVista(kahoot));
         vBox.setAlignment(Pos.TOP_LEFT);
         vBox.setPadding(new Insets(85, 0, 0, 60));
 
         this.setCenter(vBox);
-
         this.setStyle("-fx-background-color: #9E31F2");
-        this.setRight(new ListaJugadoresVista(kahoot));
+        this.setLeft(new ReglasVista(kahoot));
     }
 }
 

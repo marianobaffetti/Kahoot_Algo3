@@ -18,13 +18,26 @@ public class BonificacionesVista extends VBox {
         Label lblBonificaciones = new Label("Bonificaciones: ");
         lblBonificaciones.setStyle("-fx-text-fill: white;");
         this.getChildren().add(lblBonificaciones);
+
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
+        hBox.setSpacing(5);
         Button btnX2 = new Button("X 2");
         btnX2.setStyle("-fx-background-radius: 90;");
         btnX2.setOnMouseClicked((evento) -> controlador.usarMultiplicadorX2());
 
+        Button btnX3 = new Button("X 3");
+        btnX3.setStyle("-fx-background-radius: 90;");
+        btnX3.setOnMouseClicked((evento) -> controlador.usarMultiplicadorX3());
+
+        Button btnExclusividad = new Button(" E ");
+        btnExclusividad.setStyle("-fx-background-radius: 90;");
+        btnExclusividad.setOnMouseClicked((evento) -> controlador.usarExclusividad());
+
         hBox.getChildren().add(btnX2);
+        hBox.getChildren().add(btnX3);
+        hBox.getChildren().add(btnExclusividad);
+
         this.getChildren().add(hBox);
         this.setStyle("-fx-border-style: solid;" +
                 "-fx-border-width: 1 0 0 0;" +
