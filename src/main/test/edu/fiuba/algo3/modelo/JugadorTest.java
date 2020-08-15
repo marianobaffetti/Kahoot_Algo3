@@ -3,12 +3,15 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Excepciones.JugadorNoSePedeCrearConNombreVacioError;
 import edu.fiuba.algo3.modelo.Excepciones.NoSeEncuentraElMultiplicadorError;
 import edu.fiuba.algo3.modelo.Excepciones.YaHayUnMultiplicadorEnUsoError;
+import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX3;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class JugadorTest {
@@ -46,7 +49,7 @@ public class JugadorTest {
 
     @Test
     public void actualizaPuntajeCorrectamenteCuandoSeUtilizaMultiplicadorPorDos() {
-        Jugador pepe = new Jugador("Pepe", List.of(new MultiplicadorX2()));
+        Jugador pepe = new Jugador("Pepe", new ArrayList<>(Arrays.asList(new MultiplicadorX2())));
         pepe.usarMultiplicador("MULTIPLICADOR_X_2");
 
         pepe.actualizarPuntaje(1);
@@ -57,7 +60,7 @@ public class JugadorTest {
 
     @Test
     public void SeLanzaYaHayUnMultiplicadorEnUsoErrorSiElJugadorYaEstaUsandoUnMultiplicador() {
-        Jugador pepe = new Jugador("Pepe", List.of(new MultiplicadorX2()));
+        Jugador pepe = new Jugador("Pepe", new ArrayList<>(Arrays.asList(new MultiplicadorX2())));
         String nombreDeMultiplcador = "MULTIPLICADOR_X_2";
 
         pepe.usarMultiplicador(nombreDeMultiplcador);
@@ -75,7 +78,7 @@ public class JugadorTest {
 
     @Test
     public void actualizaPuntajeCorrectamenteCuandoSeUtilizaMultiplicadorPorTres() {
-        Jugador pepe = new Jugador("Pepe", List.of(new MultiplicadorX3()));
+        Jugador pepe = new Jugador("Pepe", new ArrayList<EstrategiaDeMultiplicacion>(Arrays.asList(new MultiplicadorX3())));
         String nombreDeMultiplcador = "MULTIPLICADOR_X_3";
 
         pepe.usarMultiplicador(nombreDeMultiplcador);
@@ -86,7 +89,7 @@ public class JugadorTest {
 
     @Test
     public void elMultiplicadorSeEliminaDespuesDeUtilizarlo() {
-        Jugador pepe = new Jugador("Pepe", List.of(new MultiplicadorX2()));
+        Jugador pepe = new Jugador("Pepe", new ArrayList<>(Arrays.asList(new MultiplicadorX2())));
         pepe.usarMultiplicador("MULTIPLICADOR_X_2");
 
         pepe.actualizarPuntaje(1);

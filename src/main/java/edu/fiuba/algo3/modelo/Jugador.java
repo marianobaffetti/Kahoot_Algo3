@@ -48,16 +48,16 @@ public class Jugador {
     public void usarMultiplicador(String nombreDeMultiplicador) {
         if (this.multiplicadorEnUso) throw new YaHayUnMultiplicadorEnUsoError("Ya hay un multiplicador en uso.");
 
-        var mulitiplicadorElegido = this.multiplicadores
+        var multiplicadorElegido = this.multiplicadores
                 .stream()
-                .filter(multiplicador -> multiplicador.obtenerNombre().equals(nombreDeMultiplicador) && multiplicador.activo())
+                .filter(multiplicador -> multiplicador.obtenerNombre().equals(nombreDeMultiplicador))
                 .findFirst();
 
-        if (mulitiplicadorElegido.isEmpty())
+        if (multiplicadorElegido.isEmpty())
             throw new NoSeEncuentraElMultiplicadorError("No se encuentra el multiplicador.");
 
-        this.multiplicador = mulitiplicadorElegido.get();
-        this.multiplicador.desactivar();
+        this.multiplicador = multiplicadorElegido.get();
+        multiplicadores.remove(multiplicadorElegido.get());
         this.multiplicadorEnUso = true;
     }
 

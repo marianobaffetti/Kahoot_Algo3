@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayJugadoresError;
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayPreguntasError;
+import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
@@ -112,10 +113,10 @@ public class Kahoot extends Observable {
     }
 
     public void agregarJugador(String nombre) {
-        var multiplicadores = List.of(
-                new MultiplicadorX2(),
-                new MultiplicadorX3()
-        );
+        var multiplicadores = new ArrayList<>(Arrays.asList(
+                new MultiplicadorX3(),
+                new MultiplicadorX2()
+                ));
 
         try {
             this.jugadores.add(new Jugador(nombre, multiplicadores));

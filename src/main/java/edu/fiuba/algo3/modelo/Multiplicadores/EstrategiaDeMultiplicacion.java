@@ -9,12 +9,4 @@ public abstract class EstrategiaDeMultiplicacion {
     public String obtenerNombre() {
         return this.nombre;
     }
-
-    public Boolean activo() {
-        return this.activa;
-    }
-
-    public void desactivar() {
-        this.activa = false;
-    }
 }
