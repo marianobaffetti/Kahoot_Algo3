@@ -39,7 +39,6 @@ public class EncabezadoPreguntaVista extends StackPane {
         this.setStyle("-fx-border-style: solid;" +
                 "-fx-border-width: 0 0 2 0;" +
                 "-fx-border-insets: 5;" +
-//                "-fx-border-radius: 90;" +
                 "-fx-border-color: white;"
         );
 

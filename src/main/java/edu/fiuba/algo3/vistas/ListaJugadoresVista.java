@@ -40,6 +40,7 @@ public class ListaJugadoresVista extends StackPane {
                 "-fx-border-color: white;"
         );
 
+        this.setPadding(new Insets(20, 30,20,0));
         this.getChildren().add(vBox);
     }
 }

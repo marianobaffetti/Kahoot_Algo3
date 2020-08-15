@@ -39,13 +39,15 @@ public class CrearJugadoresVista extends BorderPane {
 
         hBox2.getChildren().add(btnAgregar);
         hBox2.getChildren().add(btnIniciar);
+        hBox2.setPadding(new Insets(0, 0, 0, 80));
 
         VBox vBox = new VBox();
         vBox.setSpacing(10);
         vBox.getChildren().add(hBox1);
         vBox.getChildren().add(hBox2);
-        vBox.setAlignment(Pos.CENTER_LEFT);
-        vBox.setPadding(new Insets(0,0,0,100));
+        vBox.getChildren().add(new ReglasVista(kahoot));
+        vBox.setAlignment(Pos.TOP_LEFT);
+        vBox.setPadding(new Insets(85, 0, 0, 60));
 
         this.setCenter(vBox);
 
