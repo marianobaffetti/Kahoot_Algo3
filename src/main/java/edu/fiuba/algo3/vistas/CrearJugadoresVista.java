@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class CrearJugadoresVista extends BorderPane {
@@ -35,6 +34,7 @@ public class CrearJugadoresVista extends BorderPane {
         //TODO: Validar que haya la cantidad necesaria de jugadores
 
         Button btnIniciar = new Button("Iniciar");
+        btnIniciar.setDisable(kahoot.obtenerJugadores().size() <= 1);
         btnIniciar.setOnMouseClicked((event) -> controlador.iniciarRondas());
 
         hBox2.getChildren().add(btnAgregar);

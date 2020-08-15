@@ -2,8 +2,6 @@ package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 

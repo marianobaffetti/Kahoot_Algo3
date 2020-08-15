@@ -2,9 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayJugadoresError;
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayPreguntasError;
-import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeUtilizarExclusividadError;
-import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeUtilizarMultiplicadorError;
-import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
@@ -19,7 +16,7 @@ public class Kahoot extends Observable {
     private int numeroDeRonda;
     private Ronda rondaActual;
     private List<Ronda> rondas;
-    private List<Jugador> jugadores;
+    private final List<Jugador> jugadores;
     private Iterator<Ronda> iteradorRondas;
     private List<Pregunta> preguntas;
     private String mensaje;
@@ -46,8 +43,10 @@ public class Kahoot extends Observable {
     }
 
     public void iniciarRondas() {
-        if (this.jugadores.isEmpty()) throw new NoSePuedeIniciarJuegoSiNoHayJugadoresError("No se puede iniciar el juego si no hay jugadores.");
-        if (this.preguntas == null) throw new NoSePuedeIniciarJuegoSiNoHayPreguntasError("No se puede iniciar el juego si no hay preguntas.");
+        if (this.jugadores.isEmpty())
+            throw new NoSePuedeIniciarJuegoSiNoHayJugadoresError("No se puede iniciar el juego si no hay jugadores.");
+        if (this.preguntas == null)
+            throw new NoSePuedeIniciarJuegoSiNoHayPreguntasError("No se puede iniciar el juego si no hay preguntas.");
         this.estado = "MOSTRAR_PREGUNTA";
         crearRondas();
         siguienteRonda();
@@ -91,7 +90,7 @@ public class Kahoot extends Observable {
     }
 
     public void agregarRespuesta(List<Opcion> opciones) {
-        this.rondaActual.agregarRespuesta(new Respuesta(opciones,this.rondaActual.jugadorActual()));
+        this.rondaActual.agregarRespuesta(new Respuesta(opciones, this.rondaActual.jugadorActual()));
         setChanged();
     }
 
@@ -114,11 +113,15 @@ public class Kahoot extends Observable {
 
     public void agregarJugador(String nombre) {
         var multiplicadores = List.of(
-            new MultiplicadorX2(),
-            new MultiplicadorX3()
+                new MultiplicadorX2(),
+                new MultiplicadorX3()
         );
 
-        this.jugadores.add(new Jugador(nombre, multiplicadores));
+        try {
+            this.jugadores.add(new Jugador(nombre, multiplicadores));
+        } catch (RuntimeException ex) {
+            this.mensaje = ex.getMessage();
+        }
         setChanged();
     }
 
@@ -130,7 +133,7 @@ public class Kahoot extends Observable {
         setChanged();
         try {
             this.rondaActual.asignarMultiplicadorX2AJugador(this.rondaActual.obtenerJugadorActual());
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             this.mensaje = e.getMessage();
         }
     }

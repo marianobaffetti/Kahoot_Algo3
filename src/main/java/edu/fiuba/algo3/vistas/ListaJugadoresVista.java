@@ -2,11 +2,7 @@ package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -18,9 +14,9 @@ public class ListaJugadoresVista extends StackPane {
         Label lblJugadores = new Label("Jugadores");
         lblJugadores.setPadding(new Insets(0, 0, 0, 40));
         lblJugadores.setStyle("-fx-text-fill: white;" +
-                        "-fx-font-size: 20pt;" +
-                        "-fx-font-weight: bold;"
-                );
+                "-fx-font-size: 20pt;" +
+                "-fx-font-weight: bold;"
+        );
         vBox.getChildren().add(lblJugadores);
 
         kahoot.obtenerJugadores().forEach(jugador -> {
@@ -32,7 +28,7 @@ public class ListaJugadoresVista extends StackPane {
             vBox.getChildren().add(lblJugador);
         });
 
-        vBox.setPadding(new Insets(40, 60,0,0));
+        vBox.setPadding(new Insets(40, 60, 0, 0));
         vBox.setStyle("-fx-border-style: dashed;" +
                 "-fx-border-width: 2;" +
                 "-fx-border-insets: 5;" +
@@ -40,7 +36,7 @@ public class ListaJugadoresVista extends StackPane {
                 "-fx-border-color: white;"
         );
 
-        this.setPadding(new Insets(20, 30,20,0));
+        this.setPadding(new Insets(20, 30, 20, 0));
         this.getChildren().add(vBox);
     }
 }

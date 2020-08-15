@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 
 import java.util.List;
 
@@ -48,8 +47,8 @@ public class VerdaderoFalsoVista extends BorderPane {
     private HBox obtenerTexto(Kahoot kahoot) {
         Label lblPregunta = new Label(kahoot.obtenerTextoDePregunta());
         lblPregunta.setStyle("-fx-font-size: 26;" +
-                    "-fx-text-fill: white;"
-                );
+                "-fx-text-fill: white;"
+        );
         HBox hBox = new HBox(lblPregunta);
         hBox.setAlignment(Pos.TOP_CENTER);
         hBox.setPadding(new Insets(30, 0, 50, 0));

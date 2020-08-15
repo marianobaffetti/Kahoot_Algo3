@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -20,7 +19,7 @@ public class EncabezadoPreguntaVista extends StackPane {
         hBoxJugador.setAlignment(Pos.TOP_LEFT);
 
 
-        HBox hBoxRonda= new HBox();
+        HBox hBoxRonda = new HBox();
         Label lblRonda = new Label("Ronda: " + kahoot.obtenerNumeroDeRonda());
         lblRonda.setStyle("-fx-text-fill: white;");
         hBoxRonda.getChildren().add(lblRonda);
@@ -32,9 +31,9 @@ public class EncabezadoPreguntaVista extends StackPane {
         hBoxPuntos.getChildren().add(lblPuntos);
         hBoxPuntos.setAlignment(Pos.TOP_RIGHT);
 
-        hBoxJugador.setPadding(new Insets(10, 0, 2 , 10));
-        hBoxRonda.setPadding(new Insets(10, 0, 2 , 0));
-        hBoxPuntos.setPadding(new Insets(10, 10, 2 , 0));
+        hBoxJugador.setPadding(new Insets(10, 0, 2, 10));
+        hBoxRonda.setPadding(new Insets(10, 0, 2, 0));
+        hBoxPuntos.setPadding(new Insets(10, 10, 2, 0));
 
         this.setStyle("-fx-border-style: solid;" +
                 "-fx-border-width: 0 0 2 0;" +

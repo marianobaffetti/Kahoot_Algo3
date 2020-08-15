@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Excepciones.JugadorNoSePedeCrearConNombreVacioError;
 import edu.fiuba.algo3.modelo.Excepciones.NoSeEncuentraElMultiplicadorError;
 import edu.fiuba.algo3.modelo.Excepciones.YaHayUnMultiplicadorEnUsoError;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorX3;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +18,12 @@ public class JugadorTest {
         var jugador = new Jugador(nombre, List.of(new MultiplicadorX2()));
 
         Assertions.assertEquals(nombre, jugador.obtenerNombre());
+    }
+
+    @Test
+    public void siJugadorSeCreaSinNombreLanzaExcepción() {
+        var nombre = "";
+        Assertions.assertThrows(JugadorNoSePedeCrearConNombreVacioError.class, ()-> new Jugador(nombre, List.of(new MultiplicadorX2())));
     }
 
     @Test

@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Excepciones.NoHayExclusividadesDisponiblesError;
-import edu.fiuba.algo3.modelo.Excepciones.NoSeEncuentraElMultiplicadorError;
-import edu.fiuba.algo3.modelo.Excepciones.YaHayUnMultiplicadorEnUsoError;
-import edu.fiuba.algo3.modelo.Excepciones.YaHayUnaExclusividadEnUsoError;
+import edu.fiuba.algo3.modelo.Excepciones.*;
 import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorDefault;
 
@@ -19,6 +16,7 @@ public class Jugador {
     private int cantidadDeExclusividades;
 
     public Jugador(String nombre, List<EstrategiaDeMultiplicacion> multiplicadores) {
+        if (nombre.trim().isEmpty()) throw new JugadorNoSePedeCrearConNombreVacioError("El nombre del jugador no puede estar vacío.");
         this.nombre = nombre;
         this.puntaje = 0;
         this.multiplicador = new MultiplicadorDefault();
@@ -55,7 +53,8 @@ public class Jugador {
                 .filter(multiplicador -> multiplicador.obtenerNombre().equals(nombreDeMultiplicador) && multiplicador.activo())
                 .findFirst();
 
-        if (mulitiplicadorElegido.isEmpty()) throw new NoSeEncuentraElMultiplicadorError("No se encuentra el multiplicador.");
+        if (mulitiplicadorElegido.isEmpty())
+            throw new NoSeEncuentraElMultiplicadorError("No se encuentra el multiplicador.");
 
         this.multiplicador = mulitiplicadorElegido.get();
         this.multiplicador.desactivar();
@@ -65,7 +64,8 @@ public class Jugador {
     public void usarExclusividad() {
         if (this.exclusividadEnUso) throw new YaHayUnaExclusividadEnUsoError("Ya hay una exclusividad en uso.");
 
-        if (cantidadDeExclusividades == 0) throw new NoHayExclusividadesDisponiblesError("No hay exclusividades disponibles.");
+        if (cantidadDeExclusividades == 0)
+            throw new NoHayExclusividadesDisponiblesError("No hay exclusividades disponibles.");
 
         exclusividadEnUso = true;
         cantidadDeExclusividades--;

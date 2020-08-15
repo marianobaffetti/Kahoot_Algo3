@@ -2,8 +2,6 @@ package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -26,7 +24,7 @@ public class ReglasVista extends StackPane {
                 "-fx-border-insets: 5;" +
                 "-fx-border-color: white;"
         );
-        
+
         this.setPadding(new Insets(15, 0, 0, 0));
         this.getChildren().add(vBox);
 

@@ -10,7 +10,11 @@ public abstract class EstrategiaDeMultiplicacion {
         return this.nombre;
     }
 
-    public Boolean activo() {return this.activa;}
+    public Boolean activo() {
+        return this.activa;
+    }
 
-    public void desactivar() {this.activa = false;}
+    public void desactivar() {
+        this.activa = false;
+    }
 }

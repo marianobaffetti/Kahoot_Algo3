@@ -1,23 +1,17 @@
 package edu.fiuba.algo3;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonReader;
 import edu.fiuba.algo3.Utils.PreguntasJsonParser;
 import edu.fiuba.algo3.controladores.KahootControlador;
 import edu.fiuba.algo3.modelo.Kahoot;
-import edu.fiuba.algo3.modelo.Opciones.Opcion;
-import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.PreguntasBuilder;
 import edu.fiuba.algo3.vistas.KahootVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 /**
