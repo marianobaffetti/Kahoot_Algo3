@@ -1,7 +1,12 @@
 package edu.fiuba.algo3;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 import edu.fiuba.algo3.controladores.KahootControlador;
 import edu.fiuba.algo3.modelo.Kahoot;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.PreguntasBuilder;
@@ -10,6 +15,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +34,11 @@ public class App extends Application {
         var kahootVista = new KahootVista(kahootControlador);
         var kahootModelo = Kahoot.getInstance();
 
-        kahootModelo.agregarPreguntas(obtenerPreguntas());
+        try {
+            kahootModelo.agregarPreguntas(obtenerPreguntas());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         kahootModelo.addObserver(kahootVista);
 
         var scene = new Scene(kahootVista, 640, 480);
@@ -36,19 +47,32 @@ public class App extends Application {
         stage.show();
     }
 
-    private List<Pregunta> obtenerPreguntas() {
-        var pregunta = new PreguntasBuilder().crearVerdaderOFalso(
-                "Colón llegó a América en el siglo XV.",
-                List.of(new OpcionDefault("Verdadero", true),
-                        new OpcionDefault("Falso", false)
-                )).get();
+    private List<Pregunta> obtenerPreguntas() throws IOException {
+        FileInputStream fileInputStream = new FileInputStream("src/main/resources/preguntas.json");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(fileInputStream));
+        JsonReader jsonReader = new JsonReader(reader);
+        var json = new Gson().fromJson(jsonReader, JsonObject.class);
+        var preguntasJson = ((JsonObject) json).get("preguntas");
+        var builder = new PreguntasBuilder();
 
-        var pregunta1 = new PreguntasBuilder().crearVerdaderOFalso(
-                "Colón llegó a América en el siglo XIV.",
-                List.of(new OpcionDefault("Verdadero", false),
-                        new OpcionDefault("Falso", true)
-                )).get();
+        var preguntas = new ArrayList<Pregunta>();
+        ((JsonArray) preguntasJson).forEach(preguntaJson -> {
+            var tipo = ((JsonObject) preguntaJson).get("tipo").getAsString();
 
-        return List.of(pregunta, pregunta1);
+            if (tipo.equals("VERDADERO_O_FALSO")) {
+                var opciones = new ArrayList<Opcion>();
+                var opcionesJson = ((JsonObject) preguntaJson).get("opciones");
+                ((JsonArray) opcionesJson).forEach(opcionJson -> {
+                    opciones.add(new OpcionDefault(
+                            ((JsonObject) opcionJson).get("texto").getAsString(),
+                            ((JsonObject) opcionJson).get("correcta").getAsBoolean()
+                    ));
+                });
+                var texto = ((JsonObject) preguntaJson).get("texto").getAsString();
+                preguntas.add(builder.crearVerdaderOFalso(texto, opciones).get());
+            }
+        });
+
+        return preguntas;
     }
 }

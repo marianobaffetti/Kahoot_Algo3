@@ -1,22 +1,22 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
 public class OpcionDefault extends Opcion {
-    private final Boolean esVerdadera;
+    private final Boolean correcta;
 
-    public OpcionDefault(String texto, Boolean esCorrecta) {
+    public OpcionDefault(String texto, Boolean correcta) {
         super(texto);
-        this.esVerdadera = esCorrecta;
+        this.correcta = correcta;
     }
 
     public Boolean esCorrecta() {
-        return esVerdadera;
+        return correcta;
     }
 
     public Boolean coincideCon(Opcion opcion) {
-        return opcion.coincideCon(this.texto, this.esVerdadera);
+        return opcion.coincideCon(this.texto, this.correcta);
     }
 
     public <T> Boolean coincideCon(String texto, T condicion) {
-        return this.texto == texto && condicion.equals(this.esVerdadera);
+        return this.texto == texto && condicion.equals(this.correcta);
     }
 }
