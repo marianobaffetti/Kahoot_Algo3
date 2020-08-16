@@ -30,7 +30,7 @@ public class PreguntasJsonParser {
         ((JsonArray) preguntasJson).forEach(preguntaJson -> {
             var tipo = ((JsonObject) preguntaJson).get("tipo").getAsString();
 
-            if (tipo.equals("VERDADERO_O_FALSO")) {
+            if (tipo.equals("VERDADERO_O_FALSO") || tipo.equals("MULTIPLE_CHOICE")) {
                 var opciones = new ArrayList<Opcion>();
                 var opcionesJson = ((JsonObject) preguntaJson).get("opciones");
                 ((JsonArray) opcionesJson).forEach(opcionJson -> {
@@ -40,7 +40,10 @@ public class PreguntasJsonParser {
                     ));
                 });
                 var texto = ((JsonObject) preguntaJson).get("texto").getAsString();
-                preguntas.add(builder.crearVerdaderOFalso(texto, opciones).get());
+                if (tipo.equals("VERDADERO_O_FALSO"))
+                    preguntas.add(builder.crearVerdaderOFalso(texto, opciones).get());
+                else
+                    preguntas.add(builder.crearMultipleChoice(texto, opciones).get());
             }
         });
 

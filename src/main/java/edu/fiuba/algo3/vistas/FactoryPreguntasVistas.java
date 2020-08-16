@@ -7,11 +7,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 public class FactoryPreguntasVistas {
-    private final Map<String, Class<VerdaderoFalsoVista>> vistas;
+    private final Map<String, Class<?>> vistas;
 
     FactoryPreguntasVistas() {
         this.vistas = Map.of(
-                "VERDADERO_O_FALSO", VerdaderoFalsoVista.class
+                "VERDADERO_O_FALSO", VerdaderoFalsoVista.class,
+                "MULTIPLE_CHOICE", MultipleChoiceVista.class
         );
     }
 

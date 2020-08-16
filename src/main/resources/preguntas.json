@@ -1,25 +1,49 @@
 {
-    "preguntas": [{
-        "tipo": "VERDADERO_O_FALSO",
-        "texto" : "Colón llegó a América en el siglo XV",
-        "opciones" : [{
-            "texto": "Verdadero",
-            "correcta": "true"
+    "preguntas": [
+        {
+            "tipo": "MULTIPLE_CHOICE",
+            "texto" : "Qué colores tiene la bandera Argentina?",
+            "opciones" : [
+                {
+                    "texto": "Blanco",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Celeste",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Rojo",
+                    "correcta": "false"
+                },
+                {
+                    "texto": "Amarillo",
+                    "correcta": "true"
+                }
+            ]
         },
         {
-            "texto": "Falso",
-            "correcta": "false"
-        }]
-    },{
-        "tipo": "VERDADERO_O_FALSO",
-        "texto" : "Pepin siempre se equivoca",
-        "opciones" : [{
-            "texto": "Verdadero",
-            "correcta": "true"
-        },
+            "tipo": "VERDADERO_O_FALSO",
+            "texto" : "Colón llegó a América en el siglo XV",
+            "opciones" : [{
+                "texto": "Verdadero",
+                "correcta": "true"
+            },
             {
                 "texto": "Falso",
                 "correcta": "false"
             }]
-    }]
+        },{
+            "tipo": "VERDADERO_O_FALSO",
+            "texto" : "Pepin siempre se equivoca",
+            "opciones" : [{
+                "texto": "Verdadero",
+                "correcta": "true"
+            },
+                {
+                    "texto": "Falso",
+                    "correcta": "false"
+                }]
+        }
+    ]
 }

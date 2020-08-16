@@ -39,7 +39,7 @@ public class VerdaderoFalsoVista extends BorderPane {
         hBox.setAlignment(Pos.CENTER);
         List<Opcion> opciones = kahoot.obtenerOpciones();
         opciones.forEach(opcion ->
-                hBox.getChildren().add(new OpcionDefaultVista(opcion))
+                hBox.getChildren().add(new OpcionVerdaderoOFalsoVista(opcion))
         );
         return hBox;
     }
