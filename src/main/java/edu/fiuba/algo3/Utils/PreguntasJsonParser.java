@@ -6,6 +6,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
+import edu.fiuba.algo3.modelo.Opciones.OpcionGroupChoice;
+import edu.fiuba.algo3.modelo.Opciones.OpcionOrderedChoice;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.PreguntasBuilder;
 
@@ -44,6 +46,17 @@ public class PreguntasJsonParser {
                     preguntas.add(builder.crearVerdaderOFalso(texto, opciones).get());
                 else
                     preguntas.add(builder.crearMultipleChoice(texto, opciones).get());
+            } else if (tipo.equals("GROUP_CHOICE")) {
+                var opciones = new ArrayList<Opcion>();
+                var opcionesJson = ((JsonObject) preguntaJson).get("opciones");
+                ((JsonArray) opcionesJson).forEach(opcionJson -> {
+                    opciones.add(new OpcionGroupChoice(
+                            ((JsonObject) opcionJson).get("texto").getAsString(),
+                            ((JsonObject) opcionJson).get("grupo").getAsString()
+                    ));
+                });
+                var texto = ((JsonObject) preguntaJson).get("texto").getAsString();
+                preguntas.add(builder.crearGroupChoice(texto, opciones).get());
             }
         });
 

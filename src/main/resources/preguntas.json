@@ -1,6 +1,28 @@
 {
     "preguntas": [
         {
+                "tipo": "GROUP_CHOICE",
+            "texto" : "Agrupar países por continente",
+            "opciones" : [
+                {
+                    "texto": "Argentina",
+                    "grupo": "America"
+                },
+                {
+                    "texto": "Canada",
+                    "grupo": "America"
+                },
+                {
+                    "texto": "España",
+                    "grupo": "Europa"
+                },
+                {
+                    "texto": "Francia",
+                    "grupo": "Europa"
+                }
+            ]
+        },
+        {
             "tipo": "MULTIPLE_CHOICE",
             "texto" : "Qué colores tiene la bandera Argentina?",
             "opciones" : [

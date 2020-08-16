@@ -20,4 +20,8 @@ public class OpcionGroupChoice extends Opcion {
     public <T> Boolean coincideCon(String texto, T condicion) {
         return this.texto == texto && condicion.equals(this.grupo);
     }
+
+    public String obtenerGrupo() {
+        return this.grupo;
+    }
 }

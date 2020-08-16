@@ -1,10 +1,16 @@
 package edu.fiuba.algo3.modelo.Preguntas;
 
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Opciones.OpcionGroupChoice;
 import edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.Resultado;
 
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class GroupChoice extends Pregunta {
     private final OrderedChoice orderderdChoice;
@@ -30,5 +36,12 @@ public class GroupChoice extends Pregunta {
     @Override
     public String obtenerTipo() {
         return "GROUP_CHOICE";
+    }
+
+    public List<String> obtenerGrupos() {
+        return this.opciones.stream()
+                .map( opcion -> ((OpcionGroupChoice) opcion) .obtenerGrupo())
+                .distinct()
+                .collect(Collectors.toList());
     }
 }
