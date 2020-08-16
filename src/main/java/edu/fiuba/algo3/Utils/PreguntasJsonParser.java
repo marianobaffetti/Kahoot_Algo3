@@ -57,6 +57,17 @@ public class PreguntasJsonParser {
                 });
                 var texto = ((JsonObject) preguntaJson).get("texto").getAsString();
                 preguntas.add(builder.crearGroupChoice(texto, opciones).get());
+            } else if (tipo.equals("ORDERED_CHOICE")) {
+                var opciones = new ArrayList<Opcion>();
+                var opcionesJson = ((JsonObject) preguntaJson).get("opciones");
+                ((JsonArray) opcionesJson).forEach(opcionJson -> {
+                    opciones.add(new OpcionOrderedChoice(
+                            ((JsonObject) opcionJson).get("texto").getAsString(),
+                            ((JsonObject) opcionJson).get("orden").getAsInt()
+                    ));
+                });
+                var texto = ((JsonObject) preguntaJson).get("texto").getAsString();
+                preguntas.add(builder.crearOrderedChoice(texto, opciones).get());
             }
         });
 
