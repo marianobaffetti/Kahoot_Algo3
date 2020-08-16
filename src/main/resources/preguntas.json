@@ -2,7 +2,7 @@
     "preguntas": [
         {
             "tipo": "VERDADERO_O_FALSO",
-            "penalidad": "true",
+            "penalidad": "false",
             "texto" : "Colón llegó a América en el siglo XV",
             "opciones" : [{
                 "texto": "Verdadero",

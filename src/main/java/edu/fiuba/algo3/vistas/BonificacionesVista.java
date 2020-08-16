@@ -40,7 +40,7 @@ public class BonificacionesVista extends VBox {
         Button btnExclusividad = new Button(" E ");
         btnExclusividad.setStyle("-fx-background-radius: 90;");
         btnExclusividad.setOnMouseClicked((evento) -> controlador.usarExclusividad());
-        btnExclusividad.setDisable(!kahoot.obtenerRondaActual().obtenerPregunta().obtenerTipo().contains("CON_PUNTAJE_PARCIAL"));
+        btnExclusividad.setDisable(kahoot.obtenerRondaActual().obtenerPregunta().obtenerTipo().contains("CON_PENALIDAD"));
 
         hBox.getChildren().add(btnX2);
         hBox.getChildren().add(btnX3);
