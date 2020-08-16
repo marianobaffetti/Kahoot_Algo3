@@ -9,6 +9,8 @@ public class BonificacionesControladores {
     }
 
     public void usarMultiplicadorX3() {
+        Kahoot.getInstance().usarMultiplicadorX3();
+        Kahoot.getInstance().notifyObservers();
     }
 
     public void usarExclusividad() {

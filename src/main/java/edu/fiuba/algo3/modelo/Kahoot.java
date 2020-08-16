@@ -147,4 +147,13 @@ public class Kahoot extends Observable {
         this.mensaje = "";
         setChanged();
     }
+
+    public void usarMultiplicadorX3() {
+        setChanged();
+        try {
+            this.rondaActual.asignarMultiplicadorX3AJugador(this.rondaActual.obtenerJugadorActual());
+        } catch (RuntimeException e) {
+            this.mensaje = e.getMessage();
+        }
+    }
 }

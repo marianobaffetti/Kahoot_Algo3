@@ -26,7 +26,8 @@ public class BonificacionesVista extends VBox {
         Button btnX2 = new Button("X 2");
         btnX2.setStyle("-fx-background-radius: 90;");
 
-        if (kahoot.obtenerJugadorActual().obtenerMultiplicadorEnUso().obtenerNombre().equals("MULTIPLICADOR_X_2")) btnX2.setStyle(btnX2.getStyle()+ "-fx-background-color: #5bff33;");
+        String nombreMultiplicador = kahoot.obtenerJugadorActual().obtenerMultiplicadorEnUso().obtenerNombre();
+
 
         btnX2.setOnMouseClicked((evento) -> controlador.usarMultiplicadorX2());
         btnX2.setDisable(!kahoot.obtenerRondaActual().obtenerPregunta().obtenerTipo().contains("CON_PENALIDAD"));
@@ -34,14 +35,26 @@ public class BonificacionesVista extends VBox {
         Button btnX3 = new Button("X 3");
         btnX3.setStyle("-fx-background-radius: 90;");
         btnX3.setOnMouseClicked((evento) -> controlador.usarMultiplicadorX3());
+        btnX3.setDisable(!kahoot.obtenerRondaActual().obtenerPregunta().obtenerTipo().contains("CON_PENALIDAD"));
 
         Button btnExclusividad = new Button(" E ");
         btnExclusividad.setStyle("-fx-background-radius: 90;");
         btnExclusividad.setOnMouseClicked((evento) -> controlador.usarExclusividad());
+        btnExclusividad.setDisable(!kahoot.obtenerRondaActual().obtenerPregunta().obtenerTipo().contains("CON_PUNTAJE_PARCIAL"));
 
         hBox.getChildren().add(btnX2);
         hBox.getChildren().add(btnX3);
         hBox.getChildren().add(btnExclusividad);
+
+        switch (nombreMultiplicador) {
+            case "MULTIPLICADOR_X_2":
+                btnX2.setStyle(btnX2.getStyle()+ "-fx-background-color: #5bff33;");
+                break;
+
+            case "MULTIPLICADOR_X_3":
+                btnX3.setStyle(btnX3.getStyle()+ "-fx-background-color: #5bff33;");
+                break;
+        }
 
         this.getChildren().add(hBox);
         this.setStyle("-fx-border-style: solid;" +
