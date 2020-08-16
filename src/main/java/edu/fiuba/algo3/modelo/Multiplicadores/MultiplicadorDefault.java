@@ -1,8 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Multiplicadores;
 
 public class MultiplicadorDefault extends EstrategiaDeMultiplicacion {
     @Override
-    public long multiplicar(long puntos) {
+    public double multiplicar(double puntos) {
         return puntos;
     }
 }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

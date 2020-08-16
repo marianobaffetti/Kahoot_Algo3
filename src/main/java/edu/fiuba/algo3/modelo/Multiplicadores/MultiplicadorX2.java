@@ -1,12 +1,11 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Multiplicadores;
 
 public class MultiplicadorX2 extends EstrategiaDeMultiplicacion {
     public MultiplicadorX2() {
         this.nombre = "MULTIPLICADOR_X_2";
     }
 
-    @Override
-    public long multiplicar(long puntos) {
+    public double multiplicar(double puntos) {
         return puntos * 2;
     }
 }

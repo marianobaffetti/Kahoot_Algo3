@@ -1,16 +1,15 @@
 package edu.fiuba.algo3.modelo.Preguntas;
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.Resultado;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class MultipleChoice extends Pregunta {
-    private final String texto;
-
     public MultipleChoice(String texto, List<Opcion> opciones) {
-        this.texto = texto;
+        super(texto);
         this.opciones = opciones;
     }
 
@@ -19,6 +18,11 @@ public class MultipleChoice extends Pregunta {
                 .stream()
                 .filter(opcion -> opcion.esCorrecta())
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public String obtenerTipo() {
+        return "MULTIPLE_CHOICE";
     }
 
     public Resultado obtenerResultado(Respuesta respuesta) {

@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
-public class OpcionOrderedChoice implements Opcion {
-    private final String texto;
+public class OpcionOrderedChoice extends Opcion {
     private final int orden;
 
     public OpcionOrderedChoice(String texto, int orden) {
-        this.texto = texto;
+        super(texto);
         this.orden = orden;
     }
 

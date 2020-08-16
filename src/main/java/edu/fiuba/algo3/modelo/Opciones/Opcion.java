@@ -1,9 +1,20 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
-public interface Opcion {
-    Boolean esCorrecta();
+public abstract class Opcion {
+    protected final String texto;
 
-    Boolean coincideCon(Opcion opcion);
+    public Opcion(String texto) {
+        this.texto = texto;
+    }
 
-    <T> Boolean coincideCon(String texto, T condicion);
+    public abstract Boolean esCorrecta();
+
+    public abstract Boolean coincideCon(Opcion opcion);
+
+    public abstract <T> Boolean coincideCon(String texto, T condicion);
+
+    public String obtenerTexto() {
+        return this.texto;
+    }
+
 }
