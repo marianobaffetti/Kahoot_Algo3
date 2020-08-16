@@ -25,6 +25,11 @@ public class ProxyConPenalidad extends Pregunta {
     }
 
     @Override
+    public List<Opcion> obtenerOpciones() {
+        return this.pregunta.obtenerOpciones();
+    }
+
+    @Override
     public void asignarMultiplicadorX2AJugador(Jugador jugador) {
         this.pregunta.asignarMultiplicadorX2AJugador(jugador);
     }

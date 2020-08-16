@@ -14,6 +14,7 @@ import edu.fiuba.algo3.modelo.PreguntasBuilder;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class PreguntasJsonParser {
     private final InputStreamReader reader;
@@ -42,10 +43,18 @@ public class PreguntasJsonParser {
                     ));
                 });
                 var texto = ((JsonObject) preguntaJson).get("texto").getAsString();
+
                 if (tipo.equals("VERDADERO_O_FALSO"))
-                    preguntas.add(builder.crearVerdaderOFalso(texto, opciones).get());
+                    builder.crearVerdaderOFalso(texto, opciones);
                 else
-                    preguntas.add(builder.crearMultipleChoice(texto, opciones).get());
+                    builder.crearMultipleChoice(texto, opciones);
+
+                var penalidad = ((JsonObject) preguntaJson).get("penalidad").getAsBoolean();
+
+                if (penalidad) builder.conPenalidad();
+
+                preguntas.add(builder.get());
+
             } else if (tipo.equals("GROUP_CHOICE")) {
                 var opciones = new ArrayList<Opcion>();
                 var opcionesJson = ((JsonObject) preguntaJson).get("opciones");

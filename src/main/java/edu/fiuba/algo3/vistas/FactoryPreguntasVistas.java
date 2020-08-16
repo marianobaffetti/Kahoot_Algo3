@@ -12,6 +12,7 @@ public class FactoryPreguntasVistas {
     FactoryPreguntasVistas() {
         this.vistas = Map.of(
                 "VERDADERO_O_FALSO", VerdaderoFalsoVista.class,
+                "VERDADERO_O_FALSO_CON_PENALIDAD", VerdaderoFalsoVista.class,
                 "MULTIPLE_CHOICE", MultipleChoiceVista.class,
                 "GROUP_CHOICE", GroupChoiceVista.class,
                 "ORDERED_CHOICE", OrderedChoiceVista.class

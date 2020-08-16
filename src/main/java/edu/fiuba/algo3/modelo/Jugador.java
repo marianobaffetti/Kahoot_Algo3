@@ -71,7 +71,12 @@ public class Jugador {
         cantidadDeExclusividades--;
     }
 
+
     public boolean activoExclusividad() {
         return this.exclusividadEnUso;
+    }
+
+    public EstrategiaDeMultiplicacion obtenerMultiplicadorEnUso() {
+        return this.multiplicador;
     }
 }

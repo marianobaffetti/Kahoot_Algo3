@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -24,7 +25,11 @@ public class BonificacionesVista extends VBox {
         hBox.setSpacing(5);
         Button btnX2 = new Button("X 2");
         btnX2.setStyle("-fx-background-radius: 90;");
+
+        if (kahoot.obtenerJugadorActual().obtenerMultiplicadorEnUso().obtenerNombre().equals("MULTIPLICADOR_X_2")) btnX2.setStyle(btnX2.getStyle()+ "-fx-background-color: #5bff33;");
+
         btnX2.setOnMouseClicked((evento) -> controlador.usarMultiplicadorX2());
+        btnX2.setDisable(!kahoot.obtenerRondaActual().obtenerPregunta().obtenerTipo().contains("CON_PENALIDAD"));
 
         Button btnX3 = new Button("X 3");
         btnX3.setStyle("-fx-background-radius: 90;");

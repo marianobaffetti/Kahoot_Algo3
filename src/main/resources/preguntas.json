@@ -1,6 +1,31 @@
 {
     "preguntas": [
         {
+            "tipo": "VERDADERO_O_FALSO",
+            "penalidad": "true",
+            "texto" : "Colón llegó a América en el siglo XV",
+            "opciones" : [{
+                "texto": "Verdadero",
+                "correcta": "true"
+            },
+            {
+                "texto": "Falso",
+                "correcta": "false"
+            }]
+        },{
+            "tipo": "VERDADERO_O_FALSO",
+            "penalidad": "true",
+            "texto" : "Pepin siempre se equivoca",
+            "opciones" : [{
+                "texto": "Verdadero",
+                "correcta": "true"
+            },
+                {
+                    "texto": "Falso",
+                    "correcta": "false"
+                }]
+        },
+        {
             "tipo": "ORDERED_CHOICE",
             "texto" : "Cuál es el orden correcto para agregar cambios a git.",
             "opciones" : [
@@ -19,7 +44,7 @@
             ]
         },
         {
-                "tipo": "GROUP_CHOICE",
+            "tipo": "GROUP_CHOICE",
             "texto" : "Agrupar países por continente",
             "opciones" : [
                 {
@@ -42,6 +67,7 @@
         },
         {
             "tipo": "MULTIPLE_CHOICE",
+            "penalidad": "false",
             "texto" : "Qué colores tiene la bandera Argentina?",
             "opciones" : [
                 {
@@ -61,29 +87,6 @@
                     "correcta": "true"
                 }
             ]
-        },
-        {
-            "tipo": "VERDADERO_O_FALSO",
-            "texto" : "Colón llegó a América en el siglo XV",
-            "opciones" : [{
-                "texto": "Verdadero",
-                "correcta": "true"
-            },
-            {
-                "texto": "Falso",
-                "correcta": "false"
-            }]
-        },{
-            "tipo": "VERDADERO_O_FALSO",
-            "texto" : "Pepin siempre se equivoca",
-            "opciones" : [{
-                "texto": "Verdadero",
-                "correcta": "true"
-            },
-                {
-                    "texto": "Falso",
-                    "correcta": "false"
-                }]
         }
     ]
 }
