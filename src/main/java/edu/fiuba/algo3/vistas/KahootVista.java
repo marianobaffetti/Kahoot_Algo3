@@ -40,6 +40,9 @@ public class KahootVista extends StackPane implements Observer {
             case "CREAR_JUGADORES":
                 mostrar(new CrearJugadoresVista(kahoot));
                 break;
+            case "MOSTRAR_INTRO_PREGUNTA":
+                mostrar(new IntroPreguntaVista(kahoot, this.controlador));
+                break;
             case "MOSTRAR_PREGUNTA":
                 mostrar(factory.crear(kahoot.obtenerTipoDePregunta(), kahoot));
                 break;

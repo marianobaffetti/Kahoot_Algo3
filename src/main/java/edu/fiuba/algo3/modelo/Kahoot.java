@@ -49,7 +49,7 @@ public class Kahoot extends Observable {
             throw new NoSePuedeIniciarJuegoSiNoHayJugadoresError("No se puede iniciar el juego si no hay jugadores.");
         if (this.preguntas == null)
             throw new NoSePuedeIniciarJuegoSiNoHayPreguntasError("No se puede iniciar el juego si no hay preguntas.");
-        this.estado = "MOSTRAR_PREGUNTA";
+        this.estado = "MOSTRAR_INTRO_PREGUNTA";
         crearRondas();
         siguienteRonda();
         setChanged();
@@ -75,12 +75,18 @@ public class Kahoot extends Observable {
 
     public void siguienteRonda() {
         if (this.iteradorRondas.hasNext()) {
+            this.estado = "MOSTRAR_INTRO_PREGUNTA";
             this.rondaActual = this.iteradorRondas.next();
             this.rondaActual.iniciar();
             this.numeroDeRonda++;
         } else {
             this.finalizar();
         }
+    }
+
+    public void mostrarPregunta() {
+        this.estado = "MOSTRAR_PREGUNTA";
+        setChanged();
     }
 
     private void finalizar() {

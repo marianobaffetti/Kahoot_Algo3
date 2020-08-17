@@ -17,4 +17,9 @@ public class KahootControlador {
 
     public void cerrarJuego() {
     }
+
+    public void clickEnSiguiente() {
+        Kahoot.getInstance().mostrarPregunta();
+        Kahoot.getInstance().notifyObservers();
+    }
 }
