@@ -30,7 +30,7 @@ public abstract class PreguntaVista extends BorderPane {
         lblPregunta.setWrapText(true);
         HBox hBox = new HBox(lblPregunta);
         hBox.setAlignment(Pos.TOP_CENTER);
-        hBox.setPadding(new Insets(30, 50, 50, 100));
+        hBox.setPadding(new Insets(30, 50, 30, 100));
         return hBox;
     }
 }

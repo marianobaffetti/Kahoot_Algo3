@@ -1,6 +1,6 @@
 {
     "preguntas": [
-        /*{
+        {
             "tipo": "VERDADERO_O_FALSO",
             "penalidad": "false",
             "texto" : "Colón llegó a América en el siglo XV",
@@ -42,7 +42,7 @@
                     "orden": "3"
                 }
             ]
-        },*/
+        },
         {
             "tipo": "GROUP_CHOICE",
             "texto" : "Agrupar países por continente",

@@ -47,7 +47,7 @@ public class GroupChoiceVista extends PreguntaVista{
         vBoxBtnEnviar.getChildren().add(btnEnviar);
         vBoxBtnEnviar.setAlignment(Pos.BOTTOM_RIGHT);
         HBox hBox2 = new HBox();
-        hBox2.setSpacing(150);
+        hBox2.setSpacing(130);
         hBox2.getChildren().add(vBox1);
         hBox2.getChildren().add(vBoxBtnEnviar);
 
