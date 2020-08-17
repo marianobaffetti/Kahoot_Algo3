@@ -1,6 +1,102 @@
 {
     "preguntas": [
         {
+            "tipo": "ORDERED_CHOICE",
+            "texto" : "Cuál es el orden correcto para agregar cambios a git.",
+            "opciones" : [
+                {
+                    "texto": "git add",
+                    "orden": "1"
+                },
+                {
+                    "texto": "git commit",
+                    "orden": "2"
+                },
+                {
+                    "texto": "git push",
+                    "orden": "3"
+                }
+            ]
+        },
+        {
+            "tipo": "GROUP_CHOICE",
+            "texto" : "Agrupar países por continente",
+            "opciones" : [
+                {
+                    "texto": "Argentina",
+                    "grupo": "America"
+                },
+                {
+                    "texto": "Canada",
+                    "grupo": "America"
+                },
+                {
+                    "texto": "España",
+                    "grupo": "Europa"
+                },
+                {
+                    "texto": "Francia",
+                    "grupo": "Europa"
+                }
+            ]
+        },
+        {
+            "tipo": "MULTIPLE_CHOICE",
+            "penalidad": "true",
+            "puntajeParcial" : "false",
+            "texto" : "Qué colores tiene la bandera Argentina?",
+            "opciones" : [
+                {
+                    "texto": "Blanco",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Celeste",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Marrón",
+                    "correcta": "false"
+                },
+                {
+                    "texto": "Amarillo",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Verde",
+                    "correcta": "false"
+                },
+                {
+                    "texto": "Azul",
+                    "correcta": "false"
+                }
+            ]
+        },
+        {
+            "tipo": "MULTIPLE_CHOICE",
+            "penalidad": "false",
+            "puntajeParcial" : "false",
+            "texto" : "Qué colores tiene la bandera Argentina?",
+            "opciones" : [
+                {
+                    "texto": "Blanco",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Celeste",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Rojo",
+                    "correcta": "false"
+                },
+                {
+                    "texto": "Amarillo",
+                    "correcta": "true"
+                }
+            ]
+        },
+        {
             "tipo": "VERDADERO_O_FALSO",
             "penalidad": "false",
             "texto" : "Colón llegó a América en el siglo XV",
@@ -8,10 +104,86 @@
                 "texto": "Verdadero",
                 "correcta": "true"
             },
-            {
-                "texto": "Falso",
-                "correcta": "false"
-            }]
+                {
+                    "texto": "Falso",
+                    "correcta": "false"
+                }]
+        },{
+            "tipo": "VERDADERO_O_FALSO",
+            "penalidad": "true",
+            "texto" : "Pepin siempre se equivoca",
+            "opciones" : [{
+                "texto": "Verdadero",
+                "correcta": "true"
+            },
+                {
+                    "texto": "Falso",
+                    "correcta": "false"
+                }]
+        },
+        {
+            "tipo": "ORDERED_CHOICE",
+            "texto" : "Cuál es el orden correcto para agregar cambios a git.",
+            "opciones" : [
+                {
+                    "texto": "git add",
+                    "orden": "1"
+                },
+                {
+                    "texto": "git commit",
+                    "orden": "2"
+                },
+                {
+                    "texto": "git push",
+                    "orden": "3"
+                }
+            ]
+        },
+        {
+            "tipo": "GROUP_CHOICE",
+            "texto" : "Agrupar países por continente",
+            "opciones" : [
+                {
+                    "texto": "Argentina",
+                    "grupo": "America"
+                },
+                {
+                    "texto": "Canada",
+                    "grupo": "America"
+                },
+                {
+                    "texto": "España",
+                    "grupo": "Europa"
+                },
+                {
+                    "texto": "Francia",
+                    "grupo": "Europa"
+                }
+            ]
+        },
+        {
+            "tipo": "MULTIPLE_CHOICE",
+            "penalidad": "false",
+            "puntajeParcial" : "true",
+            "texto" : "Qué colores tiene la bandera Argentina?",
+            "opciones" : [
+                {
+                    "texto": "Blanco",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Celeste",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Rojo",
+                    "correcta": "false"
+                },
+                {
+                    "texto": "Amarillo",
+                    "correcta": "true"
+                }
+            ]
         }
     ]
 }
