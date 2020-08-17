@@ -15,6 +15,7 @@ public class OpcionVerdaderoOFalsoVista extends VBox {
         botonOpcion.setOnMouseClicked((evento) -> this.controlador.clickEnBoton(opcion));
         botonOpcion.setPadding(new Insets(20, 20, 20, 20));
         botonOpcion.setMinSize(200, 100);
+        botonOpcion.setStyle("-fx-background-radius: 90;");
         this.getChildren().add(botonOpcion);
         this.setPadding(new Insets(0, 5, 0, 5));
     }

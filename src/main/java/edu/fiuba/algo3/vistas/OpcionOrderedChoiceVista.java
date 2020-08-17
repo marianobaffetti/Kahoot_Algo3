@@ -35,6 +35,7 @@ public class OpcionOrderedChoiceVista extends HBox {
         Label lblTexto = new Label(opcion.obtenerTexto());
         lblTexto.setStyle("-fx-text-fill: white;");
         lblTexto.setMinWidth(100);
+
         this.setStyle("-fx-border-style: solid;" +
                 "-fx-border-width: 2;" +
                 "-fx-border-radius: 90;" +

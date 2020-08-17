@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -33,6 +34,7 @@ public class VerdaderoFalsoVista extends PreguntaVista {
         opciones.forEach(opcion ->
                 hBox.getChildren().add(new OpcionVerdaderoOFalsoVista(opcion))
         );
+        hBox.setPadding(new Insets(50, 0, 0, 50));
         return hBox;
     }
 

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vistas;
 import edu.fiuba.algo3.controladores.MultipleChoiceControlador;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -38,22 +39,29 @@ public class MultipleChoiceVista extends PreguntaVista {
 
         VBox vBoxOpciones = new VBox();
         vBoxOpciones.getChildren().add(obtenerTexto(kahoot));
-        vBoxOpciones.getChildren().add(obtenerVistaDeOpciones(kahoot));
+
+        VBox vBox1 = obtenerVistaDeOpciones(kahoot);
+        vBox1.setPadding(new Insets(0, 0, 0, 100));
 
         VBox vBoxBtnEnviar = new VBox();
         Button btnEnviar = new Button("Enviar");
         MultipleChoiceControlador controlador = new MultipleChoiceControlador();
         btnEnviar.setOnMouseClicked((evento) -> controlador.clickEnEnviar(this.obtenerOpciones()));
+        btnEnviar.setStyle("-fx-background-radius: 90;");
         vBoxBtnEnviar.getChildren().add(btnEnviar);
-        vBoxBtnEnviar.setAlignment(Pos.CENTER);
+        vBoxBtnEnviar.setAlignment(Pos.BOTTOM_RIGHT);
+        HBox hBox2 = new HBox();
+        hBox2.setSpacing(250);
+        hBox2.getChildren().add(vBox1);
+        hBox2.getChildren().add(vBoxBtnEnviar);
+
+        vBoxOpciones.getChildren().add(hBox2);
 
         hBox.getChildren().add(vBoxOpciones);
-        hBox.getChildren().add(vBoxBtnEnviar);
-
         this.setCenter(hBox);
     }
 
-    protected Pane obtenerVistaDeOpciones(Kahoot kahoot) {
+    protected VBox obtenerVistaDeOpciones(Kahoot kahoot) {
         VBox vBox = new VBox();
         vBox.setAlignment(Pos.CENTER);
         List<Opcion> opciones = kahoot.obtenerOpciones();
@@ -61,6 +69,7 @@ public class MultipleChoiceVista extends PreguntaVista {
         opciones.forEach(opcion -> {
             var opcionVista = new OpcionMultipleChoiceVista(opcion);
             this.opcionesVistas.add(opcionVista);
+
             vBox.getChildren().add(opcionVista);
         });
 
