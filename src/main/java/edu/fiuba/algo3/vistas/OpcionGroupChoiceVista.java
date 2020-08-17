@@ -22,7 +22,6 @@ public class OpcionGroupChoiceVista extends HBox {
         gruposChoiceBox.setItems(FXCollections.observableArrayList(
                 grupos)
         );
-
         gruposChoiceBox.setStyle("-fx-background-radius: 90;");
 
         Label lblTexto = new Label(opcion.obtenerTexto());

@@ -1,6 +1,46 @@
 {
     "preguntas": [
         {
+            "tipo": "ORDERED_CHOICE",
+            "texto" : "Cuál es el orden correcto para agregar cambios a git.",
+            "opciones" : [
+                {
+                    "texto": "git add",
+                    "orden": "1"
+                },
+                {
+                    "texto": "git commit",
+                    "orden": "2"
+                },
+                {
+                    "texto": "git push",
+                    "orden": "3"
+                }
+            ]
+        },
+        {
+            "tipo": "GROUP_CHOICE",
+            "texto" : "Agrupar países por continente",
+            "opciones" : [
+                {
+                    "texto": "Argentina",
+                    "grupo": "America"
+                },
+                {
+                    "texto": "Canada",
+                    "grupo": "America"
+                },
+                {
+                    "texto": "España",
+                    "grupo": "Europa"
+                },
+                {
+                    "texto": "Francia",
+                    "grupo": "Europa"
+                }
+            ]
+        },
+        {
             "tipo": "MULTIPLE_CHOICE",
             "penalidad": "true",
             "puntajeParcial" : "false",

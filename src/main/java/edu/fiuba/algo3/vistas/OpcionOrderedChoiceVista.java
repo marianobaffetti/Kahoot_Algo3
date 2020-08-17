@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class OpcionOrderedChoiceVista extends HBox {
     private final Opcion opcion;
@@ -50,7 +51,14 @@ public class OpcionOrderedChoiceVista extends HBox {
         this.setPadding(new Insets(10, 10, 10, 100));
     }
 
+    public boolean estaSeleccionada() {
+        return this.ordenChoiceBox.getValue() != null;
+    }
     public OpcionOrderedChoice obtenerOpcion() {
         return new OpcionOrderedChoice(this.opcion.obtenerTexto(), Integer.parseInt(this.ordenChoiceBox.getValue()));
+    }
+
+    public String obtenerSeleccion() {
+        return this.ordenChoiceBox.getValue();
     }
 }

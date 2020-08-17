@@ -3,12 +3,10 @@ package edu.fiuba.algo3.vistas;
 import edu.fiuba.algo3.controladores.GroupChoiceControlador;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
-import edu.fiuba.algo3.modelo.Opciones.OpcionGroupChoice;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -40,9 +38,13 @@ public class GroupChoiceVista extends PreguntaVista{
         VBox vBoxBtnEnviar = new VBox();
         Button btnEnviar = new Button("Enviar");
         var controlador = new GroupChoiceControlador();
-        btnEnviar.setOnMouseClicked((evento) -> controlador.clickEnEnviar(
-                obtenerOpciones()
-        ));
+        btnEnviar.setOnMouseClicked((evento) ->{
+            if(todasSelecionadas()) {
+                controlador.clickEnEnviar(obtenerOpciones());
+            } else {
+                mostrarMensajeDeValidacion("Se dedeben seleccionar todas las opciones posibles.", "Respuesta incompleta");
+            }
+        });
         btnEnviar.setStyle("-fx-background-radius: 90;");
         vBoxBtnEnviar.getChildren().add(btnEnviar);
         vBoxBtnEnviar.setAlignment(Pos.BOTTOM_RIGHT);
@@ -55,6 +57,12 @@ public class GroupChoiceVista extends PreguntaVista{
 
         hBox.getChildren().add(vBoxOpciones);
         this.setCenter(hBox);
+    }
+
+    private boolean todasSelecionadas() {
+        return this.opcionesVistas
+            .stream()
+            .allMatch( opcion -> opcion.obtenerOpcion().obtenerGrupo() != null);
     }
 
     private List<Opcion> obtenerOpciones() {

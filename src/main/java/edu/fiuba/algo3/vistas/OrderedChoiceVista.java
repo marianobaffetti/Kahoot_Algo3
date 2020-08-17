@@ -5,9 +5,9 @@ import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -32,16 +32,21 @@ public class OrderedChoiceVista extends PreguntaVista{
         VBox vBoxOpciones = new VBox();
         vBoxOpciones.getChildren().add(obtenerTexto(kahoot));
 
-
         VBox vBox1 = obtenerVistaDeOpciones(kahoot);
         vBox1.setPadding(new Insets(0, 0, 0, 100));
 
         VBox vBoxBtnEnviar = new VBox();
         Button btnEnviar = new Button("Enviar");
         var controlador = new OrderChoiceControlador();
-        btnEnviar.setOnMouseClicked((evento) -> controlador.clickEnEnviar(
-            obtenerOpciones()
-        ));
+        btnEnviar.setOnMouseClicked((evento) -> {
+            if(!todasSelecionadas()) {
+                mostrarMensajeDeValidacion("Se dedeben seleccionar todas las opciones posibles.", "Respuesta incompleta");
+            } else if(hayRepetidas()) {
+                mostrarMensajeDeValidacion("Las opciones deben tener orden distinto.", "Orden repetido");
+            } else {
+                controlador.clickEnEnviar(obtenerOpciones());
+            }
+        });
         btnEnviar.setStyle("-fx-background-radius: 90;");
         vBoxBtnEnviar.getChildren().add(btnEnviar);
         vBoxBtnEnviar.setAlignment(Pos.BOTTOM_RIGHT);
@@ -55,6 +60,20 @@ public class OrderedChoiceVista extends PreguntaVista{
         hBox.getChildren().add(vBoxOpciones);
 
         this.setCenter(hBox);
+    }
+
+    private boolean hayRepetidas() {
+        return this.opcionesVistas
+            .stream()
+            .map(opcion -> opcion.obtenerSeleccion())
+            .distinct()
+            .count() != this.opcionesVistas.size();
+    }
+
+    private boolean todasSelecionadas() {
+        return this.opcionesVistas
+                .stream()
+                .allMatch( opcion -> opcion.estaSeleccionada());
     }
 
     @Override

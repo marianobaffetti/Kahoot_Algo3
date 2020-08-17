@@ -3,8 +3,8 @@ package edu.fiuba.algo3.vistas;
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -19,6 +19,13 @@ public abstract class PreguntaVista extends BorderPane {
     }
 
     protected abstract void mostrarOpciones(Kahoot kahoot);
+
+    protected void mostrarMensajeDeValidacion(String mensaje, String titulo) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(titulo);
+        alert.setContentText(mensaje);
+        alert.show();
+    }
 
     protected abstract Pane obtenerVistaDeOpciones(Kahoot kahoot);
 
