@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayJugadoresError;
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayPreguntasError;
+import edu.fiuba.algo3.modelo.Excepciones.YaExisteJugadorConEseNombreError;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionDefault;
 import edu.fiuba.algo3.modelo.Preguntas.VerdaderoFalso;
@@ -71,5 +72,14 @@ public class KahootTest {
         kahoot.agregarJugador("pepe");
 
         Assertions.assertThrows(NoSePuedeIniciarJuegoSiNoHayPreguntasError.class, () ->kahoot.iniciarRondas() );
+    }
+
+    @Test
+    public void kahootAgregaUnMensajeDerrorCuandoSeAgregaUnJugadorConElNombreDeOtroExistente() {
+        var kahoot = Kahoot.getInstance();
+        kahoot.agregarJugador("pepe");
+        kahoot.agregarJugador("pepe");
+
+        Assertions.assertFalse(kahoot.obtenerMensaje().isEmpty());
     }
 }
