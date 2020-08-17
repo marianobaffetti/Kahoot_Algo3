@@ -160,4 +160,16 @@ public class Kahoot extends Observable {
             this.mensaje = e.getMessage();
         }
     }
+
+    public List<Jugador> obtenerGanadores() {
+        var puntajeMaximo = this.jugadores
+            .stream()
+            .max(Comparator.comparing( jugador -> jugador.obtenerPuntaje()))
+            .get().obtenerPuntaje();
+
+        return this.jugadores
+            .stream()
+            .filter(jugador -> jugador.obtenerPuntaje() == puntajeMaximo)
+            .collect(Collectors.toList());
+    }
 }
