@@ -46,4 +46,8 @@ public class OpcionMultipleChoiceVista extends HBox {
     public Opcion obtenerOpcion() {
         return this.opcion;
     }
+
+    public boolean estaSeleccionada() {
+        return this.checkBoxOpcion.isSelected();
+    }
 }

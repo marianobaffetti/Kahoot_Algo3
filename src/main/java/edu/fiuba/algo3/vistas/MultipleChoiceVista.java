@@ -46,7 +46,13 @@ public class MultipleChoiceVista extends PreguntaVista {
         VBox vBoxBtnEnviar = new VBox();
         Button btnEnviar = new Button("Enviar");
         MultipleChoiceControlador controlador = new MultipleChoiceControlador();
-        btnEnviar.setOnMouseClicked((evento) -> controlador.clickEnEnviar(this.obtenerOpciones()));
+        btnEnviar.setOnMouseClicked((evento) -> {
+            if (haySeleccionada()) {
+                controlador.clickEnEnviar(this.obtenerOpciones());
+            } else {
+                mostrarMensajeDeValidacion("Se debe seleccionar al menos una opción.", "No hay selección");
+            }
+        });
         btnEnviar.setStyle("-fx-background-radius: 90;");
         vBoxBtnEnviar.getChildren().add(btnEnviar);
         vBoxBtnEnviar.setAlignment(Pos.BOTTOM_RIGHT);
@@ -59,6 +65,12 @@ public class MultipleChoiceVista extends PreguntaVista {
 
         hBox.getChildren().add(vBoxOpciones);
         this.setCenter(hBox);
+    }
+
+    private boolean haySeleccionada() {
+        return this.opcionesVistas
+            .stream()
+            .anyMatch( opcion -> opcion.estaSeleccionada());
     }
 
     protected VBox obtenerVistaDeOpciones(Kahoot kahoot) {
