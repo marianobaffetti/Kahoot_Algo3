@@ -95,6 +95,12 @@ public class Kahoot extends Observable {
         setChanged();
     }
 
+    public void perderTurno() {
+        this.mensaje = "Se le acabó el tiempo a " + this.rondaActual.jugadorActual().obtenerNombre();
+        this.rondaActual.siguienteTurno();
+        setChanged();
+    }
+
     public String obtenerEtapa() {
         return this.estado;
     }

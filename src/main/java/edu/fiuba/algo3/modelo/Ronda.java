@@ -64,7 +64,7 @@ public class Ronda {
         return this.jugadorActual;
     }
 
-    private void siguienteTurno() {
+    public void siguienteTurno() {
         if (this.iteradorJugadores.hasNext())
             this.jugadorActual = this.iteradorJugadores.next();
         else
