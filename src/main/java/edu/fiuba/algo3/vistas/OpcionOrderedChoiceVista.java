@@ -20,22 +20,33 @@ public class OpcionOrderedChoiceVista extends HBox {
         this.opcion = opcion;
         var cantidadDeOpciones = pregunta.obtenerOpciones().size();
 
-        var grupos = new ArrayList<String>();
+        var orden = new ArrayList<String>();
         Integer i = 1;
         for (i = 1; i <= cantidadDeOpciones; i++) {
-            grupos.add(i.toString());
+            orden.add(i.toString());
         }
 
         this.ordenChoiceBox = new ChoiceBox<>();
         ordenChoiceBox.setItems(FXCollections.observableArrayList(
-                grupos)
+                orden)
         );
+        ordenChoiceBox.setStyle("-fx-background-radius: 90;");
 
-        ordenChoiceBox.setPadding(new Insets(10, 20, 10, 10));
-
-        this.getChildren().add(new Label(opcion.obtenerTexto()));
+        Label lblTexto = new Label(opcion.obtenerTexto());
+        lblTexto.setStyle("-fx-text-fill: white;");
+        lblTexto.setMinWidth(100);
+        this.setStyle("-fx-border-style: solid;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-radius: 90;" +
+                "-fx-border-insets: 5;" +
+                "-fx-border-color: white;" +
+                "-fx-background-color: #A946F5;" +
+                "-fx-background-radius: 90;"
+        );
+        this.getChildren().add(lblTexto);
         this.getChildren().add(ordenChoiceBox);
-        this.setPadding(new Insets(0, 5, 0, 5));
+        this.setMaxWidth(400);
+        this.setPadding(new Insets(10, 10, 10, 100));
     }
 
     public OpcionOrderedChoice obtenerOpcion() {
