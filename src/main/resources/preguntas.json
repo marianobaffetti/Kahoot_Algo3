@@ -1,6 +1,62 @@
 {
     "preguntas": [
         {
+            "tipo": "MULTIPLE_CHOICE",
+            "penalidad": "true",
+            "puntajeParcial" : "false",
+            "texto" : "Qué colores tiene la bandera Argentina?",
+            "opciones" : [
+                {
+                    "texto": "Blanco",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Celeste",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Marrón",
+                    "correcta": "false"
+                },
+                {
+                    "texto": "Amarillo",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Verde",
+                    "correcta": "false"
+                },
+                {
+                    "texto": "Azul",
+                    "correcta": "false"
+                }
+            ]
+        },
+        {
+            "tipo": "MULTIPLE_CHOICE",
+            "penalidad": "false",
+            "puntajeParcial" : "false",
+            "texto" : "Qué colores tiene la bandera Argentina?",
+            "opciones" : [
+                {
+                    "texto": "Blanco",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Celeste",
+                    "correcta": "true"
+                },
+                {
+                    "texto": "Rojo",
+                    "correcta": "false"
+                },
+                {
+                    "texto": "Amarillo",
+                    "correcta": "true"
+                }
+            ]
+        },
+        {
             "tipo": "VERDADERO_O_FALSO",
             "penalidad": "false",
             "texto" : "Colón llegó a América en el siglo XV",
@@ -68,6 +124,7 @@
         {
             "tipo": "MULTIPLE_CHOICE",
             "penalidad": "false",
+            "puntajeParcial" : "true",
             "texto" : "Qué colores tiene la bandera Argentina?",
             "opciones" : [
                 {

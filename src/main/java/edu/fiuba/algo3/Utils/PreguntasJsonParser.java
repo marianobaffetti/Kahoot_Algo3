@@ -46,12 +46,14 @@ public class PreguntasJsonParser {
 
                 if (tipo.equals("VERDADERO_O_FALSO"))
                     builder.crearVerdaderOFalso(texto, opciones);
-                else
-                    //if (puntajeParcial)
+                else {
                     builder.crearMultipleChoice(texto, opciones);
-
+                    var puntajeParcial = ((JsonObject) preguntaJson).get("puntajeParcial").getAsBoolean();
+                    if (puntajeParcial) {
+                        builder.conPuntajeParcial();
+                    }
+                }
                 var penalidad = ((JsonObject) preguntaJson).get("penalidad").getAsBoolean();
-
                 if (penalidad) builder.conPenalidad();
 
                 preguntas.add(builder.get());

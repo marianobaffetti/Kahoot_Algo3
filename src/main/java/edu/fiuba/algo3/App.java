@@ -36,7 +36,7 @@ public class App extends Application {
         }
         kahootModelo.addObserver(kahootVista);
 
-        var scene = new Scene(kahootVista, 640, 480);
+        var scene = new Scene(kahootVista, 640, 520);
         stage.setScene(scene);
         stage.setTitle(kahootVista.getTitle());
         stage.show();

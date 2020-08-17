@@ -14,6 +14,8 @@ public class FactoryPreguntasVistas {
                 "VERDADERO_O_FALSO", VerdaderoFalsoVista.class,
                 "VERDADERO_O_FALSO_CON_PENALIDAD", VerdaderoFalsoVista.class,
                 "MULTIPLE_CHOICE", MultipleChoiceVista.class,
+                "MULTIPLE_CHOICE_CON_PENALIDAD", MultipleChoiceVista.class,
+                "MULTIPLE_CHOICE_CON_PUNTAJE_PARCIAL", MultipleChoiceVista.class,
                 "GROUP_CHOICE", GroupChoiceVista.class,
                 "ORDERED_CHOICE", OrderedChoiceVista.class
         );
