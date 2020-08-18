@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class IntroPreguntaVista extends StackPane {
@@ -16,7 +15,7 @@ public class IntroPreguntaVista extends StackPane {
         lblTipoPregunta.setStyle("-fx-text-fill: white;" +
                     "-fx-font-size: 40pt;" +
                 "-fx-border-style: dotted;" +
-                "-fx-border-width: 10;" +
+                "-fx-border-width: 5;" +
                 "-fx-border-insets: 5;" +
                 "-fx-border-radius: 90;" +
                 "-fx-border-color: white;"

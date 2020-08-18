@@ -32,12 +32,14 @@ public class CrearJugadoresVista extends BorderPane {
         Button btnAgregar = new Button("Agregar");
         //TODO: Validar que el nombre no esté vacío
         btnAgregar.setOnMouseClicked((evento) -> controlador.agregarJugador(txtNombre.getCharacters().toString()));
+        btnAgregar.setStyle("-fx-background-radius: 90;");
 
         //TODO: Validar que haya la cantidad necesaria de jugadores
 
         Button btnIniciar = new Button("Iniciar");
         btnIniciar.setDisable(kahoot.obtenerJugadores().size() <= 1);
         btnIniciar.setOnMouseClicked((event) -> controlador.iniciarRondas());
+        btnIniciar.setStyle("-fx-background-radius: 90;");
 
         hBox2.getChildren().add(btnAgregar);
         hBox2.getChildren().add(btnIniciar);
