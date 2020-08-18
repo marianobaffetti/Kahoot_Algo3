@@ -57,6 +57,7 @@ public class GroupChoiceVista extends PreguntaVista{
         vBoxOpciones.getChildren().add(hBox2);
 
         hBox.getChildren().add(vBoxOpciones);
+        hBox.setAlignment(Pos.CENTER);
         this.setCenter(hBox);
     }
 
