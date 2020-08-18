@@ -50,7 +50,22 @@ El presente informe reune la documentación de la solución del segundo trabajo 
 
 \section{Supuestos}\label{sec:supuestos}
 \begin{itemize}
-    \item
+    \item El tiempo para cada turno es de 30 segundos.
+\end{itemize}
+\begin{itemize}
+    \item Un jugador puede tener puntaje negativo, esto se da debido a las preguntas con penalidad ya que por cada opción incorrecta se le resta un punto.
+\end{itemize}
+\begin{itemize}
+    \item En caso de tener el mismo puntaje, puede haber más de un ganador.
+\end{itemize}
+\begin{itemize}
+    \item No pueden haber dos jugadores con el mismo nombre.
+\end{itemize}
+\begin{itemize}
+    \item En las preguntas de tipo Ordered Choice y Group Choice la respuesta se considera correcta siempre que todas las opciones seleccionadas sean correctas.
+\end{itemize}
+\begin{itemize}
+    \item En las preguntas de tipo Ordered Choice y Group Choice se suma un punto por cada opción correcta en caso de que la respuesta sea correcta.
 \end{itemize}
 
 
@@ -100,9 +115,55 @@ El presente informe reune la documentación de la solución del segundo trabajo 
 \section{Excepciones}\label{sec:excepciones}
 
 \begin{description}
-\item[]
+\item[YaHayUnMultiplicadorEnUsoError:] Excepción que se lanza cuando un jugador intenta usar más de un multiplicador en un mismo turno, mostrando un cartel de advertencia.
+
+\end{description}
+
+\begin{description}
+\item[YaHayUnaExclusividadEnUsoError:] Excepción que se lanza cuando un jugador intenta usar más de un bonificador de exclusividad en un mismo turno, mostrando un cartel de advertencia.
+
+\end{description}
+
+\begin{description}
+\item[YaExisteJugadorConEseNombreError:] Excepción que se lanza cuando un jugador intenta registrarse con un nombre ya utilizado, mostrando un cartel de advertencia para que modifique el nombre ingresado.
+
+\end{description}
+
+\begin{description}
+\item[NoSePuedeUtilizarMultiplicadorError:] Excepción que se lanza cuando un jugador intenta utilizar un multiplicador en una pregunta que no permite el uso del mismo.
+
+\end{description}
+
+\begin{description}
+\item[NoSePuedeUtilizarExclusividadError:] Excepción que se lanza cuando un jugador intenta utilizar un bonificador de exclusividad en una pregunta que no permite el uso del mismo.
+
+\end{description}
+
+\begin{description}
+\item[NoSePuedeIniciarJuegoSiNoHayPreguntasError:] Excepción que se lanza cuando el programa no detecta ninguna pregunta cargada.
+
+\end{description}
+
+\begin{description}
+\item[NoSePuedeIniciarJuegoSiNoHayJugadoresError:] Excepción que se lanza cuando se intenta iniciar el juego sin tener ningún jugador registrado.
+
+\end{description}
+
+\begin{description}
+\item[NoSeEncuentraElMultiplicadorError:] Excepción que se lanza cuando un jugador intenta utilizar un multiplicador cuando ya se agotaron, mostrando un cartel de advertencia.
+
+\end{description}
+
+\begin{description}
+\item[NoHayExclusividadesDisponiblesError:] Excepción que se lanza cuando un jugador intenta utilizar un bonificador de exclusividad cuando ya se agotaron, mostrando un cartel de advertencia.
+
+\end{description}
+
+\begin{description}
+\item[JugadorNoSePuedeCrearConNombreVacioError:] Excepción que se lanza cuando se intenta registrar un jugador sin haber ingresado ningún caracter, mostrando un cartel de advertencia.
 
 \end{description}
 
 
 \end{document}
+
