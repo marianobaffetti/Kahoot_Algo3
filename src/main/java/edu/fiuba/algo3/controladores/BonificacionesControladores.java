@@ -14,5 +14,7 @@ public class BonificacionesControladores {
     }
 
     public void usarExclusividad() {
+        Kahoot.getInstance().usarExclusividad();
+        Kahoot.getInstance().notifyObservers();
     }
 }

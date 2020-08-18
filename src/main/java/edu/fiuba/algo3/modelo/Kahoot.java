@@ -178,4 +178,13 @@ public class Kahoot extends Observable {
             .filter(jugador -> jugador.obtenerPuntaje() == puntajeMaximo)
             .collect(Collectors.toList());
     }
+
+    public void usarExclusividad() {
+        setChanged();
+        try {
+            this.rondaActual.usarExclusividad(this.rondaActual.obtenerJugadorActual());
+        } catch (RuntimeException e) {
+            this.mensaje = e.getMessage();
+        }
+    }
 }

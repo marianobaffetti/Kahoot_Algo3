@@ -56,6 +56,10 @@ public class BonificacionesVista extends VBox {
                 break;
         }
 
+        if (kahoot.obtenerJugadorActual().activoExclusividad())
+            btnExclusividad.setStyle(btnExclusividad.getStyle()+ "-fx-background-color: #5bff33;");
+
+
         this.getChildren().add(hBox);
         this.setStyle("-fx-border-style: solid;" +
                 "-fx-border-width: 1 0 0 0;" +
