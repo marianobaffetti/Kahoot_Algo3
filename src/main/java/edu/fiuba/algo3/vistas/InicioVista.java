@@ -46,7 +46,7 @@ public class InicioVista extends BorderPane {
         Image backgroundImage = new Image(url, 640, 520, false, true);
         ImageView imageView = new ImageView(backgroundImage);
         imageView.fitHeightProperty().bind(this.heightProperty());
-        imageView.fitWidthProperty().bind(this.widthProperty());    
+        imageView.fitWidthProperty().bind(this.widthProperty());
         this.getChildren().add(imageView);
     }
 

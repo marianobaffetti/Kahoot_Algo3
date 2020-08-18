@@ -7,7 +7,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ public class MultipleChoiceVista extends PreguntaVista {
         this.opcionesVistas = new ArrayList<>();
         mostrarEncabezado(kahoot);
         mostrarBonificaciones(kahoot);
+        mostrarTimer(kahoot);
         mostrarOpciones(kahoot);
         this.setStyle("-fx-background-color: #9E31F2");
     }

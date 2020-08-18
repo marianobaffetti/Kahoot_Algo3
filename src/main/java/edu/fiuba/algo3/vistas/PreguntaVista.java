@@ -14,6 +14,12 @@ public abstract class PreguntaVista extends BorderPane {
         this.setBottom(new BonificacionesVista(kahoot));
     }
 
+    protected void mostrarTimer(Kahoot kahoot) {
+        TemporizadorVista timerVista = new TemporizadorVista(30, 1000);
+        timerVista.start();
+        this.setRight(timerVista);
+    }
+
     protected void mostrarEncabezado(Kahoot kahoot) {
         this.setTop(new EncabezadoPreguntaVista(kahoot));
     }

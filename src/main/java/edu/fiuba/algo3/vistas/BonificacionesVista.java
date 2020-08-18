@@ -6,7 +6,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -59,7 +58,6 @@ public class BonificacionesVista extends VBox {
         if (kahoot.obtenerJugadorActual().activoExclusividad())
             btnExclusividad.setStyle(btnExclusividad.getStyle()+ "-fx-background-color: #5bff33;");
 
-
         this.getChildren().add(hBox);
         this.setStyle("-fx-border-style: solid;" +
                 "-fx-border-width: 1 0 0 0;" +
@@ -67,4 +65,5 @@ public class BonificacionesVista extends VBox {
 //                "-fx-border-radius: 90;" +
                 "-fx-border-color: white;");
     }
+
 }

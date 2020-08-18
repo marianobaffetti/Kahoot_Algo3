@@ -14,6 +14,7 @@ public class VerdaderoFalsoVista extends PreguntaVista {
     public VerdaderoFalsoVista(Kahoot kahoot) {
         mostrarOpciones(kahoot);
         mostrarEncabezado(kahoot);
+        mostrarTimer(kahoot);
         mostrarBonificaciones(kahoot);
         this.setStyle("-fx-background-color: #9E31F2");
     }

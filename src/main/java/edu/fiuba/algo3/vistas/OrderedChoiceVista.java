@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,6 +20,7 @@ public class OrderedChoiceVista extends PreguntaVista{
         this.opcionesVistas = new ArrayList<>();
         mostrarEncabezado(kahoot);
         mostrarBonificaciones(kahoot);
+        mostrarTimer(kahoot);
         mostrarOpciones(kahoot);
         this.setStyle("-fx-background-color: #9E31F2");
     }
