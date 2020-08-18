@@ -36,10 +36,6 @@ public class TareaProgramada extends TimerTask {
         }
     }
 
-    public void cancelarTarea() {
-        this.cancel();
-    }
-
     private void finalizarTurno() {
         Platform.runLater( () -> {
             this.controlador.perderTurno();
