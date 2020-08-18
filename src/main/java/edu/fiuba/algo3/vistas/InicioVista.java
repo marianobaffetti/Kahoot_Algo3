@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class InicioVista extends BorderPane {
 
@@ -23,14 +24,18 @@ public class InicioVista extends BorderPane {
         vBox.getChildren().add(agregarBotonDeInicio());
         vBox.getChildren().add(agregarBotonPantallaCompleta());
         vBox.getChildren().add(agregarBotonSalir());
-        vBox.setPadding(new Insets(0, 0, 50, 0));
+        vBox.setPadding(new Insets(0, 0, 90, 0));
         this.setBottom(vBox);
     }
 
     private HBox agregarBotonSalir() {
         Button botonSalir = new Button("Salir");
-        botonSalir.setOnMouseClicked((event) -> this.controlador.cerrarJuego());
+        botonSalir.setOnMouseClicked((event) -> {
+            Stage stage = (Stage) this.getScene().getWindow();
+            stage.close();
+        });
         botonSalir.setMinWidth(150);
+        botonSalir.setStyle("-fx-background-radius: 90;");
         HBox hBox = new HBox(botonSalir);
         hBox.setAlignment(Pos.BASELINE_CENTER);
         return hBox;
@@ -47,8 +52,12 @@ public class InicioVista extends BorderPane {
 
     private HBox agregarBotonPantallaCompleta() {
         Button btnPantallaCompleta = new Button("Pantalla Completa");
-        btnPantallaCompleta.setOnMouseClicked((event) -> this.controlador.agrandarPantalla());
+        btnPantallaCompleta.setOnMouseClicked((event) -> {
+            Stage stage = (Stage) this.getScene().getWindow();
+            stage.setMaximized(true);
+        });
         btnPantallaCompleta.setMinWidth(150);
+        btnPantallaCompleta.setStyle("-fx-background-radius: 90;");
         HBox hBox = new HBox(btnPantallaCompleta);
         hBox.setAlignment(Pos.BASELINE_CENTER);
         return hBox;
@@ -58,6 +67,7 @@ public class InicioVista extends BorderPane {
         Button botonInicio = new Button("Iniciar Juego");
         botonInicio.setOnMouseClicked((event) -> this.controlador.iniciarJuego());
         botonInicio.setMinWidth(150);
+        botonInicio.setStyle("-fx-background-radius: 90;");
         HBox hBox = new HBox(botonInicio);
         hBox.setAlignment(Pos.BASELINE_CENTER);
         return hBox;
