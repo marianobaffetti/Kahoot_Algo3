@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.Utils.Temporizador;
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayJugadoresError;
 import edu.fiuba.algo3.modelo.Excepciones.NoSePuedeIniciarJuegoSiNoHayPreguntasError;
 import edu.fiuba.algo3.modelo.Excepciones.YaExisteJugadorConEseNombreError;
@@ -99,6 +100,12 @@ public class Kahoot extends Observable {
 
     public void agregarRespuesta(List<Opcion> opciones) {
         this.rondaActual.agregarRespuesta(new Respuesta(opciones, this.rondaActual.jugadorActual()));
+        setChanged();
+    }
+
+    public void perderTurno() {
+        this.mensaje = "Se le acabó el tiempo a " + this.rondaActual.jugadorActual().obtenerNombre();
+        this.rondaActual.siguienteTurno();
         setChanged();
     }
 

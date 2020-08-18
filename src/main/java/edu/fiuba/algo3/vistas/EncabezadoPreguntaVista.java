@@ -41,9 +41,13 @@ public class EncabezadoPreguntaVista extends StackPane {
                 "-fx-border-color: white;"
         );
 
+        TemporizadorVista timerVista = new TemporizadorVista(30, 1000);
+        timerVista.start();
+
         this.getChildren().add(hBoxJugador);
         this.getChildren().add(hBoxRonda);
         this.getChildren().add(hBoxPuntos);
+        this.getChildren().add(timerVista);
     }
 }
 
