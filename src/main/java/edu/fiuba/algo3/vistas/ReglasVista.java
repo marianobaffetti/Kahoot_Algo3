@@ -17,41 +17,48 @@ public class ReglasVista extends StackPane {
                     "-fx-font-weight: bold;" +
                     "-fx-font-size: 10pt;"
                 );
-        vBox.getChildren().add(lblTitulo);
 
         Label lblPreguntas = new Label("* Tipos te preguntas:");
         lblPreguntas.setStyle("-fx-text-fill: white;" +
                 "-fx-font-weight: bold;"
         );
         lblPreguntas.setPadding(new Insets(0, 0, 0, 5));
-        vBox.getChildren().add(lblPreguntas);
-
-        vBox.getChildren().add(agregarTiposDePregunta());
 
         Label lblPreguntasEspeciales = new Label("* Preguntas especiales:");
         lblPreguntasEspeciales.setStyle("-fx-text-fill: white;" +
                 "-fx-font-weight: bold;"
         );
         lblPreguntasEspeciales.setPadding(new Insets(5, 0, 0, 5));
-        vBox.getChildren().add(lblPreguntasEspeciales);
-
-        vBox.getChildren().add(agregarPreguntasEspeciales());
 
         Label lblBonificadores = new Label("* Bonificadores:");
         lblBonificadores.setStyle("-fx-text-fill: white;" +
                 "-fx-font-weight: bold;"
         );
         lblBonificadores.setPadding(new Insets(5, 0, 0, 5));
+
+        Label lblLimite = new Label("* Hay un limite de 30 segundos para responder");
+        lblLimite.setStyle("-fx-text-fill: white;" +
+                "-fx-font-weight: bold;"
+        );
+        lblLimite.setWrapText(true);
+        lblLimite.setPadding(new Insets(5, 0, 0, 5));
+
+
+        vBox.getChildren().add(lblTitulo);
+        vBox.getChildren().add(lblPreguntas);
+        vBox.getChildren().add(agregarTiposDePregunta());
+        vBox.getChildren().add(lblPreguntasEspeciales);
+        vBox.getChildren().add(agregarPreguntasEspeciales());
         vBox.getChildren().add(lblBonificadores);
-
         vBox.getChildren().add(agregarBonificadores());
-
+        vBox.getChildren().add(lblLimite);
         vBox.setStyle("-fx-border-style: solid;" +
                 "-fx-border-width: 2;" +
                 "-fx-border-insets: 5;" +
                 "-fx-border-color: white;"
         );
         vBox.setPadding(new Insets(10, 20, 10, 10));
+        vBox.setMaxWidth(250);
 
         this.setPadding(new Insets(60, 0, 60, 60));
         this.getChildren().add(vBox);
