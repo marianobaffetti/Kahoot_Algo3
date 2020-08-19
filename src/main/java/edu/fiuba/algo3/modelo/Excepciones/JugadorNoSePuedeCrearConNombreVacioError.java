@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Excepciones;
 
-public class JugadorNoSePedeCrearConNombreVacioError extends RuntimeException {
-    public JugadorNoSePedeCrearConNombreVacioError(String mensaje) {
+public class JugadorNoSePuedeCrearConNombreVacioError extends RuntimeException {
+    public JugadorNoSePuedeCrearConNombreVacioError(String mensaje) {
         super(mensaje);
     }
 }

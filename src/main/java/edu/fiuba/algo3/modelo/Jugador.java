@@ -16,7 +16,7 @@ public class Jugador {
     private int cantidadDeExclusividades;
 
     public Jugador(String nombre, List<EstrategiaDeMultiplicacion> multiplicadores) {
-        if (nombre.trim().isEmpty()) throw new JugadorNoSePedeCrearConNombreVacioError("El nombre del jugador no puede estar vacío.");
+        if (nombre.trim().isEmpty()) throw new JugadorNoSePuedeCrearConNombreVacioError("El nombre del jugador no puede estar vacío.");
         this.nombre = nombre;
         this.puntaje = 0;
         this.multiplicador = new MultiplicadorDefault();
