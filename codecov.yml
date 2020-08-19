@@ -1,3 +1,6 @@
-*Vista.java
-*Controlador.java
-App.java
+ignore:
+  - "*Vista.java"
+  - "*Controlador.java"
+  - "App.java"
+
+
