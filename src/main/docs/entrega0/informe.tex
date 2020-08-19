@@ -9,6 +9,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{listings}
+\usepackage{color}
 
 \pagestyle{fancy} % Encabezado y pie de página
 \fancyhf{}
@@ -27,10 +29,10 @@
     \Large [7507/9502] Algoritmos y Programación III\\
     Curso 1 \\ % Curso 1 para el de la tarde y 2 para el de la noche
     Grupo 14 \\
-    Primer cuatrimestre de 2020 
+    Primer cuatrimestre de 2020
     \vfill
     Integrantes\\[1\baselineskip]
-    
+
     Baffetti Mariano\\
     Cuppari Juan\\
     Hoszowski Juan\\
@@ -109,11 +111,45 @@ El presente informe reune la documentación de la solución del segundo trabajo 
 
 \section{Detalles de Implementación}\label{sec:detallesdeimplementacion}
 
-\subsection{Implementación de Multiplicadores} (proxy + strategy)
-\subsection{Implementación de Kahoot} (singleton)
-\subsection{Implementación de MVC} (observer)
-\subsection{Implementación de ExclusividadDePuntaje} (method object)
-\subsection{Implementación de Vistas de Preguntas} (factory)
+\subsection{Penalidad, Puntaje Parcial, Multiplicadores y Exclusividad} Se utilzó el patrón proxy para poder modificar el comportamiento de las preguntas y hacer que se comporten como preguntas con penalidad o con puntaje parcial. Por ejemplo, si se necesita crear una pregunta Verdadero o Falso con penalidad, se crea una pregunta de tipo ProxyConPenalidad, la cual tiene una referencia a una instancia de verdadero o falso. De
+ésta manera, no solamente se puede agregar éste comportamiento a los nuevos tipos de pregunta que vayan surgiendo, sino que también los proxies sirven para controlar el uso de Multiplicadores y Exclusividad. Se evaluó como alternativa el uso del patrón decorator, que permite modificar el comportamiento de la clase en tiempo de ejecución. En nuestro caso, sólo necesitabamos tener flexibilidad en tiempo de diseño.
+
+\subsection{Multiplicadores} Se utilizó el patrón Strategy para la implementación de multiplicadores. Al realizar el calculo de puntajes, el jugador le pide al multiplicador en uso (por defecto hay un multiplicador que sólo multiplica x1) que multiplique su puntaje. Otro detalle importante de ésta implementación, es que los jugadores se instancian con una lista de multiplicadores de la cual se van eliminando los que el jugador vaya utilizando. Una ventaja de \’este enfoque es que permite que al jugador se le agreguen o quiten multiplicadores una vez que el juego haya empazado.
+
+\subsection{Implementación de Kahoot} Se utilizó el patrón Singletón para la implementación de la clase Kahoot. Ésta clase es a su vez un Facade, que permite a los controladores modificar el estado del modelo.
+\subsection{Implementación de MVC} Se utilizó el patrón Observer para la implementación del patrón MVC. La clase Kahoot es un Observable que es observado por KahootVista. Todas las vistas que tienen controles que permitan modificar el modelo, tienen una referencia a un controlador (a veces específico) que les permite interactuar con el modelo.
+\subsection{Exclusividad de puntaje} La exclusividad de puntaje se calcula al final de cada ronda, y para su cálculo es necesario conocer a todas las respuestas y a los jugadores que formaron parte de la ronda. Para evitar dejar la responabilidad del cálculo en la clase Ronda, se creó un objeto ExclusividadDePuntaje (method object) cuya única responsabilidad es realizar ese cálculo.
+\subsection{Vistas de Preguntas} Para seleccionar el tipo de vista de pregunta que se debe instanciar se utilizó el patrón Factory Method. La clase FactoryPreguntasVista tiene un hash como atributo, que contiene como clave un String que permite identificar a la clase y como valor a la clase de la pregunta que se debe instanciar (Ej: VerdaderoOFalsoVista.class). De ésta forma se puede instanciar la clase en particular de forma dinamica.
+\begin{lstlisting}[language=java]
+    public Pane crear(String tipoPregunta, Kahoot kahoot) {
+        Class<?> clase = this.vistas.get(tipoPregunta);
+        Pane vista = null;
+
+        try {
+            vista = (Pane) clase.getDeclaredConstructor(Kahoot.class).newInstance(kahoot);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+        return vista;
+    }
+
+\end{lstlisting}
+
+\subsection{Creación de preguntas} Se utilizó una combinación de patrón builder con fluent api para la creación de preguntas. Por ejemplo, para la creación de una pregunta VerdaderoOFalso con penalidad se utiliza la siguiente sintaxis:
+\begin{lstlisting}[language=java]
+    var builder = new PreguntasBuilder();
+    var pregunta = builder
+                .crearVerdaderOFalso("texto de pregunta", opciones)
+                .conPenalidad()
+                .get();
+\end{lstlisting}
 
 
 
