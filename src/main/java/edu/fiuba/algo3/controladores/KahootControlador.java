@@ -13,12 +13,6 @@ public class KahootControlador {
         Kahoot.getInstance().notifyObservers();
     }
 
-    public void agrandarPantalla() {
-    }
-
-    public void cerrarJuego() {
-    }
-
     public void clickEnSiguiente() {
         Kahoot.getInstance().mostrarPregunta();
         Kahoot.getInstance().notifyObservers();
