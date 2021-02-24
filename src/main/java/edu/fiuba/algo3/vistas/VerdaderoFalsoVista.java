@@ -4,35 +4,39 @@ import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.util.List;
 
-public class VerdaderoFalsoVista extends BorderPane {
+public class VerdaderoFalsoVista extends PreguntaVista {
     public VerdaderoFalsoVista(Kahoot kahoot) {
-        mostrarTextoDePregunta(kahoot);
         mostrarOpciones(kahoot);
+        mostrarEncabezado(kahoot);
+        mostrarTimer(kahoot);
+        mostrarBonificaciones(kahoot);
+        this.setStyle("-fx-background-color: #9E31F2");
     }
 
-    private void mostrarOpciones(Kahoot kahoot) {
+    @Override
+    protected void mostrarOpciones(Kahoot kahoot) {
+        VBox vBox = new VBox();
+        vBox.getChildren().add(obtenerTexto(kahoot));
+        vBox.getChildren().add(obtenerVistaDeOpciones(kahoot));
+        this.setCenter(vBox);
+    }
+
+    @Override
+    protected Pane obtenerVistaDeOpciones(Kahoot kahoot) {
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
         List<Opcion> opciones = kahoot.obtenerOpciones();
         opciones.forEach(opcion ->
-                hBox.getChildren().add(new OpcionDefaultVista(opcion))
+                hBox.getChildren().add(new OpcionVerdaderoOFalsoVista(opcion))
         );
-        this.setCenter(hBox);
+        hBox.setPadding(new Insets(50, 0, 0, 50));
+        return hBox;
     }
 
-    private void mostrarTextoDePregunta(Kahoot kahoot) {
-        Label lblPregunta = new Label(kahoot.obtenerTextoDePregunta());
-        lblPregunta.setFont(new Font(26));
-        HBox hBox = new HBox(lblPregunta);
-        hBox.setAlignment(Pos.TOP_CENTER);
-        hBox.setPadding(new Insets(30, 0, 50, 0));
-        this.setTop(hBox);
-    }
 }

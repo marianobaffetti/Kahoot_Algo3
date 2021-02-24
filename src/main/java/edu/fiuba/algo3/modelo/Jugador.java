@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Excepciones.NoHayExclusividadesDisponiblesError;
-import edu.fiuba.algo3.modelo.Excepciones.NoSeEncuentraElMultiplicadorError;
-import edu.fiuba.algo3.modelo.Excepciones.YaHayUnMultiplicadorEnUsoError;
-import edu.fiuba.algo3.modelo.Excepciones.YaHayUnaExclusividadEnUsoError;
+import edu.fiuba.algo3.modelo.Excepciones.*;
 import edu.fiuba.algo3.modelo.Multiplicadores.EstrategiaDeMultiplicacion;
 import edu.fiuba.algo3.modelo.Multiplicadores.MultiplicadorDefault;
 
@@ -19,6 +16,7 @@ public class Jugador {
     private int cantidadDeExclusividades;
 
     public Jugador(String nombre, List<EstrategiaDeMultiplicacion> multiplicadores) {
+        if (nombre.trim().isEmpty()) throw new JugadorNoSePuedeCrearConNombreVacioError("El nombre del jugador no puede estar vacío.");
         this.nombre = nombre;
         this.puntaje = 0;
         this.multiplicador = new MultiplicadorDefault();
@@ -48,29 +46,37 @@ public class Jugador {
     }
 
     public void usarMultiplicador(String nombreDeMultiplicador) {
-        if (this.multiplicadorEnUso) throw new YaHayUnMultiplicadorEnUsoError();
+        if (this.multiplicadorEnUso) throw new YaHayUnMultiplicadorEnUsoError("Ya hay un multiplicador en uso.");
 
-        var mulitiplicadorElegido = this.multiplicadores
+        var multiplicadorElegido = this.multiplicadores
                 .stream()
                 .filter(multiplicador -> multiplicador.obtenerNombre().equals(nombreDeMultiplicador))
                 .findFirst();
 
-        if (mulitiplicadorElegido.isEmpty()) throw new NoSeEncuentraElMultiplicadorError();
+        if (multiplicadorElegido.isEmpty())
+            throw new NoSeEncuentraElMultiplicadorError("No se encuentra el multiplicador.");
 
-        this.multiplicador = mulitiplicadorElegido.get();
+        this.multiplicador = multiplicadorElegido.get();
+        multiplicadores.remove(multiplicadorElegido.get());
         this.multiplicadorEnUso = true;
     }
 
     public void usarExclusividad() {
-        if (this.exclusividadEnUso) throw new YaHayUnaExclusividadEnUsoError();
+        if (this.exclusividadEnUso) throw new YaHayUnaExclusividadEnUsoError("Ya hay una exclusividad en uso.");
 
-        if (cantidadDeExclusividades == 0) throw new NoHayExclusividadesDisponiblesError();
+        if (cantidadDeExclusividades == 0)
+            throw new NoHayExclusividadesDisponiblesError("No hay exclusividades disponibles.");
 
         exclusividadEnUso = true;
         cantidadDeExclusividades--;
     }
 
+
     public boolean activoExclusividad() {
         return this.exclusividadEnUso;
+    }
+
+    public EstrategiaDeMultiplicacion obtenerMultiplicadorEnUso() {
+        return this.multiplicador;
     }
 }

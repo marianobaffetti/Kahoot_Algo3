@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.Opciones.OpcionOrderedChoice;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -137,7 +138,7 @@ public class Entrega_2_Test {
             puntos correspondientes.
         */
 
-        var pepe = new Jugador("Pepe", List.of(new MultiplicadorX3()));
+        Jugador pepe = new Jugador("Pepe", new ArrayList<>(Arrays.asList(new MultiplicadorX3())));
 
         var opcion1 = new OpcionDefault("Verdadero", true);
         var opcion2 = new OpcionDefault("Falso", false);
@@ -181,7 +182,7 @@ public class Entrega_2_Test {
             puntos correspondientes.
         */
 
-        var pepe = new Jugador("Pepe", List.of(new MultiplicadorX2()));
+        Jugador pepe = new Jugador("Pepe", new ArrayList<>(Arrays.asList(new MultiplicadorX2())));
 
         var opcion1 = new OpcionDefault("Verdadero", true);
         var opcion2 = new OpcionDefault("Falso", false);

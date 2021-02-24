@@ -25,13 +25,18 @@ public class ProxyConPuntajeParcial extends Pregunta {
     }
 
     @Override
+    public List<Opcion> obtenerOpciones() {
+        return this.pregunta.obtenerOpciones();
+    }
+
+    @Override
     public void asignarMultiplicadorX2AJugador(Jugador jugador) {
-        throw new NoSePuedeUtilizarMultiplicadorError();
+        throw new NoSePuedeUtilizarMultiplicadorError("No se puede usar multiplicador en éste tipo de preguntas.");
     }
 
     @Override
     public void asignarMultiplicadorX3AJugador(Jugador jugador) {
-        throw new NoSePuedeUtilizarMultiplicadorError();
+        throw new NoSePuedeUtilizarMultiplicadorError("No se puede usar multiplicador en éste tipo de preguntas.");
     }
 
     @Override

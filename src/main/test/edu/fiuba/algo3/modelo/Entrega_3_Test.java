@@ -68,15 +68,13 @@ public class Entrega_3_Test{
     @Test
     public void cuandoElUltimoJugadorRespondeSePasaALaSiguienteRonda() {
         List<Opcion> opciones = List.of(new OpcionDefault("", true));
-        Jugador pepe = new Jugador("Pepe", new ArrayList<>());
-        List <Jugador> jugadores = List.of(pepe);
         var pregunta1 = new VerdaderoFalso("1", opciones);
         var pregunta2 = new VerdaderoFalso("2", opciones);
 
         var kahoot = Kahoot.getInstance();
-        kahoot.agregarJugadores(List.of(pepe));
+        kahoot.agregarJugador("pepe");
         kahoot.agregarPreguntas(List.of(pregunta1, pregunta2));
-        kahoot.iniciar();
+        kahoot.iniciarRondas();
         kahoot.agregarRespuesta(opciones);
 
         Assertions.assertEquals(2, Kahoot.getInstance().obtenerNumeroDeRonda());
@@ -85,15 +83,13 @@ public class Entrega_3_Test{
     @Test
     public void kahootSeIniciaConRondasYJugadoresYDevuelveNumeroDeRonda() {
         List<Opcion> opciones = List.of(new OpcionDefault("", true));
-        Jugador pepe = new Jugador("Pepe", new ArrayList<>());
-        List <Jugador> jugadores = List.of(pepe);
         var pregunta1 = new VerdaderoFalso("1", opciones);
         var pregunta2 = new VerdaderoFalso("2", opciones);
 
         var kahoot = Kahoot.getInstance();
-        kahoot.agregarJugadores(List.of(pepe));
+        kahoot.agregarJugador("pepe");
         kahoot.agregarPreguntas(List.of(pregunta1, pregunta2));
-        kahoot.iniciar();
+        kahoot.iniciarRondas();
 
         Assertions.assertEquals(1, Kahoot.getInstance().obtenerNumeroDeRonda());
         Assertions.assertEquals("1", Kahoot.getInstance().obtenerRondaActual().obtenerPregunta().obtenerTexto());
